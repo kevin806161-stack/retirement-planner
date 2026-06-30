@@ -1,0 +1,121 @@
+import Head from "next/head";
+import Link from "next/link";
+import { getAllArticles } from "../../lib/articles";
+import AdUnit from "../../components/AdUnit";
+import { adsenseConfig } from "../../lib/affiliateLinks";
+
+export default function ArticlesIndex({ articles }) {
+  return (
+    <>
+      <Head>
+        <title>理財知識文章 | 退休 AI 規劃師</title>
+        <meta
+          name="description"
+          content="退休金規劃、資產配置相關知識文章，幫助你建立正確的退休理財觀念。"
+        />
+      </Head>
+
+      <nav className="nav">
+        <Link href="/" className="nav-logo" style={{ textDecoration: "none" }}>
+          退休 AI 規劃師
+        </Link>
+        <div className="nav-links">
+          <Link href="/#calc">試算工具</Link>
+          <Link href="/articles">理財知識</Link>
+        </div>
+      </nav>
+
+      <div className="articles-page">
+        <h1>理財知識文章</h1>
+        <p className="page-sub">退休金規劃、資產配置相關知識，幫助你建立正確的理財觀念</p>
+
+        <div className="article-list">
+          {articles.map((article) => (
+            <Link
+              href={`/articles/${article.slug}`}
+              key={article.slug}
+              className="article-card"
+            >
+              <div className="article-category">{article.category}</div>
+              <h2>{article.title}</h2>
+              <p>{article.description}</p>
+              <div className="article-date">{article.publishedAt}</div>
+            </Link>
+          ))}
+        </div>
+
+        <div style={{ marginTop: "32px" }}>
+          <AdUnit slot={adsenseConfig.slots.inArticle} />
+        </div>
+      </div>
+
+      <style jsx>{`
+        .articles-page {
+          max-width: 760px;
+          margin: 0 auto;
+          padding: 48px 24px 80px;
+        }
+        h1 {
+          font-size: 26px;
+          font-weight: 700;
+          margin-bottom: 8px;
+        }
+        .page-sub {
+          font-size: 14px;
+          color: #666;
+          margin-bottom: 32px;
+        }
+        .article-list {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+        .article-card {
+          display: block;
+          border: 1px solid #e5e5e0;
+          border-radius: 12px;
+          padding: 20px;
+          text-decoration: none;
+          color: inherit;
+          background: #fff;
+          transition: border-color 0.2s;
+        }
+        .article-card:hover {
+          border-color: #1d6fd8;
+        }
+        .article-category {
+          font-size: 11px;
+          color: #1d6fd8;
+          background: #e6f1fb;
+          display: inline-block;
+          padding: 3px 10px;
+          border-radius: 12px;
+          margin-bottom: 10px;
+        }
+        .article-card h2 {
+          font-size: 17px;
+          font-weight: 600;
+          margin-bottom: 8px;
+          line-height: 1.4;
+        }
+        .article-card p {
+          font-size: 13px;
+          color: #666;
+          line-height: 1.6;
+          margin-bottom: 10px;
+        }
+        .article-date {
+          font-size: 11px;
+          color: #999;
+        }
+      `}</style>
+    </>
+  );
+}
+
+export async function getStaticProps() {
+  const articles = getAllArticles();
+  return {
+    props: { articles },
+  };
+}
