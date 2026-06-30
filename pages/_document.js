@@ -6,6 +6,7 @@ export default function Document() {
     <Html lang="zh-Hant">
       <Head>
         <meta charSet="utf-8" />
+        <meta name="google-site-verification" content="KqZGc0tJ-VrFZXB2BoTTWoM4nU_ADFlQAn-ZO9d-Oh0" />
         <meta name="google-adsense-account" content={adsenseConfig.publisherId} />
         <meta
           name="description"
