@@ -144,3 +144,30 @@ body {
   margin: 0 12px;
 }
 .site-footer a:hover { color: #1d6fd8; }
+
+/* Email Subscribe */
+:global(.subscribe-box) {
+  background: #f0f7ff;
+  border: 1px solid #b5d4f4;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+:global(.subscribe-box .subscribe-icon) { font-size: 28px; margin-bottom: 8px; }
+:global(.subscribe-box h3) { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+:global(.subscribe-box p) { font-size: 13px; color: #555; margin-bottom: 16px; }
+:global(.subscribe-box .subscribe-row) { display: flex; gap: 8px; max-width: 400px; margin: 0 auto; }
+:global(.subscribe-box .subscribe-row input) {
+  flex: 1; border: 1px solid #ccc; border-radius: 8px;
+  padding: 9px 14px; font-size: 14px; outline: none;
+}
+:global(.subscribe-box .subscribe-row input:focus) { border-color: #1d6fd8; }
+:global(.subscribe-box .subscribe-row button) {
+  background: #1d6fd8; color: #fff; border: none;
+  border-radius: 8px; padding: 9px 20px; font-size: 14px; cursor: pointer;
+  white-space: nowrap;
+}
+:global(.subscribe-box .subscribe-row button:disabled) { opacity: 0.6; }
+:global(.subscribe-box .note) { font-size: 11px; color: #999; margin-top: 10px; }
+:global(.subscribe-box .success) { font-size: 15px; color: #2a7d2a; padding: 12px; }
+:global(.subscribe-box .err) { font-size: 12px; color: #b94040; margin-top: 6px; }

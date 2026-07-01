@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useRetirementCalc } from "../lib/useRetirementCalc";
 
 function fmt(n) {
@@ -15,6 +16,27 @@ export default function RetirementCalculator() {
   } = useRetirementCalc();
 
   const { totalTarget, savedGrow, gap, monthlySave, monthlyOut, lifeAfter, allocation, tip } = result;
+
+  const [emailInput, setEmailInput] = useState("");
+  const [sendStatus, setSendStatus] = useState(null);
+
+  async function handleSendEmail() {
+    if (!emailInput) return;
+    setSendStatus("sending");
+    try {
+      const res = await fetch("/api/send-calc", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: emailInput,
+          result: { age, retire, income, saved, rate, totalTarget, savedGrow, gap, monthlySave, monthlyOut, allocation },
+        }),
+      });
+      setSendStatus(res.ok ? "success" : "error");
+    } catch {
+      setSendStatus("error");
+    }
+  }
 
   return (
     <section className="calc-section">
@@ -65,8 +87,70 @@ export default function RetirementCalculator() {
           </div>
 
           <div className="ai-tip">{tip}</div>
+
+          {/* Email 試算結果 */}
+          <div className="email-result">
+            <div className="email-result-label">📩 把試算結果寄到我的信箱</div>
+            {sendStatus === "success" ? (
+              <div className="email-success">✅ 已寄出！請查收信箱</div>
+            ) : (
+              <div className="email-row">
+                <input
+                  type="email"
+                  placeholder="輸入你的 Email"
+                  value={emailInput}
+                  onChange={(e) => setEmailInput(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleSendEmail()}
+                />
+                <button onClick={handleSendEmail} disabled={sendStatus === "sending"}>
+                  {sendStatus === "sending" ? "寄送中..." : "寄送"}
+                </button>
+              </div>
+            )}
+            {sendStatus === "error" && <div className="email-error">寄送失敗，請稍後再試</div>}
+          </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .email-result {
+          margin-top: 4px;
+          border-top: 1px solid #e5e5e0;
+          padding-top: 14px;
+        }
+        .email-result-label {
+          font-size: 12px;
+          color: #555;
+          margin-bottom: 8px;
+          font-weight: 500;
+        }
+        .email-row {
+          display: flex;
+          gap: 8px;
+        }
+        .email-row input {
+          flex: 1;
+          border: 1px solid #ddd;
+          border-radius: 6px;
+          padding: 7px 10px;
+          font-size: 13px;
+          outline: none;
+        }
+        .email-row input:focus { border-color: #1d6fd8; }
+        .email-row button {
+          background: #1d6fd8;
+          color: #fff;
+          border: none;
+          border-radius: 6px;
+          padding: 7px 14px;
+          font-size: 13px;
+          cursor: pointer;
+          white-space: nowrap;
+        }
+        .email-row button:disabled { opacity: 0.6; }
+        .email-success { font-size: 13px; color: #2a7d2a; }
+        .email-error { font-size: 12px; color: #b94040; margin-top: 4px; }
+      `}</style>
     </section>
   );
 }
