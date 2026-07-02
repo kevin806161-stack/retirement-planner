@@ -58,10 +58,10 @@ export default function AdvancedCalculator() {
 
   const getAiAnalysis = () => {
     const pct = result.monthlySavePct;
-    if (result.gap === 0) return "🎉 恭喜！以目前的儲蓄速度，你已在退休金目標的軌道上。建議持續維持投資紀律，並每年檢視配置是否符合市場環境。";
-    if (pct < 10) return `💡 每月需儲蓄 ${Math.round(result.monthlySavePct)}% 的收入，目標相當可達。建議設定自動扣款定期定額，讓儲蓄成為不需要意志力的習慣。`;
-    if (pct < 20) return `📊 每月需儲蓄約 ${Math.round(result.monthlySavePct)}% 的收入，屬於中等難度。延後退休 2-3 年或提高投資報酬率，都能顯著降低每月需存的金額。`;
-    return `⚠️ 每月需儲蓄約 ${Math.round(result.monthlySavePct)}% 的收入，壓力較大。建議重新檢視退休後的生活費預算、延後退休年齡，或考慮增加收入來源。`;
+    if (result.gap === 0) return "恭喜！以目前的儲蓄速度，你已在退休金目標的軌道上。建議持續維持投資紀律，並每年檢視配置是否符合市場環境。";
+    if (pct < 10) return `每月需儲蓄 ${Math.round(result.monthlySavePct)}% 的收入，目標相當可達。建議設定自動扣款定期定額，讓儲蓄成為不需要意志力的習慣。`;
+    if (pct < 20) return `每月需儲蓄約 ${Math.round(result.monthlySavePct)}% 的收入，屬於中等難度。延後退休 2-3 年或提高投資報酬率，都能顯著降低每月需存的金額。`;
+    return `每月需儲蓄約 ${Math.round(result.monthlySavePct)}% 的收入，壓力較大。建議重新檢視退休後的生活費預算、延後退休年齡，或考慮增加收入來源。`;
   };
 
   return (
@@ -82,7 +82,7 @@ export default function AdvancedCalculator() {
 
       <div className="tool-page">
         <div className="tool-breadcrumb"><Link href="/tools">所有工具</Link> / 進階退休試算器</div>
-        <h1>🧮 進階退休試算器</h1>
+        <h1>進階退休試算器</h1>
         <p className="tool-desc">納入通膨率、薪資成長率與夫妻合計收入，比基本試算器更精確反映真實狀況</p>
 
         {/* 模式切換 */}
@@ -137,27 +137,27 @@ export default function AdvancedCalculator() {
 
       <style jsx>{`
         .tool-page { max-width: 900px; margin: 0 auto; padding: 32px 24px 80px; }
-        .tool-breadcrumb { font-size: 12px; color: #999; margin-bottom: 16px; }
-        .tool-breadcrumb a { color: #1d6fd8; text-decoration: none; }
+        .tool-breadcrumb { font-size: 12px; color: #8a929b; margin-bottom: 16px; }
+        .tool-breadcrumb a { color: #c9a24b; text-decoration: none; }
         h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
-        .tool-desc { font-size: 14px; color: #666; margin-bottom: 24px; line-height: 1.6; }
+        .tool-desc { font-size: 14px; color: #6a7480; margin-bottom: 24px; line-height: 1.6; }
         .mode-switch { display: flex; gap: 8px; margin-bottom: 24px; }
         .mode-switch button {
-          padding: 8px 20px; border-radius: 20px; border: 1px solid #ddd;
-          background: #fff; color: #555; cursor: pointer; font-size: 14px;
+          padding: 8px 20px; border-radius: 20px; border: 1px solid rgba(15,33,48,0.25);
+          background: #fbf8f1; color: #4a5561; cursor: pointer; font-size: 14px;
         }
-        .mode-switch button.active { background: #1d6fd8; color: #fff; border-color: #1d6fd8; }
+        .mode-switch button.active { background: #c9a24b; color: #0f2130; border-color: #c9a24b; }
         .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
         @media (max-width: 700px) { .calc-grid { grid-template-columns: 1fr; } }
-        .input-section-title { font-size: 12px; font-weight: 600; color: #1d6fd8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+        .input-section-title { font-size: 12px; font-weight: 600; color: #c9a24b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
         .calc-inputs { display: flex; flex-direction: column; gap: 14px; }
-        .calc-result { background: #fafaf8; border: 1px solid #e5e5e0; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
-        .result-main { text-align: center; padding-bottom: 14px; border-bottom: 1px solid #e5e5e0; }
-        .result-label { font-size: 12px; color: #888; margin-bottom: 6px; }
-        .result-amount { font-size: 28px; font-weight: 700; color: #1d6fd8; }
-        .result-sub { font-size: 12px; color: #999; margin-top: 4px; }
-        .ai-analysis { background: #e6f1fb; border: 1px solid #b5d4f4; border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #1a4a7a; line-height: 1.6; }
-        .disclaimer-note { font-size: 11px; color: #999; }
+        .calc-result { background: #fbf8f1; border: 1px solid rgba(15,33,48,0.14); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+        .result-main { text-align: center; padding-bottom: 14px; border-bottom: 1px solid rgba(15,33,48,0.14); }
+        .result-label { font-size: 12px; color: #6a7480; margin-bottom: 6px; }
+        .result-amount { font-size: 28px; font-weight: 700; color: #0f2130; }
+        .result-sub { font-size: 12px; color: #8a929b; margin-top: 4px; }
+        .ai-analysis { background: rgba(201,162,75,0.12); border: 1px solid rgba(201,162,75,0.35); border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #7a5a1f; line-height: 1.6; }
+        .disclaimer-note { font-size: 11px; color: #8a929b; }
       `}</style>
     </>
   );
@@ -167,10 +167,10 @@ function Slider({ label, value, min, max, step = 1, unit, fmtVal, onChange }) {
   const display = fmtVal ? fmtVal(value) : `${value}${unit || ""}`;
   return (
     <div>
-      <label style={{ fontSize: "13px", color: "#555", display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-        {label} <span style={{ fontWeight: 600, color: "#1a1a1a" }}>{display}</span>
+      <label style={{ fontSize: "13px", color: "#4a5561", display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
+        {label} <span style={{ fontWeight: 700, color: "#0f2130" }}>{display}</span>
       </label>
-      <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(parseFloat(e.target.value))} style={{ width: "100%" }} />
+      <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(parseFloat(e.target.value))} style={{ width: "100%", accentColor: "#c9a24b" }} />
     </div>
   );
 }
@@ -178,8 +178,8 @@ function Slider({ label, value, min, max, step = 1, unit, fmtVal, onChange }) {
 function ResultRow({ label, value, highlight, warn, good }) {
   return (
     <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13px" }}>
-      <span style={{ color: "#666" }}>{label}</span>
-      <span style={{ fontWeight: 600, color: warn ? "#b07a0b" : good ? "#2a7d2a" : highlight ? "#1d6fd8" : "#1a1a1a" }}>{value}</span>
+      <span style={{ color: "#6a7480" }}>{label}</span>
+      <span style={{ fontWeight: 600, color: warn ? "#a4562f" : good ? "#c9a24b" : highlight ? "#c9a24b" : "#0f2130" }}>{value}</span>
     </div>
   );
 }

@@ -75,7 +75,7 @@ export default function About() {
           margin: 0 auto;
           padding: 48px 24px 80px;
           line-height: 1.8;
-          color: #1a1a1a;
+          color: #0f2130;
         }
         h1 {
           font-size: 26px;
@@ -90,7 +90,7 @@ export default function About() {
         }
         p {
           font-size: 14px;
-          color: #333;
+          color: #26333f;
           margin-bottom: 12px;
         }
       `}</style>

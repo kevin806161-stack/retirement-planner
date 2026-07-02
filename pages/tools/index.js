@@ -4,43 +4,33 @@ import Link from "next/link";
 const tools = [
   {
     href: "/tools/advanced-calculator",
-    icon: "🧮",
     title: "進階退休試算器",
     desc: "含通膨調整、薪資成長率、夫妻合計試算，比基本版更精確",
     badge: "最熱門",
-    color: "#e6f1fb",
   },
   {
     href: "/tools/labor-insurance",
-    icon: "🏛️",
     title: "勞保年金試算器",
     desc: "輸入投保薪資與年資，精算你的勞保老年年金月領金額",
     badge: "台灣專屬",
-    color: "#e6f9ed",
   },
   {
     href: "/tools/fire-calculator",
-    icon: "🔥",
     title: "FIRE 財務自由試算器",
     desc: "計算你需要多少資產才能提早退休，以及達成 FIRE 的時間表",
     badge: "新增",
-    color: "#fff4e5",
   },
   {
     href: "/tools/compound-interest",
-    icon: "📈",
     title: "複利成長試算器",
     desc: "視覺化呈現你的投資組合在不同報酬率下的長期成長曲線",
     badge: null,
-    color: "#f0e6fb",
   },
   {
     href: "/tools/etf-dividend",
-    icon: "💰",
     title: "ETF 配息收入試算器",
     desc: "試算持有 0050、00878 等 ETF 每月能領到多少配息",
     badge: null,
-    color: "#ffeaea",
   },
 ];
 
@@ -72,7 +62,7 @@ export default function ToolsIndex() {
         <div className="tools-grid">
           {tools.map((tool) => (
             <Link href={tool.href} key={tool.href} className="tool-card">
-              <div className="tool-icon" style={{ background: tool.color }}>{tool.icon}</div>
+              <div className="tool-icon">{tool.title.slice(0, 1)}</div>
               <div className="tool-content">
                 <div className="tool-header">
                   <h2>{tool.title}</h2>
@@ -97,21 +87,21 @@ export default function ToolsIndex() {
         .tools-page { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
         .tools-hero { text-align: center; margin-bottom: 40px; }
         .tools-hero h1 { font-size: 28px; font-weight: 700; margin-bottom: 10px; }
-        .tools-hero p { font-size: 15px; color: #666; }
+        .tools-hero p { font-size: 15px; color: #6a7480; }
         .tools-grid { display: flex; flex-direction: column; gap: 14px; }
         .tool-card {
           display: flex; align-items: center; gap: 16px;
-          border: 1px solid #e5e5e0; border-radius: 14px;
+          border: 1px solid rgba(15,33,48,0.14); border-radius: 14px;
           padding: 18px 20px; text-decoration: none; color: inherit;
-          background: #fff; transition: border-color 0.2s, box-shadow 0.2s;
+          background: #fbf8f1; transition: border-color 0.2s, box-shadow 0.2s;
         }
-        .tool-card:hover { border-color: #1d6fd8; box-shadow: 0 2px 12px rgba(29,111,216,0.08); }
-        .tool-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 26px; flex-shrink: 0; }
+        .tool-card:hover { border-color: #c9a24b; box-shadow: 0 2px 12px rgba(15,33,48,0.1); }
+        .tool-icon { width: 52px; height: 52px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-family: "Noto Serif TC", serif; font-size: 20px; font-weight: 700; color: #c9a24b; background: #0f2130; flex-shrink: 0; }
         .tool-content { flex: 1; }
         .tool-header { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
         .tool-content h2 { font-size: 16px; font-weight: 600; }
-        .tool-badge { font-size: 10px; background: #1d6fd8; color: #fff; padding: 2px 8px; border-radius: 10px; }
-        .tool-content p { font-size: 13px; color: #666; line-height: 1.5; }
+        .tool-badge { font-size: 10px; background: #c9a24b; color: #0f2130; font-weight: 700; padding: 2px 8px; border-radius: 3px; }
+        .tool-content p { font-size: 13px; color: #6a7480; line-height: 1.5; }
         .tool-arrow { font-size: 18px; color: #aaa; flex-shrink: 0; }
       `}</style>
     </>

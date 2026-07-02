@@ -27,7 +27,7 @@ export default function EmailSubscribe({ variant = "default" }) {
   if (status === "success") {
     return (
       <div className={`subscribe-box ${variant}`}>
-        <div className="success">✅ 訂閱成功！感謝你，我們會定期寄送最新理財知識。</div>
+        <div className="success">訂閱成功！感謝你，我們會定期寄送最新理財知識。</div>
       </div>
     );
   }

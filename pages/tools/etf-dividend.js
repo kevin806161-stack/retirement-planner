@@ -65,7 +65,7 @@ export default function ETFDividendCalculator() {
 
       <div className="tool-page">
         <div className="tool-breadcrumb"><Link href="/tools">所有工具</Link> / ETF 配息收入試算器</div>
-        <h1>💰 ETF 配息收入試算器</h1>
+        <h1>ETF 配息收入試算器</h1>
         <p className="tool-desc">選擇 ETF、輸入持有張數，立即計算現在與未來的配息收入</p>
 
         <div className="etf-picker">
@@ -123,8 +123,8 @@ export default function ETFDividendCalculator() {
 
             <div className="ai-analysis">
               {result.futureMonthlyDividend >= 40000
-                ? `🎉 依試算，${years} 年後每月配息可達 ${fmt(result.futureMonthlyDividend)}，已達到多數人退休生活費標準！持續定期定額是關鍵。`
-                : `💡 ${years} 年後每月配息預估 ${fmt(result.futureMonthlyDividend)}，若要以配息支撐退休生活（建議至少 NT$40,000/月），可考慮增加月投入金額或延長持有年數。`}
+                ? `依試算，${years} 年後每月配息可達 ${fmt(result.futureMonthlyDividend)}，已達到多數人退休生活費標準！持續定期定額是關鍵。`
+                : `${years} 年後每月配息預估 ${fmt(result.futureMonthlyDividend)}，若要以配息支撐退休生活（建議至少 NT$40,000/月），可考慮增加月投入金額或延長持有年數。`}
             </div>
 
             <Link href="/tools/advanced-calculator" className="cta-link">
@@ -141,31 +141,31 @@ export default function ETFDividendCalculator() {
 
       <style jsx>{`
         .tool-page { max-width: 980px; margin: 0 auto; padding: 32px 24px 80px; }
-        .tool-breadcrumb { font-size: 12px; color: #999; margin-bottom: 16px; }
-        .tool-breadcrumb a { color: #1d6fd8; text-decoration: none; }
+        .tool-breadcrumb { font-size: 12px; color: #8a929b; margin-bottom: 16px; }
+        .tool-breadcrumb a { color: #c9a24b; text-decoration: none; }
         h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
-        .tool-desc { font-size: 14px; color: #666; margin-bottom: 20px; }
+        .tool-desc { font-size: 14px; color: #6a7480; margin-bottom: 20px; }
         .etf-picker { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
-        .etf-btn { border: 1px solid #e5e5e0; border-radius: 10px; padding: 8px 14px; background: #fff; cursor: pointer; text-align: center; }
-        .etf-btn.active { border-color: #1d6fd8; background: #e6f1fb; }
-        .etf-ticker { font-size: 13px; font-weight: 600; color: #1a1a1a; }
-        .etf-cat { font-size: 10px; color: #888; }
-        .etf-info { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding: 10px 14px; background: #f5f5f3; border-radius: 8px; flex-wrap: wrap; }
-        .etf-name { font-size: 14px; font-weight: 500; color: #333; }
-        .etf-yield { font-size: 13px; color: #2a7d2a; font-weight: 600; }
-        .etf-freq { font-size: 12px; color: #1d6fd8; background: #e6f1fb; padding: 2px 10px; border-radius: 12px; }
+        .etf-btn { border: 1px solid rgba(15,33,48,0.14); border-radius: 10px; padding: 8px 14px; background: #fbf8f1; cursor: pointer; text-align: center; }
+        .etf-btn.active { border-color: #c9a24b; background: rgba(201,162,75,0.12); }
+        .etf-ticker { font-size: 13px; font-weight: 600; color: #0f2130; }
+        .etf-cat { font-size: 10px; color: #6a7480; }
+        .etf-info { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding: 10px 14px; background: #ece4d5; border-radius: 8px; flex-wrap: wrap; }
+        .etf-name { font-size: 14px; font-weight: 500; color: #26333f; }
+        .etf-yield { font-size: 13px; color: #c9a24b; font-weight: 600; }
+        .etf-freq { font-size: 12px; color: #0f2130; background: rgba(201,162,75,0.2); padding: 2px 10px; border-radius: 3px; }
         .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
         @media (max-width: 700px) { .calc-grid { grid-template-columns: 1fr; } }
         .calc-inputs { display: flex; flex-direction: column; gap: 14px; }
-        .section-title { font-size: 12px; font-weight: 600; color: #1d6fd8; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
-        .calc-result { background: #fafaf8; border: 1px solid #e5e5e0; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
-        .result-main { text-align: center; padding-bottom: 14px; border-bottom: 1px solid #e5e5e0; }
-        .result-label { font-size: 12px; color: #888; margin-bottom: 6px; }
-        .result-amount { font-size: 28px; font-weight: 700; color: #1a1a1a; }
-        .result-sub { font-size: 12px; color: #999; margin-top: 4px; }
+        .section-title { font-size: 12px; font-weight: 600; color: #c9a24b; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+        .calc-result { background: #fbf8f1; border: 1px solid rgba(15,33,48,0.14); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+        .result-main { text-align: center; padding-bottom: 14px; border-bottom: 1px solid rgba(15,33,48,0.14); }
+        .result-label { font-size: 12px; color: #6a7480; margin-bottom: 6px; }
+        .result-amount { font-size: 28px; font-weight: 700; color: #0f2130; }
+        .result-sub { font-size: 12px; color: #8a929b; margin-top: 4px; }
         .dividend-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
-        .ai-analysis { background: #e6f1fb; border: 1px solid #b5d4f4; border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #1a4a7a; line-height: 1.6; }
-        .cta-link { font-size: 13px; color: #1d6fd8; text-decoration: none; font-weight: 500; }
+        .ai-analysis { background: rgba(201,162,75,0.12); border: 1px solid rgba(201,162,75,0.35); border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #7a5a1f; line-height: 1.6; }
+        .cta-link { font-size: 13px; color: #c9a24b; text-decoration: none; font-weight: 500; }
       `}</style>
     </>
   );
@@ -175,10 +175,10 @@ function Slider({ label, value, min, max, step = 1, unit, fmtVal, onChange }) {
   const display = fmtVal ? fmtVal(value) : `${value}${unit || ""}`;
   return (
     <div>
-      <label style={{ fontSize: "13px", color: "#555", display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-        {label} <span style={{ fontWeight: 600, color: "#1a1a1a" }}>{display}</span>
+      <label style={{ fontSize: "13px", color: "#4a5561", display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
+        {label} <span style={{ fontWeight: 700, color: "#0f2130" }}>{display}</span>
       </label>
-      <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(parseFloat(e.target.value))} style={{ width: "100%" }} />
+      <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(parseFloat(e.target.value))} style={{ width: "100%", accentColor: "#c9a24b" }} />
     </div>
   );
 }
@@ -186,18 +186,18 @@ function Slider({ label, value, min, max, step = 1, unit, fmtVal, onChange }) {
 function ResultRow({ label, value, highlight, warn, good }) {
   return (
     <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13px" }}>
-      <span style={{ color: "#666" }}>{label}</span>
-      <span style={{ fontWeight: 600, color: warn ? "#b07a0b" : good ? "#2a7d2a" : highlight ? "#1d6fd8" : "#1a1a1a" }}>{value}</span>
+      <span style={{ color: "#6a7480" }}>{label}</span>
+      <span style={{ fontWeight: 600, color: warn ? "#a4562f" : good ? "#c9a24b" : highlight ? "#c9a24b" : "#0f2130" }}>{value}</span>
     </div>
   );
 }
 
 function DividendCard({ label, value, sub }) {
   return (
-    <div style={{ background: "#fff", border: "1px solid #e5e5e0", borderRadius: "10px", padding: "12px", textAlign: "center" }}>
-      <div style={{ fontSize: "11px", color: "#888", marginBottom: "4px" }}>{label}</div>
-      <div style={{ fontSize: "16px", fontWeight: 700, color: "#2a7d2a" }}>{value}</div>
-      <div style={{ fontSize: "10px", color: "#999", marginTop: "2px" }}>{sub}</div>
+    <div style={{ background: "#fbf8f1", border: "1px solid rgba(15,33,48,0.14)", borderRadius: "10px", padding: "12px", textAlign: "center" }}>
+      <div style={{ fontSize: "11px", color: "#6a7480", marginBottom: "4px" }}>{label}</div>
+      <div style={{ fontSize: "16px", fontWeight: 700, color: "#c9a24b" }}>{value}</div>
+      <div style={{ fontSize: "10px", color: "#8a929b", marginTop: "2px" }}>{sub}</div>
     </div>
   );
 }
