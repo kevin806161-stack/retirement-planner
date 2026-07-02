@@ -21,7 +21,7 @@ export default async function handler(req, res) {
   const html = `
     <div style="font-family: -apple-system, sans-serif; max-width: 560px; margin: 0 auto; padding: 32px 24px; background: #fafaf8; border-radius: 12px;">
       <h2 style="font-size: 22px; color: #1a1a1a; margin-bottom: 4px;">你的退休金試算結果</h2>
-      <p style="color: #666; font-size: 14px; margin-bottom: 28px;">由 退休 AI 規劃師 retirementplantw.com 產生</p>
+      <p style="color: #666; font-size: 14px; margin-bottom: 28px;">由 退休咖 retirementplantw.com 產生</p>
 
       <div style="background: #fff; border: 1px solid #e5e5e0; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
         <div style="text-align: center; padding-bottom: 16px; border-bottom: 1px solid #e5e5e0; margin-bottom: 16px;">
@@ -66,7 +66,7 @@ export default async function handler(req, res) {
     await resend.emails.send({
       from: 'noreply@retirementplantw.com',
       to: email,
-      subject: '你的退休金試算結果 | 退休 AI 規劃師',
+      subject: '你的退休金試算結果 | 退休咖',
       html,
     });
     */

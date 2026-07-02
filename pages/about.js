@@ -5,27 +5,26 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>關於我們 | 退休 AI 規劃師</title>
-        <meta name="description" content="退休 AI 規劃師是一個專為台灣上班族打造的退休金規劃工具與知識平台，提供免費的 AI 試算工具與原創理財文章。" />
+        <title>關於我們 | 退休咖</title>
+        <meta name="description" content="退休咖是一個專為台灣上班族打造的退休金規劃工具與知識平台，提供免費的 AI 試算工具與原創理財文章。" />
       </Head>
 
       <nav className="nav">
         <Link href="/" className="nav-logo" style={{ textDecoration: "none" }}>
-          退休 AI 規劃師
+          退休咖
         </Link>
         <div className="nav-links">
           <Link href="/#calc">試算工具</Link>
-          <Link href="/tools">所有工具</Link>
           <Link href="/articles">理財知識</Link>
           <Link href="/about">關於我們</Link>
         </div>
       </nav>
 
       <div className="legal-page">
-        <h1>關於退休 AI 規劃師</h1>
+        <h1>關於退休咖</h1>
 
         <p>
-          <strong>退休 AI 規劃師</strong>（retirementplantw.com）是一個專為台灣上班族與理財新手打造的退休金規劃工具與知識平台。
+          <strong>退休咖</strong>（retirementplantw.com）是一個專為台灣上班族與理財新手打造的退休金規劃工具與知識平台。
         </p>
 
         <h2>我們為什麼做這個網站</h2>
@@ -76,7 +75,7 @@ export default function About() {
           margin: 0 auto;
           padding: 48px 24px 80px;
           line-height: 1.8;
-          color: #0f2130;
+          color: #1a1a1a;
         }
         h1 {
           font-size: 26px;
@@ -91,7 +90,7 @@ export default function About() {
         }
         p {
           font-size: 14px;
-          color: #26333f;
+          color: #333;
           margin-bottom: 12px;
         }
       `}</style>

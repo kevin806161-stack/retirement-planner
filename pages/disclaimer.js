@@ -4,8 +4,8 @@ export default function Disclaimer() {
   return (
     <>
       <Head>
-        <title>免責聲明 | 退休 AI 規劃師</title>
-        <meta name="description" content="退休 AI 規劃師網站免責聲明，本網站內容僅供教育參考，非投資理財建議。" />
+        <title>免責聲明 | 退休咖</title>
+        <meta name="description" content="退休咖網站免責聲明，本網站內容僅供教育參考，非投資理財建議。" />
       </Head>
 
       <div className="legal-page">

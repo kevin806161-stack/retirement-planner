@@ -36,7 +36,7 @@ export default async function handler(req, res) {
     await resend.emails.send({
       from: 'noreply@retirementplantw.com',
       to: 'contact@retirementplantw.com',
-      subject: `[退休 AI 規劃師] 新聯絡表單 - ${name}`,
+      subject: `[退休咖] 新聯絡表單 - ${name}`,
       html: `
         <p><strong>姓名：</strong>${name}</p>
         <p><strong>Email：</strong>${email}</p>

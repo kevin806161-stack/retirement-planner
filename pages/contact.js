@@ -34,15 +34,14 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>聯絡我們 | 退休 AI 規劃師</title>
-        <meta name="description" content="有任何問題、文章勘誤或合作洽詢，歡迎透過聯絡表單與退休 AI 規劃師聯繫。" />
+        <title>聯絡我們 | 退休咖</title>
+        <meta name="description" content="有任何問題、文章勘誤或合作洽詢，歡迎透過聯絡表單與退休咖聯繫。" />
       </Head>
 
       <nav className="nav">
-        <Link href="/" className="nav-logo" style={{ textDecoration: "none" }}>退休 AI 規劃師</Link>
+        <Link href="/" className="nav-logo" style={{ textDecoration: "none" }}>退休咖</Link>
         <div className="nav-links">
           <Link href="/#calc">試算工具</Link>
-          <Link href="/tools">所有工具</Link>
           <Link href="/articles">理財知識</Link>
           <Link href="/about">關於我們</Link>
           <Link href="/contact">聯絡我們</Link>
@@ -55,7 +54,7 @@ export default function Contact() {
 
         {status === "success" ? (
           <div className="success-box">
-            訊息已送出，我們會盡快回覆您。謝謝！
+            ✅ 訊息已送出，我們會盡快回覆您。謝謝！
           </div>
         ) : (
           <form className="contact-form" onSubmit={handleSubmit}>
@@ -123,12 +122,12 @@ export default function Contact() {
           padding: 48px 24px 80px;
         }
         h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
-        .contact-sub { font-size: 14px; color: #6a7480; margin-bottom: 32px; line-height: 1.6; }
+        .contact-sub { font-size: 14px; color: #666; margin-bottom: 32px; line-height: 1.6; }
         .contact-form { display: flex; flex-direction: column; gap: 20px; }
         .field { display: flex; flex-direction: column; gap: 6px; }
-        .field label { font-size: 13px; font-weight: 600; color: #26333f; }
+        .field label { font-size: 13px; font-weight: 600; color: #333; }
         .field input, .field textarea {
-          border: 1px solid rgba(15,33,48,0.25);
+          border: 1px solid #d0d0cc;
           border-radius: 8px;
           padding: 10px 14px;
           font-size: 14px;
@@ -136,11 +135,11 @@ export default function Contact() {
           outline: none;
           transition: border-color 0.2s;
         }
-        .field input:focus, .field textarea:focus { border-color: #c9a24b; }
+        .field input:focus, .field textarea:focus { border-color: #1d6fd8; }
         .field textarea { resize: vertical; min-height: 120px; }
         button {
-          background: #0f2130;
-          color: #f2ecdf;
+          background: #1d6fd8;
+          color: #fff;
           border: none;
           padding: 12px 24px;
           border-radius: 8px;
@@ -150,23 +149,23 @@ export default function Contact() {
         }
         button:disabled { opacity: 0.6; cursor: not-allowed; }
         .success-box {
-          background: rgba(201,162,75,0.1);
-          border: 1px solid rgba(201,162,75,0.4);
+          background: #e6f9ed;
+          border: 1px solid #6fcf97;
           border-radius: 8px;
           padding: 20px;
           font-size: 15px;
-          color: #7a5a1f;
+          color: #1a6b38;
         }
         .error-box {
-          background: rgba(164,86,47,0.08);
-          border: 1px solid rgba(164,86,47,0.4);
+          background: #fef0f0;
+          border: 1px solid #f4a0a0;
           border-radius: 8px;
           padding: 12px 16px;
           font-size: 13px;
-          color: #a4562f;
+          color: #b94040;
         }
-        .alt-contact { margin-top: 32px; font-size: 13px; color: #6a7480; }
-        .alt-contact a { color: #c9a24b; }
+        .alt-contact { margin-top: 32px; font-size: 13px; color: #666; }
+        .alt-contact a { color: #1d6fd8; }
       `}</style>
     </>
   );

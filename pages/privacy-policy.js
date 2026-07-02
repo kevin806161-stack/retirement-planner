@@ -4,8 +4,8 @@ export default function PrivacyPolicy() {
   return (
     <>
       <Head>
-        <title>隱私權政策 | 退休 AI 規劃師</title>
-        <meta name="description" content="退休 AI 規劃師網站隱私權政策，說明我們如何蒐集、使用與保護您的個人資料。" />
+        <title>隱私權政策 | 退休咖</title>
+        <meta name="description" content="退休咖網站隱私權政策，說明我們如何蒐集、使用與保護您的個人資料。" />
       </Head>
 
       <div className="legal-page">
@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
         <p className="updated">最後更新日期：2026 年 6 月 30 日</p>
 
         <p>
-          歡迎使用「退休 AI 規劃師」（以下稱「本網站」）。我們重視您的隱私權，本隱私權政策說明本網站如何蒐集、使用、儲存與保護您於使用本網站服務時所提供或產生的資訊。當您使用本網站，即表示您同意本政策所述之內容。
+          歡迎使用「退休咖」（以下稱「本網站」）。我們重視您的隱私權，本隱私權政策說明本網站如何蒐集、使用、儲存與保護您於使用本網站服務時所提供或產生的資訊。當您使用本網站，即表示您同意本政策所述之內容。
         </p>
 
         <h2>一、本網站蒐集哪些資訊</h2>
