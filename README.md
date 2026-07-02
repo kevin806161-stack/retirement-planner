@@ -16,12 +16,21 @@
 - `pages/tools/advanced-calculator.js`、`fire-calculator.js`、`compound-interest.js`、`etf-dividend.js`、`labor-insurance.js` — 5 個試算工具頁，全部套色，並拿掉標題與提示文字裡的 emoji（🔥🧮💰🏛️📈🎉💡📊⚠️🚀💪🪣✅）。
 - `components/BookList.js`、`components/RetirementCalculator.js`、`components/EmailSubscribe.js` — 同上次的配色 + 拿掉剩餘 emoji。
 
+## 這次修的問題
+
+首頁導覽列一直沒有連到「所有工具」，所以你新增的 5 個試算工具頁面雖然檔案都在 repo 裡、也能被 Google 收錄，但首頁上完全點不到，等於「消失了」。這次補上：
+
+- 首頁導覽列新增「所有工具」連結。
+- 首頁在試算器下方新增一個「更多 AI 理財計算工具」區塊，展示 4 個工具卡片 + 「查看所有工具」連結。
+- `about.js`、`contact.js`、`articles/index.js`、`articles/[slug].js` 的導覽列也補上「所有工具」，全站導覽一致。
+- 修正 CSS：原本用 `:last-child` 判斷哪個連結該顯示金色按鈕樣式，導覽列項目變多後會誤套用到錯誤的連結（例如「關於我們」變成醒目金色按鈕）。改成明確的 `.nav-cta` class，只有首頁的「免費試算」會是金色按鈕，其他都是一般連結。同時修正手機版導覽列（原本邏輯在沒有 CTA 的頁面會把連結全部藏起來），改成可橫向滑動。
+
 ## 套用方式
 
 1. 把這個資料夾裡的檔案，依相同路徑覆蓋你 repo 裡的檔案。
-2. **記得把 `pages/articles/__slug__.js` 重新命名成 `pages/articles/[slug].js`**（覆蓋原本的同名檔案）。
-3. `git add . && git commit -m "全站套用深藍金配色，含新增工具/文章頁" && git push`
-4. Vercel 會自動重新部署。
+2. **`pages/articles/__slug__.js` 需要在 GitHub 上重新命名成 `pages/articles/[slug].js`**（覆蓋同名檔案）。
+3. `git add . && git commit -m "首頁補上工具入口，修正導覽列樣式" && git push`
+4. Vercel 自動重新部署。
 
 ## 沒有動到的東西
 

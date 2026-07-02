@@ -15,6 +15,7 @@ export default function About() {
         </Link>
         <div className="nav-links">
           <Link href="/#calc">試算工具</Link>
+          <Link href="/tools">所有工具</Link>
           <Link href="/articles">理財知識</Link>
           <Link href="/about">關於我們</Link>
         </div>
