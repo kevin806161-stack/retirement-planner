@@ -16,6 +16,16 @@
 - `pages/tools/advanced-calculator.js`、`fire-calculator.js`、`compound-interest.js`、`etf-dividend.js`、`labor-insurance.js` — 5 個試算工具頁，全部套色，並拿掉標題與提示文字裡的 emoji（🔥🧮💰🏛️📈🎉💡📊⚠️🚀💪🪣✅）。
 - `components/BookList.js`、`components/RetirementCalculator.js`、`components/EmailSubscribe.js` — 同上次的配色 + 拿掉剩餘 emoji。
 
+## 這次新增：Logo / Favicon
+
+網站原本沒有設定 favicon，瀏覽器分頁顯示的是預設灰色地球圖示。設計了一個簡約標記：深藍底、金色「地平線上的日出」造型，呼應「退休 / 黃金歲月」的意象，跟首頁 Hero 的弧線裝飾同一套視覺語言。
+
+新增檔案：
+- `public/favicon.svg`（主要，向量、任何尺寸都清晰）
+- `public/favicon-32.png`、`public/icon-512.png`、`public/apple-touch-icon.png`（相容性備援，含 iOS 加到主畫面用）
+- `pages/_document.js` 加了對應的 `<link rel="icon">` 標籤
+- `styles/globals.css` 的 `.nav-logo::before` 換成同一個標記，取代原本的金色菱形線框，所以導覽列的 icon 跟分頁 favicon 現在是同一個 logo，全站一致
+
 ## 這次修的問題
 
 首頁導覽列一直沒有連到「所有工具」，所以你新增的 5 個試算工具頁面雖然檔案都在 repo 裡、也能被 Google 收錄，但首頁上完全點不到，等於「消失了」。這次補上：
