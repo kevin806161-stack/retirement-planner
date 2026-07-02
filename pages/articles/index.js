@@ -23,6 +23,7 @@ export default function ArticlesIndex({ articles }) {
         <Link href="/" className="nav-logo" style={{ textDecoration: "none" }}>退休咖</Link>
         <div className="nav-links">
           <Link href="/#calc">試算工具</Link>
+          <Link href="/tools">所有工具</Link>
           <Link href="/articles">理財知識</Link>
           <Link href="/about">關於我們</Link>
           <Link href="/contact">聯絡我們</Link>
@@ -76,29 +77,29 @@ export default function ArticlesIndex({ articles }) {
       <style jsx>{`
         .articles-page { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
         h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
-        .page-sub { font-size: 14px; color: #666; margin-bottom: 24px; }
+        .page-sub { font-size: 14px; color: #6a7480; margin-bottom: 24px; }
         .category-filter { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
         .cat-btn {
           font-size: 13px; padding: 6px 16px; border-radius: 20px;
-          border: 1px solid #ddd; background: #fff; color: #555; cursor: pointer;
+          border: 1px solid rgba(15,33,48,0.25); background: #fbf8f1; color: #4a5561; cursor: pointer;
           transition: all 0.15s;
         }
-        .cat-btn:hover { border-color: #1d6fd8; color: #1d6fd8; }
-        .cat-btn.active { background: #1d6fd8; color: #fff; border-color: #1d6fd8; }
+        .cat-btn:hover { border-color: #c9a24b; color: #c9a24b; }
+        .cat-btn.active { background: #c9a24b; color: #0f2130; border-color: #c9a24b; }
         .article-list { display: flex; flex-direction: column; gap: 14px; }
         .article-card {
-          display: block; border: 1px solid #e5e5e0; border-radius: 12px;
-          padding: 20px; text-decoration: none; color: inherit; background: #fff;
+          display: block; border: 1px solid rgba(15,33,48,0.14); border-radius: 12px;
+          padding: 20px; text-decoration: none; color: inherit; background: #fbf8f1;
           transition: border-color 0.2s;
         }
-        .article-card:hover { border-color: #1d6fd8; }
+        .article-card:hover { border-color: #c9a24b; }
         .article-category {
-          font-size: 11px; color: #1d6fd8; background: #e6f1fb;
+          font-size: 11px; color: #c9a24b; background: rgba(201,162,75,0.14);
           display: inline-block; padding: 3px 10px; border-radius: 12px; margin-bottom: 10px;
         }
         .article-card h2 { font-size: 17px; font-weight: 600; margin-bottom: 8px; line-height: 1.4; }
-        .article-card p { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 10px; }
-        .article-date { font-size: 11px; color: #999; }
+        .article-card p { font-size: 13px; color: #6a7480; line-height: 1.6; margin-bottom: 10px; }
+        .article-date { font-size: 11px; color: #8a929b; }
       `}</style>
     </>
   );

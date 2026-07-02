@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export default function PrivacyPolicy() {
   return (
@@ -7,6 +8,17 @@ export default function PrivacyPolicy() {
         <title>隱私權政策 | 退休咖</title>
         <meta name="description" content="退休咖網站隱私權政策，說明我們如何蒐集、使用與保護您的個人資料。" />
       </Head>
+
+      <nav className="nav">
+        <Link href="/" className="nav-logo">退休咖</Link>
+        <div className="nav-links">
+          <Link href="/#calc">試算工具</Link>
+          <Link href="/tools">所有工具</Link>
+          <Link href="/articles">理財知識</Link>
+          <Link href="/about">關於我們</Link>
+          <Link href="/contact">聯絡我們</Link>
+        </div>
+      </nav>
 
       <div className="legal-page">
         <h1>隱私權政策</h1>
@@ -82,47 +94,23 @@ export default function PrivacyPolicy() {
         </p>
       </div>
 
+      <footer className="site-footer">
+        <a href="/privacy-policy">隱私權政策</a>
+        <a href="/disclaimer">免責聲明</a>
+        <a href="/about">關於我們</a>
+        <a href="/contact">聯絡我們</a>
+      </footer>
+
       <style jsx>{`
-        .legal-page {
-          max-width: 720px;
-          margin: 0 auto;
-          padding: 48px 24px 80px;
-          line-height: 1.8;
-          color: #1a1a1a;
-        }
-        h1 {
-          font-size: 26px;
-          font-weight: 700;
-          margin-bottom: 8px;
-        }
-        .updated {
-          font-size: 13px;
-          color: #888;
-          margin-bottom: 32px;
-        }
-        h2 {
-          font-size: 18px;
-          font-weight: 600;
-          margin-top: 32px;
-          margin-bottom: 12px;
-        }
-        p {
-          font-size: 14px;
-          color: #333;
-          margin-bottom: 12px;
-        }
-        ul {
-          padding-left: 20px;
-          margin-bottom: 12px;
-        }
-        li {
-          font-size: 14px;
-          color: #333;
-          margin-bottom: 8px;
-        }
-        a {
-          color: #1d6fd8;
-        }
+        .legal-page { max-width: 720px; margin: 0 auto; padding: 56px 24px 80px; line-height: 1.9; color: #26333f; font-family: "Noto Serif TC", serif; }
+        h1 { font-family: "Noto Sans TC", sans-serif; font-size: 30px; font-weight: 900; color: #0f2130; margin-bottom: 8px; }
+        .updated { font-family: "Noto Sans TC", sans-serif; font-size: 13px; color: #8a929b; margin-bottom: 32px; }
+        h2 { font-family: "Noto Sans TC", sans-serif; font-size: 19px; font-weight: 700; color: #0f2130; margin-top: 34px; margin-bottom: 12px; }
+        p { font-size: 14.5px; color: #3d4954; margin-bottom: 12px; }
+        ul { padding-left: 20px; margin-bottom: 12px; }
+        li { font-size: 14.5px; color: #3d4954; margin-bottom: 8px; }
+        strong { color: #0f2130; }
+        a { color: #c9a24b; }
       `}</style>
     </>
   );

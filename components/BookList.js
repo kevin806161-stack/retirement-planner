@@ -8,7 +8,7 @@ export default function BookList() {
       <div className="book-grid">
         {affiliateBooks.map((b) => (
           <div className="book-card" key={b.id}>
-            <div className={`book-cover ${b.id}`}>{b.emoji}</div>
+            <div className={`book-cover ${b.id}`} aria-hidden="true">{b.title.slice(0, 1)}</div>
             <div className="book-title">{b.title}</div>
             <div className="book-author">{b.author}</div>
             <a

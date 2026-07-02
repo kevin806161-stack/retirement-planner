@@ -54,7 +54,7 @@ export default function CompoundInterestCalculator() {
 
       <div className="tool-page">
         <div className="tool-breadcrumb"><Link href="/tools">所有工具</Link> / 複利成長試算器</div>
-        <h1>📈 複利成長試算器</h1>
+        <h1>複利成長試算器</h1>
         <p className="tool-desc">視覺化呈現你的投資組合在不同報酬率下的長期成長曲線，了解時間與複利的驚人威力</p>
 
         <div className="layout">
@@ -65,10 +65,10 @@ export default function CompoundInterestCalculator() {
             <Slider label="投資年數" value={years} min={5} max={40} unit="年" onChange={setYears} />
 
             <div className="summary-cards">
-              <SummaryCard label="最終資產" value={fmt(finalValue)} color="#1d6fd8" />
-              <SummaryCard label="總投入金額" value={fmt(totalInvested)} color="#555" />
-              <SummaryCard label="投資獲利" value={fmt(totalGain)} color="#2a7d2a" />
-              <SummaryCard label="報酬倍數" value={`${(finalValue / totalInvested).toFixed(1)} 倍`} color="#8a4fd8" />
+              <SummaryCard label="最終資產" value={fmt(finalValue)} color="#0f2130" />
+              <SummaryCard label="總投入金額" value={fmt(totalInvested)} color="#4a5561" />
+              <SummaryCard label="投資獲利" value={fmt(totalGain)} color="#c9a24b" />
+              <SummaryCard label="報酬倍數" value={`${(finalValue / totalInvested).toFixed(1)} 倍`} color="#5a7184" />
             </div>
           </div>
 
@@ -93,9 +93,9 @@ export default function CompoundInterestCalculator() {
                 })}
             </div>
             <div className="chart-legend">
-              <span className="legend-item"><span className="dot" style={{ background: "#1d6fd8" }} />總資產</span>
-              <span className="legend-item"><span className="dot" style={{ background: "#e5e5e0" }} />投入本金</span>
-              <span className="legend-item"><span className="dot" style={{ background: "#2a7d2a" }} />複利獲利</span>
+              <span className="legend-item"><span className="dot" style={{ background: "#0f2130" }} />總資產</span>
+              <span className="legend-item"><span className="dot" style={{ background: "#c7bfae" }} />投入本金</span>
+              <span className="legend-item"><span className="dot" style={{ background: "#c9a24b" }} />複利獲利</span>
             </div>
 
             <div className="milestones">
@@ -122,29 +122,29 @@ export default function CompoundInterestCalculator() {
 
       <style jsx>{`
         .tool-page { max-width: 980px; margin: 0 auto; padding: 32px 24px 80px; }
-        .tool-breadcrumb { font-size: 12px; color: #999; margin-bottom: 16px; }
-        .tool-breadcrumb a { color: #1d6fd8; text-decoration: none; }
+        .tool-breadcrumb { font-size: 12px; color: #8a929b; margin-bottom: 16px; }
+        .tool-breadcrumb a { color: #c9a24b; text-decoration: none; }
         h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
-        .tool-desc { font-size: 14px; color: #666; margin-bottom: 24px; line-height: 1.6; }
+        .tool-desc { font-size: 14px; color: #6a7480; margin-bottom: 24px; line-height: 1.6; }
         .layout { display: grid; grid-template-columns: 320px 1fr; gap: 28px; align-items: start; }
         @media (max-width: 768px) { .layout { grid-template-columns: 1fr; } }
         .inputs-panel { display: flex; flex-direction: column; gap: 14px; }
         .summary-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px; }
-        .chart-panel { background: #fafaf8; border: 1px solid #e5e5e0; border-radius: 14px; padding: 20px; }
-        .chart-title { font-size: 14px; font-weight: 600; color: #333; margin-bottom: 16px; }
-        .bar-chart { display: flex; align-items: flex-end; gap: 4px; height: 200px; padding-bottom: 24px; position: relative; border-bottom: 1px solid #e5e5e0; }
+        .chart-panel { background: #fbf8f1; border: 1px solid rgba(15,33,48,0.14); border-radius: 14px; padding: 20px; }
+        .chart-title { font-size: 14px; font-weight: 600; color: #26333f; margin-bottom: 16px; }
+        .bar-chart { display: flex; align-items: flex-end; gap: 4px; height: 200px; padding-bottom: 24px; position: relative; border-bottom: 1px solid rgba(15,33,48,0.14); }
         .bar-col { display: flex; flex-direction: column; align-items: center; flex: 1; height: 100%; }
         .bar-wrap { flex: 1; display: flex; align-items: flex-end; width: 100%; }
-        .bar-total { background: #1d6fd8; width: 100%; border-radius: 3px 3px 0 0; min-height: 2px; position: relative; display: flex; align-items: flex-end; }
+        .bar-total { background: #0f2130; width: 100%; border-radius: 3px 3px 0 0; min-height: 2px; position: relative; display: flex; align-items: flex-end; }
         .bar-invested { background: rgba(0,0,0,0.15); width: 100%; border-radius: 0 0 3px 3px; }
-        .bar-label { font-size: 9px; color: #999; margin-top: 4px; }
+        .bar-label { font-size: 9px; color: #8a929b; margin-top: 4px; }
         .chart-legend { display: flex; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
-        .legend-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: #666; }
+        .legend-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: #6a7480; }
         .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-        .milestones { margin-top: 20px; border-top: 1px solid #e5e5e0; padding-top: 16px; }
-        .milestones-title { font-size: 13px; font-weight: 600; color: #333; margin-bottom: 10px; }
-        .milestone-row { display: flex; justify-content: space-between; font-size: 13px; color: #555; margin-bottom: 6px; }
-        .milestone-val { color: #1d6fd8; font-weight: 500; }
+        .milestones { margin-top: 20px; border-top: 1px solid rgba(15,33,48,0.14); padding-top: 16px; }
+        .milestones-title { font-size: 13px; font-weight: 600; color: #26333f; margin-bottom: 10px; }
+        .milestone-row { display: flex; justify-content: space-between; font-size: 13px; color: #4a5561; margin-bottom: 6px; }
+        .milestone-val { color: #c9a24b; font-weight: 500; }
       `}</style>
     </>
   );
@@ -154,18 +154,18 @@ function Slider({ label, value, min, max, step = 1, unit, fmtVal, onChange }) {
   const display = fmtVal ? fmtVal(value) : `${value}${unit || ""}`;
   return (
     <div>
-      <label style={{ fontSize: "13px", color: "#555", display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-        {label} <span style={{ fontWeight: 600, color: "#1a1a1a" }}>{display}</span>
+      <label style={{ fontSize: "13px", color: "#4a5561", display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
+        {label} <span style={{ fontWeight: 700, color: "#0f2130" }}>{display}</span>
       </label>
-      <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(parseFloat(e.target.value))} style={{ width: "100%" }} />
+      <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(parseFloat(e.target.value))} style={{ width: "100%", accentColor: "#c9a24b" }} />
     </div>
   );
 }
 
 function SummaryCard({ label, value, color }) {
   return (
-    <div style={{ background: "#fff", border: "1px solid #e5e5e0", borderRadius: "10px", padding: "12px", textAlign: "center" }}>
-      <div style={{ fontSize: "11px", color: "#888", marginBottom: "4px" }}>{label}</div>
+    <div style={{ background: "#fbf8f1", border: "1px solid rgba(15,33,48,0.14)", borderRadius: "10px", padding: "12px", textAlign: "center" }}>
+      <div style={{ fontSize: "11px", color: "#6a7480", marginBottom: "4px" }}>{label}</div>
       <div style={{ fontSize: "15px", fontWeight: 700, color }}>{value}</div>
     </div>
   );

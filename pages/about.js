@@ -10,13 +10,13 @@ export default function About() {
       </Head>
 
       <nav className="nav">
-        <Link href="/" className="nav-logo" style={{ textDecoration: "none" }}>
-          退休咖
-        </Link>
+        <Link href="/" className="nav-logo">退休咖</Link>
         <div className="nav-links">
           <Link href="/#calc">試算工具</Link>
+          <Link href="/tools">所有工具</Link>
           <Link href="/articles">理財知識</Link>
           <Link href="/about">關於我們</Link>
+          <Link href="/contact">聯絡我們</Link>
         </div>
       </nav>
 
@@ -67,32 +67,15 @@ export default function About() {
         <a href="/privacy-policy">隱私權政策</a>
         <a href="/disclaimer">免責聲明</a>
         <a href="/about">關於我們</a>
+        <a href="/contact">聯絡我們</a>
       </footer>
 
       <style jsx>{`
-        .legal-page {
-          max-width: 720px;
-          margin: 0 auto;
-          padding: 48px 24px 80px;
-          line-height: 1.8;
-          color: #1a1a1a;
-        }
-        h1 {
-          font-size: 26px;
-          font-weight: 700;
-          margin-bottom: 24px;
-        }
-        h2 {
-          font-size: 18px;
-          font-weight: 600;
-          margin-top: 32px;
-          margin-bottom: 12px;
-        }
-        p {
-          font-size: 14px;
-          color: #333;
-          margin-bottom: 12px;
-        }
+        .legal-page { max-width: 720px; margin: 0 auto; padding: 56px 24px 80px; line-height: 1.9; color: #26333f; font-family: "Noto Serif TC", serif; }
+        h1 { font-family: "Noto Sans TC", sans-serif; font-size: 30px; font-weight: 900; color: #0f2130; margin-bottom: 24px; }
+        h2 { font-family: "Noto Sans TC", sans-serif; font-size: 19px; font-weight: 700; color: #0f2130; margin-top: 34px; margin-bottom: 12px; }
+        p { font-size: 14.5px; color: #3d4954; margin-bottom: 12px; }
+        strong { color: #0f2130; }
       `}</style>
     </>
   );

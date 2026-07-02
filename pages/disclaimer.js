@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export default function Disclaimer() {
   return (
@@ -7,6 +8,17 @@ export default function Disclaimer() {
         <title>免責聲明 | 退休咖</title>
         <meta name="description" content="退休咖網站免責聲明，本網站內容僅供教育參考，非投資理財建議。" />
       </Head>
+
+      <nav className="nav">
+        <Link href="/" className="nav-logo">退休咖</Link>
+        <div className="nav-links">
+          <Link href="/#calc">試算工具</Link>
+          <Link href="/tools">所有工具</Link>
+          <Link href="/articles">理財知識</Link>
+          <Link href="/about">關於我們</Link>
+          <Link href="/contact">聯絡我們</Link>
+        </div>
+      </nav>
 
       <div className="legal-page">
         <h1>免責聲明</h1>
@@ -57,45 +69,26 @@ export default function Disclaimer() {
         </p>
       </div>
 
+      <footer className="site-footer">
+        <a href="/privacy-policy">隱私權政策</a>
+        <a href="/disclaimer">免責聲明</a>
+        <a href="/about">關於我們</a>
+        <a href="/contact">聯絡我們</a>
+      </footer>
+
       <style jsx>{`
-        .legal-page {
-          max-width: 720px;
-          margin: 0 auto;
-          padding: 48px 24px 80px;
-          line-height: 1.8;
-          color: #1a1a1a;
-        }
-        h1 {
-          font-size: 26px;
-          font-weight: 700;
-          margin-bottom: 8px;
-        }
-        .updated {
-          font-size: 13px;
-          color: #888;
-          margin-bottom: 24px;
-        }
+        .legal-page { max-width: 720px; margin: 0 auto; padding: 56px 24px 80px; line-height: 1.9; color: #26333f; font-family: "Noto Serif TC", serif; }
+        h1 { font-family: "Noto Sans TC", sans-serif; font-size: 30px; font-weight: 900; color: #0f2130; margin-bottom: 8px; }
+        .updated { font-family: "Noto Sans TC", sans-serif; font-size: 13px; color: #8a929b; margin-bottom: 28px; }
         .highlight-box {
-          background: #fff4e5;
-          border: 1px solid #f0c987;
-          border-radius: 8px;
-          padding: 16px 18px;
-          font-size: 14px;
-          color: #6b4a0a;
-          margin-bottom: 28px;
-          line-height: 1.7;
+          background: rgba(201,162,75,0.1); border: 1px solid rgba(201,162,75,0.35);
+          border-left: 3px solid #c9a24b; border-radius: 2px; padding: 18px 20px;
+          font-size: 14.5px; color: #6a5326; margin-bottom: 28px; line-height: 1.8;
         }
-        h2 {
-          font-size: 18px;
-          font-weight: 600;
-          margin-top: 32px;
-          margin-bottom: 12px;
-        }
-        p {
-          font-size: 14px;
-          color: #333;
-          margin-bottom: 12px;
-        }
+        .highlight-box strong { color: #4a3a12; }
+        h2 { font-family: "Noto Sans TC", sans-serif; font-size: 19px; font-weight: 700; color: #0f2130; margin-top: 34px; margin-bottom: 12px; }
+        p { font-size: 14.5px; color: #3d4954; margin-bottom: 12px; }
+        strong { color: #0f2130; }
       `}</style>
     </>
   );

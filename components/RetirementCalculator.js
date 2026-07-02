@@ -90,9 +90,9 @@ export default function RetirementCalculator() {
 
           {/* Email 試算結果 */}
           <div className="email-result">
-            <div className="email-result-label">📩 把試算結果寄到我的信箱</div>
+            <div className="email-result-label">把試算結果寄到我的信箱</div>
             {sendStatus === "success" ? (
-              <div className="email-success">✅ 已寄出！請查收信箱</div>
+              <div className="email-success">已寄出！請查收信箱</div>
             ) : (
               <div className="email-row">
                 <input
@@ -115,12 +115,12 @@ export default function RetirementCalculator() {
       <style jsx>{`
         .email-result {
           margin-top: 4px;
-          border-top: 1px solid #e5e5e0;
+          border-top: 1px solid rgba(15,33,48,0.14);
           padding-top: 14px;
         }
         .email-result-label {
           font-size: 12px;
-          color: #555;
+          color: #4a5561;
           margin-bottom: 8px;
           font-weight: 500;
         }
@@ -130,15 +130,15 @@ export default function RetirementCalculator() {
         }
         .email-row input {
           flex: 1;
-          border: 1px solid #ddd;
+          border: 1px solid rgba(15,33,48,0.25);
           border-radius: 6px;
           padding: 7px 10px;
           font-size: 13px;
           outline: none;
         }
-        .email-row input:focus { border-color: #1d6fd8; }
+        .email-row input:focus { border-color: #c9a24b; }
         .email-row button {
-          background: #1d6fd8;
+          background: #c9a24b;
           color: #fff;
           border: none;
           border-radius: 6px;
@@ -148,8 +148,8 @@ export default function RetirementCalculator() {
           white-space: nowrap;
         }
         .email-row button:disabled { opacity: 0.6; }
-        .email-success { font-size: 13px; color: #2a7d2a; }
-        .email-error { font-size: 12px; color: #b94040; margin-top: 4px; }
+        .email-success { font-size: 13px; color: #c9a24b; }
+        .email-error { font-size: 12px; color: #a4562f; margin-top: 4px; }
       `}</style>
     </section>
   );

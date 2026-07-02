@@ -27,14 +27,14 @@ export default function EmailSubscribe({ variant = "default" }) {
   if (status === "success") {
     return (
       <div className={`subscribe-box ${variant}`}>
-        <div className="success">✅ 訂閱成功！感謝你，我們會定期寄送最新理財知識。</div>
+        <div className="success">訂閱成功！感謝你，我們會定期寄送最新理財知識。</div>
       </div>
     );
   }
 
   return (
     <div className={`subscribe-box ${variant}`}>
-      <div className="subscribe-icon">📬</div>
+      <div className="subscribe-icon"></div>
       <h3>訂閱每週理財報告</h3>
       <p>最新 ETF 動態、退休規劃技巧，每週直送信箱，免費訂閱</p>
       <div className="subscribe-row">

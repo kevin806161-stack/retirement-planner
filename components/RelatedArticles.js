@@ -31,13 +31,13 @@ export default function RelatedArticles({ currentSlug, currentCategory, allArtic
         .related {
           margin-top: 40px;
           padding-top: 32px;
-          border-top: 1px solid #e5e5e0;
+          border-top: 1px solid rgba(15,33,48,0.14);
         }
         h3 {
           font-size: 16px;
           font-weight: 600;
           margin-bottom: 16px;
-          color: #1a1a1a;
+          color: #0f2130;
         }
         .related-list {
           display: flex;
@@ -46,23 +46,23 @@ export default function RelatedArticles({ currentSlug, currentCategory, allArtic
         }
         .related-card {
           display: block;
-          border: 1px solid #e5e5e0;
+          border: 1px solid rgba(15,33,48,0.14);
           border-radius: 10px;
           padding: 14px 16px;
           text-decoration: none;
           color: inherit;
           transition: border-color 0.2s;
         }
-        .related-card:hover { border-color: #1d6fd8; }
+        .related-card:hover { border-color: #c9a24b; }
         .related-category {
           font-size: 11px;
-          color: #1d6fd8;
+          color: #c9a24b;
           margin-bottom: 4px;
         }
         .related-title {
           font-size: 14px;
           font-weight: 500;
-          color: #1a1a1a;
+          color: #0f2130;
           line-height: 1.4;
         }
       `}</style>
