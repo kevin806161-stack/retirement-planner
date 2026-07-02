@@ -1,18 +1,26 @@
-# 退休 AI 規劃師 — 首頁
+# 首頁美化 — 套用到 Next.js 專案
 
-單一自包含靜態 HTML 檔（`index.html`），無需 build 步驟。
+改動了以下 5 個檔案，其餘檔案（lib/、pages/articles、pages/about.js 等）不受影響：
 
-## 部署到 Vercel
+- `styles/globals.css` — 全部改成深藍（#0f2130）＋金（#c9a24b）＋米白（#f4efe4）配色，標題黑體、內文宋體。
+- `pages/_document.js` — 加入 Noto Sans TC / Noto Serif TC 字體載入。
+- `pages/index.js` — Hero、導覽列、文章列表區塊改版面與配色，計算邏輯與資料抓取（getStaticProps）完全不變。
+- `components/BookList.js` — 書封改成極簡字首方塊（金色底線），不再用 emoji。
+- `components/RetirementCalculator.js` — 僅改了檔案底部 `<style jsx>` 的顏色（email 區塊），試算邏輯（`useRetirementCalc`、寄送 API）完全沒動。
 
-1. 將這個資料夾（含 `index.html` 與 `vercel.json`）推到 GitHub repo 根目錄。
-2. Vercel → Import Project → 選這個 repo。
-3. Framework Preset 選 **Other**；Build Command / Output Directory 留空即可。
-4. Deploy。
+## 套用方式
 
-## 更新內容
+把這個資料夾裡對應路徑的檔案，覆蓋你 repo 裡的同名檔案（路徑一致，直接取代即可），然後：
 
-`index.html` 是打包後的產出檔，不要直接編輯。若要改文案、配色或版面，請回到原始設計檔（Design Component）修改後重新匯出。
+```
+git add .
+git commit -m "首頁視覺美化：深藍金配色"
+git push
+```
 
-## 自訂網域
+Vercel 會自動重新部署。
 
-Vercel 專案設定 → Domains → 新增 `retirementplantw.com`，依指示更新 DNS（通常是 A 記錄指向 Vercel 或改用 Vercel Nameservers）。
+## 沒有動到的東西
+
+- 所有試算邏輯、Email 寄送 API、AdSense 版位、文章資料（lib/articles.js）、其他頁面（about、contact、privacy-policy、disclaimer）都維持原樣。
+- 根目錄那個舊的 `index.html`（14MB，先前誤放的靜態匯出檔）建議直接刪除 —— Next.js 專案不需要它，留著也不會被使用。
