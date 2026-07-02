@@ -115,45 +115,41 @@ export default function RetirementCalculator() {
       <style jsx>{`
         .email-result {
           margin-top: 4px;
-          border-top: 1px solid rgba(15, 33, 48, 0.12);
-          padding-top: 16px;
+          border-top: 1px solid #e5e5e0;
+          padding-top: 14px;
         }
         .email-result-label {
-          font-family: "Noto Sans TC", sans-serif;
-          font-size: 13px;
-          color: #4a5561;
-          margin-bottom: 10px;
+          font-size: 12px;
+          color: #555;
+          margin-bottom: 8px;
           font-weight: 500;
         }
         .email-row {
           display: flex;
-          gap: 10px;
+          gap: 8px;
         }
         .email-row input {
           flex: 1;
-          border: 1px solid rgba(15, 33, 48, 0.25);
-          border-radius: 3px;
-          padding: 9px 12px;
+          border: 1px solid #ddd;
+          border-radius: 6px;
+          padding: 7px 10px;
           font-size: 13px;
           outline: none;
-          background: #fff;
-          font-family: "Noto Sans TC", sans-serif;
         }
-        .email-row input:focus { border-color: #c9a24b; }
+        .email-row input:focus { border-color: #1d6fd8; }
         .email-row button {
-          background: #0f2130;
-          color: #f2ecdf;
+          background: #1d6fd8;
+          color: #fff;
           border: none;
-          border-radius: 3px;
-          padding: 9px 18px;
+          border-radius: 6px;
+          padding: 7px 14px;
           font-size: 13px;
-          font-weight: 700;
           cursor: pointer;
           white-space: nowrap;
         }
         .email-row button:disabled { opacity: 0.6; }
-        .email-success { font-size: 13px; color: #7a8a3f; }
-        .email-error { font-size: 12px; color: #a4562f; margin-top: 6px; }
+        .email-success { font-size: 13px; color: #2a7d2a; }
+        .email-error { font-size: 12px; color: #b94040; margin-top: 4px; }
       `}</style>
     </section>
   );
