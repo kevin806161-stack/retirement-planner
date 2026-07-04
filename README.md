@@ -9,7 +9,7 @@
 - `components/RetirementCalculator.js` — email 區塊改深金、每月金額變動時彈跳動態；邏輯(useRetirementCalc / /api/send-calc)不變。
 
 ## 本次追加
-- \`pages/index.js\` 首屏 hero 加了**互動式成長曲線動態背景**（canvas）：多層向右上流動的資產成長曲線＋末端光點，滑鼠移入會把曲線「推high」形成互動峰；效能輕量、`prefers-reduced-motion` 自動關閉。只作用於首屏。
+- \`pages/index.js\` 首屏 hero 背景改為**金色星塵粒子**（canvas）：稀疏光點極慢漂移＋微微明滅，滑鼠靠近時粒子輕輕讓開；收斂、安靜、質感為主，`prefers-reduced-motion` 自動關閉。（取代先前較強的成長曲線版本。）
 - \`pages/articles/[slug].js\`、\`pages/articles/index.js\`、\`components/RelatedArticles.js\`：理財知識（文章）頁全部改深金高對比，內文、公式框、表格、程式碼區塊、分類標籤都清楚可讀。
 
 ## 未改動但已自動深色化的部分
