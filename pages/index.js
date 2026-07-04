@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import RetirementCalculator from "../components/RetirementCalculator";
 import BookList from "../components/BookList";
 import AdUnit from "../components/AdUnit";
@@ -28,6 +28,105 @@ function ShieldLogo({ size = 34 }) {
 }
 
 export default function Home({ articles }) {
+  const heroCanvasRef = useRef(null);
+
+  // 互動式成長曲線 hero 背景
+  useEffect(() => {
+    const canvas = heroCanvasRef.current;
+    if (!canvas) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const ctx = canvas.getContext("2d");
+    const host = canvas.parentNode;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let W = 0, H = 0, raf = 0;
+    const mouse = { x: -9999, y: -9999, active: false };
+    let mx = -9999, my = -9999;
+
+    function resize() {
+      W = host.clientWidth; H = host.clientHeight;
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener("resize", resize);
+
+    function onMove(e) {
+      const r = host.getBoundingClientRect();
+      mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; mouse.active = true;
+    }
+    function onLeave() { mouse.active = false; }
+    host.addEventListener("pointermove", onMove);
+    host.addEventListener("pointerleave", onLeave);
+
+    const layers = [
+      { color: "236,199,118", op: 0.85, amp: 26, freq: 1.05, speed: 0.00042, base: 0.30, lw: 2.2, glow: true },
+      { color: "212,169,90", op: 0.55, amp: 32, freq: 0.85, speed: 0.00034, base: 0.46, lw: 1.6, glow: false },
+      { color: "90,113,132", op: 0.55, amp: 38, freq: 0.70, speed: 0.00028, base: 0.62, lw: 1.4, glow: false },
+      { color: "44,71,99", op: 0.75, amp: 44, freq: 0.60, speed: 0.00022, base: 0.78, lw: 1.2, glow: false },
+    ];
+    const STEP = 12, RADIUS = 150;
+
+    function draw(t) {
+      ctx.clearRect(0, 0, W, H);
+      if (mouse.active) {
+        if (mx < -999) { mx = mouse.x; my = mouse.y; }
+        mx += (mouse.x - mx) * 0.12; my += (mouse.y - my) * 0.12;
+      } else { my += (H * 1.4 - my) * 0.06; }
+
+      for (let li = 0; li < layers.length; li++) {
+        const L = layers[li];
+        const pts = [];
+        for (let x = -STEP; x <= W + STEP; x += STEP) {
+          const nx = x / W;
+          const trend = -nx * H * 0.20;
+          const wave = Math.sin(nx * 6.2 * L.freq + t * L.speed * 1000) * L.amp
+            + Math.sin(nx * 3.1 * L.freq - t * L.speed * 620) * (L.amp * 0.5);
+          let y = H * L.base + trend + wave;
+          if (mouse.active || mx > -999) {
+            const dx = x - mx;
+            const infl = Math.exp(-(dx * dx) / (2 * RADIUS * RADIUS));
+            y -= infl * 70 * (1 - li * 0.16);
+          }
+          pts.push([x, y]);
+        }
+        ctx.beginPath();
+        ctx.moveTo(pts[0][0], pts[0][1]);
+        for (let i = 1; i < pts.length - 1; i++) {
+          const xc = (pts[i][0] + pts[i + 1][0]) / 2;
+          const yc = (pts[i][1] + pts[i + 1][1]) / 2;
+          ctx.quadraticCurveTo(pts[i][0], pts[i][1], xc, yc);
+        }
+        const grad = ctx.createLinearGradient(0, 0, W, 0);
+        grad.addColorStop(0, `rgba(${L.color},0)`);
+        grad.addColorStop(0.18, `rgba(${L.color},${L.op * 0.6})`);
+        grad.addColorStop(0.7, `rgba(${L.color},${L.op})`);
+        grad.addColorStop(1, `rgba(${L.color},${L.op * 0.85})`);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = L.lw;
+        ctx.lineCap = "round";
+        if (L.glow) { ctx.shadowColor = `rgba(${L.color},.7)`; ctx.shadowBlur = 14; } else { ctx.shadowBlur = 0; }
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+        if (L.glow) {
+          const head = pts[pts.length - 2];
+          ctx.beginPath();
+          ctx.arc(head[0], head[1], 3.4, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(236,199,118,1)";
+          ctx.shadowColor = "rgba(236,199,118,.9)"; ctx.shadowBlur = 18;
+          ctx.fill(); ctx.shadowBlur = 0;
+        }
+      }
+      raf = requestAnimationFrame(draw);
+    }
+    raf = requestAnimationFrame(draw);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", resize);
+      host.removeEventListener("pointermove", onMove);
+      host.removeEventListener("pointerleave", onLeave);
+    };
+  }, []);
   useEffect(() => {
     if (typeof window === "undefined") return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -77,6 +176,7 @@ export default function Home({ articles }) {
       </nav>
 
       <section className="hero">
+        <canvas ref={heroCanvasRef} className="hero-canvas" aria-hidden="true" />
         <div className="hero-glow" aria-hidden="true" />
         <div className="hero-inner">
           <div className="hero-badge reveal-up">AI 驅動 · 免費使用</div>
@@ -160,6 +260,7 @@ export default function Home({ articles }) {
 
       <style jsx>{`
         .hero { position: relative; }
+        .hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: block; }
         .hero-inner { position: relative; z-index: 2; }
         .hero-glow {
           position: absolute; z-index: 0; top: -80px; left: 50%; transform: translateX(-50%);

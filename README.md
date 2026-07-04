@@ -8,6 +8,10 @@
 - `pages/tools/index.js` — 所有工具頁卡片改深金、盾牌 Logo、hover 浮起。
 - `components/RetirementCalculator.js` — email 區塊改深金、每月金額變動時彈跳動態；邏輯(useRetirementCalc / /api/send-calc)不變。
 
+## 本次追加
+- \`pages/index.js\` 首屏 hero 加了**互動式成長曲線動態背景**（canvas）：多層向右上流動的資產成長曲線＋末端光點，滑鼠移入會把曲線「推high」形成互動峰；效能輕量、`prefers-reduced-motion` 自動關閉。只作用於首屏。
+- \`pages/articles/[slug].js\`、\`pages/articles/index.js\`、\`components/RelatedArticles.js\`：理財知識（文章）頁全部改深金高對比，內文、公式框、表格、程式碼區塊、分類標籤都清楚可讀。
+
 ## 未改動但已自動深色化的部分
 BookList、AdUnit、訂閱框、各工具頁與文章頁都吃 `globals.css`，覆蓋後會一起變深金。若個別工具頁(如 advanced-calculator)內有 styled-jsx 殘留淺色，回報我再逐頁調。
 
