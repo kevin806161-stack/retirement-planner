@@ -9,7 +9,9 @@
 - `components/RetirementCalculator.js` — email 區塊改深金、每月金額變動時彈跳動態；邏輯(useRetirementCalc / /api/send-calc)不變。
 
 ## 本次追加
-- \`pages/index.js\` 首屏 hero 背景改為**金色星塵粒子**（canvas）：稀疏光點極慢漂移＋微微明滅，滑鼠靠近時粒子輕輕讓開；收斂、安靜、質感為主，`prefers-reduced-motion` 自動關閉。（取代先前較強的成長曲線版本。）
+- **首屏星塵背景**：粒子加密（密度上限提高、間距縮小）＋加上**極淡金色連線**（僅近距離、透明度約 0.14），仍維持緩慢漂移與滑鼠微互動；`prefers-reduced-motion` 自動關閉。同步於 `pages/index.js` 與 `site/index.html`。
+- **7 個工具頁全部深金化**：labor-insurance、compound-interest、fire-calculator、etf-dividend、advanced-calculator、couple-calculator、dca-vs-lumpsum。修正所有「文字與背景太貼近」問題——卡片改深色 panel、內文改亮色、邊框改金線、按鈕/圖表/公式框/AI 分析框全部改深金；語意色（漲跌綠/警示）保留但調亮以確保可讀。
+- 文章頁（[slug]、index）、RelatedArticles：深金高對比（前一輪已完成）。
 - \`pages/articles/[slug].js\`、\`pages/articles/index.js\`、\`components/RelatedArticles.js\`：理財知識（文章）頁全部改深金高對比，內文、公式框、表格、程式碼區塊、分類標籤都清楚可讀。
 
 ## 未改動但已自動深色化的部分

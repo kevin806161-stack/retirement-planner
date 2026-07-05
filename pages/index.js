@@ -43,7 +43,7 @@ export default function Home({ articles }) {
     let particles = [];
 
     function build() {
-      const count = Math.max(28, Math.min(64, Math.round((W * H) / 22000)));
+      const count = Math.max(46, Math.min(120, Math.round((W * H) / 12000)));
       particles = [];
       for (let i = 0; i < count; i++) {
         particles.push({
@@ -75,6 +75,7 @@ export default function Home({ articles }) {
     host.addEventListener("pointerleave", onLeave);
 
     const RAD = 110, RAD2 = RAD * RAD;
+    const LINK = 118, LINK2 = LINK * LINK;
     function draw() {
       ctx.clearRect(0, 0, W, H);
       for (let i = 0; i < particles.length; i++) {
@@ -91,10 +92,29 @@ export default function Home({ articles }) {
         }
         p.ox += (tx - p.ox) * 0.08; p.oy += (ty - p.oy) * 0.08;
         p.tw += p.tws * 16;
+        p.px = p.x + p.ox; p.py = p.y + p.oy;
+      }
+      ctx.lineWidth = 1;
+      for (let a = 0; a < particles.length; a++) {
+        const pa = particles[a];
+        for (let b = a + 1; b < particles.length; b++) {
+          const pb = particles[b];
+          const lx = pa.px - pb.px, ly = pa.py - pb.py, l2 = lx * lx + ly * ly;
+          if (l2 < LINK2) {
+            const lo = (1 - l2 / LINK2) * 0.14;
+            ctx.strokeStyle = `rgba(212,169,90,${lo.toFixed(3)})`;
+            ctx.beginPath();
+            ctx.moveTo(pa.px, pa.py);
+            ctx.lineTo(pb.px, pb.py);
+            ctx.stroke();
+          }
+        }
+      }
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
         const op = p.base * (0.6 + 0.4 * Math.sin(p.tw));
-        const px = p.x + p.ox, py = p.y + p.oy;
         ctx.beginPath();
-        ctx.arc(px, py, p.r, 0, Math.PI * 2);
+        ctx.arc(p.px, p.py, p.r, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(212,169,90,${op.toFixed(3)})`;
         if (p.r > 1.4) { ctx.shadowColor = "rgba(236,199,118,.5)"; ctx.shadowBlur = 6; } else { ctx.shadowBlur = 0; }
         ctx.fill();
