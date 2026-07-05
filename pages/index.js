@@ -321,6 +321,15 @@ export default function Home({ articles }) {
 
         @media (max-width: 560px) {
           .home-tools-head, .home-articles-head { flex-direction: column; align-items: flex-start; }
+          .home-tools, .home-articles { padding: 40px 16px; }
+          .home-tools-head h2, .home-articles-head h2 { font-size: 22px; }
+          .home-tools-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+          .home-articles-grid { grid-template-columns: 1fr; gap: 14px; }
+          .hero-cta { flex-direction: column; align-items: stretch; }
+          .hero-cta .cta-gold, .hero-cta .cta-ghost { justify-content: center; }
+        }
+        @media (max-width: 380px) {
+          .home-tools-grid { grid-template-columns: 1fr; }
         }
       `}</style>
     </>
