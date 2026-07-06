@@ -217,6 +217,53 @@ p { color: var(--slate); }
 :global(.subscribe-box .err) { font-size: 12px; color: var(--terra); margin-top: 6px; }
 
 /* =========================================================
+   首頁工具卡 / 文章卡（全域規則，確保線上站一定套用）
+   ========================================================= */
+.home-tools, .home-articles { max-width: 1180px; margin: 0 auto; padding: 56px 28px; border-top: 1px solid var(--line2); }
+.home-tools-head, .home-articles-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 26px; }
+.home-tools-head h2, .home-articles-head h2 { font-size: 26px; font-weight: 900; color: var(--cream); margin-top: 12px; }
+.home-tools .eyebrow, .home-articles .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: .24em; color: var(--gold); text-transform: uppercase; }
+.home-tools .more-link, .home-articles .more-link { color: var(--gold); font-size: 14px; text-decoration: none; white-space: nowrap; }
+
+.home-tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+.home-tool {
+  position: relative; display: flex; flex-direction: column; gap: 12px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+  padding: 22px 20px; text-decoration: none; color: var(--cream);
+  transition: transform .3s, border-color .3s, box-shadow .3s;
+}
+.home-tool:hover { transform: translateY(-8px); border-color: rgba(212,169,90,.55); box-shadow: 0 26px 50px -24px rgba(0,0,0,.8); }
+.home-tool-top { display: flex; align-items: center; justify-content: space-between; }
+.home-tool-idx { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.home-tool-ic { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 11px; background: rgba(212,169,90,.1); font-size: 21px; }
+.home-tool-name { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 15px; font-weight: 700; color: var(--cream); }
+.home-tool-badge { font-size: 10px; font-weight: 700; color: #1a1206; background: var(--gold); padding: 2px 8px; border-radius: 6px; }
+.home-tool-desc { margin: 0; font-size: 12.5px; line-height: 1.65; color: var(--slate2); }
+.home-tool-go { margin-top: auto; font-size: 12.5px; color: var(--gold); transition: transform .25s; }
+.home-tool:hover .home-tool-go { transform: translateX(4px); }
+
+.home-articles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.home-article {
+  display: block; background: var(--panel); border: 1px solid var(--line2);
+  border-radius: 16px; padding: 22px; text-decoration: none !important; color: inherit;
+  transition: transform .3s, border-color .3s;
+}
+.home-article:hover { transform: translateY(-8px); border-color: rgba(212,169,90,.4); }
+.home-article-cat { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; color: var(--gold); margin-bottom: 12px; text-decoration: none !important; }
+.home-article-title { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--cream); line-height: 1.5; margin-bottom: 10px; text-decoration: none !important; }
+.home-article-desc { font-size: 13.5px; color: var(--slate2); line-height: 1.75; text-decoration: none !important; }
+/* 文章卡內所有文字都不要底線 */
+.home-article, .home-article * { text-decoration: none !important; }
+
+@media (max-width: 560px) {
+  .home-tools, .home-articles { padding: 40px 16px; }
+  .home-tools-head, .home-articles-head { flex-direction: column; align-items: flex-start; }
+  .home-tools-head h2, .home-articles-head h2 { font-size: 22px; }
+  .home-tools-grid { grid-template-columns: 1fr; gap: 12px; }
+  .home-articles-grid { grid-template-columns: 1fr; gap: 14px; }
+}
+
+/* =========================================================
    手機版統一整理（每頁共用；只在窄螢幕生效，不影響桌機）
    ========================================================= */
 
