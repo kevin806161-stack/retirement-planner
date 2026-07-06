@@ -13,24 +13,8 @@ export default function ArticlePage({ article, allArticles }) {
   return (
     <>
       <Head>
-        {/* 用單一字串組出 title，避免 React 在動態值與靜態文字之間插入 <!-- --> 造成標題亂碼 */}
-        <title>{`${article.title}｜退休咖`}</title>
+        <title>{article.title} | 退休 AI 規劃師</title>
         <meta name="description" content={article.description} />
-        <link rel="canonical" href={`https://retirementplantw.com/articles/${article.slug}`} />
-
-        {/* Open Graph：分享到 LINE / Threads / Facebook 時顯示標題、描述與縮圖 */}
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content={`${article.title}｜退休咖`} />
-        <meta property="og:description" content={article.description} />
-        <meta property="og:url" content={`https://retirementplantw.com/articles/${article.slug}`} />
-        <meta property="og:site_name" content="退休咖" />
-        <meta property="og:image" content="https://retirementplantw.com/icon-512.png" />
-
-        {/* Twitter / X 卡片 */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${article.title}｜退休咖`} />
-        <meta name="twitter:description" content={article.description} />
-        <meta name="twitter:image" content="https://retirementplantw.com/icon-512.png" />
       </Head>
 
       <nav className="nav">

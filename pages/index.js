@@ -8,13 +8,13 @@ import { adsenseConfig } from "../lib/affiliateLinks";
 import { getAllArticles } from "../lib/articles";
 
 const HOME_TOOLS = [
-  { href: "/tools/advanced-calculator", icon: "🧮", label: "進階退休試算", badge: "最熱門" },
-  { href: "/tools/labor-insurance", icon: "🏛️", label: "勞保年金試算", badge: "台灣專屬" },
-  { href: "/tools/fire-calculator", icon: "🔥", label: "FIRE 財務自由", badge: "新增" },
-  { href: "/tools/compound-interest", icon: "📈", label: "複利成長試算", badge: null },
-  { href: "/tools/etf-dividend", icon: "💰", label: "ETF 配息試算", badge: null },
-  { href: "/tools/couple-calculator", icon: "💑", label: "夫妻退休試算", badge: "雙人" },
-  { href: "/tools/dca-vs-lumpsum", icon: "⚖️", label: "定期定額 vs 單筆", badge: null },
+  { href: "/tools/advanced-calculator", icon: "🧮", label: "進階退休試算", desc: "含通膨調整、薪資成長、夫妻合計", badge: "最熱門" },
+  { href: "/tools/labor-insurance", icon: "🏛️", label: "勞保年金試算", desc: "精算勞保老年年金月領金額", badge: "台灣專屬" },
+  { href: "/tools/fire-calculator", icon: "🔥", label: "FIRE 財務自由", desc: "計算提早退休所需資產與時間", badge: "新增" },
+  { href: "/tools/compound-interest", icon: "📈", label: "複利成長試算", desc: "視覺化投資組合長期成長曲線", badge: null },
+  { href: "/tools/etf-dividend", icon: "💰", label: "ETF 配息試算", desc: "試算 0050、00878 每月配息", badge: null },
+  { href: "/tools/couple-calculator", icon: "💑", label: "夫妻退休試算", desc: "兩人合併試算退休缺口與配置", badge: "雙人" },
+  { href: "/tools/dca-vs-lumpsum", icon: "⚖️", label: "定期定額 vs 單筆", desc: "比較兩種投入方式的長期差異", badge: null },
 ];
 
 function ShieldLogo({ size = 34 }) {
@@ -43,7 +43,7 @@ export default function Home({ articles }) {
     let particles = [];
 
     function build() {
-      const count = Math.max(28, Math.min(64, Math.round((W * H) / 22000)));
+      const count = Math.max(46, Math.min(120, Math.round((W * H) / 12000)));
       particles = [];
       for (let i = 0; i < count; i++) {
         particles.push({
@@ -75,6 +75,7 @@ export default function Home({ articles }) {
     host.addEventListener("pointerleave", onLeave);
 
     const RAD = 110, RAD2 = RAD * RAD;
+    const LINK = 118, LINK2 = LINK * LINK;
     function draw() {
       ctx.clearRect(0, 0, W, H);
       for (let i = 0; i < particles.length; i++) {
@@ -91,10 +92,29 @@ export default function Home({ articles }) {
         }
         p.ox += (tx - p.ox) * 0.08; p.oy += (ty - p.oy) * 0.08;
         p.tw += p.tws * 16;
+        p.px = p.x + p.ox; p.py = p.y + p.oy;
+      }
+      ctx.lineWidth = 1;
+      for (let a = 0; a < particles.length; a++) {
+        const pa = particles[a];
+        for (let b = a + 1; b < particles.length; b++) {
+          const pb = particles[b];
+          const lx = pa.px - pb.px, ly = pa.py - pb.py, l2 = lx * lx + ly * ly;
+          if (l2 < LINK2) {
+            const lo = (1 - l2 / LINK2) * 0.14;
+            ctx.strokeStyle = `rgba(212,169,90,${lo.toFixed(3)})`;
+            ctx.beginPath();
+            ctx.moveTo(pa.px, pa.py);
+            ctx.lineTo(pb.px, pb.py);
+            ctx.stroke();
+          }
+        }
+      }
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
         const op = p.base * (0.6 + 0.4 * Math.sin(p.tw));
-        const px = p.x + p.ox, py = p.y + p.oy;
         ctx.beginPath();
-        ctx.arc(px, py, p.r, 0, Math.PI * 2);
+        ctx.arc(p.px, p.py, p.r, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(212,169,90,${op.toFixed(3)})`;
         if (p.r > 1.4) { ctx.shadowColor = "rgba(236,199,118,.5)"; ctx.shadowBlur = 6; } else { ctx.shadowBlur = 0; }
         ctx.fill();
@@ -191,9 +211,16 @@ export default function Home({ articles }) {
         <div className="home-tools-grid">
           {HOME_TOOLS.map((tool, i) => (
             <Link key={tool.href} href={tool.href} className="home-tool reveal-up" style={{ "--d": `${i * 0.05}s` }}>
-              <span className="home-tool-ic">{tool.icon}</span>
-              <span className="home-tool-label">{tool.label}</span>
-              {tool.badge && <span className="home-tool-badge">{tool.badge}</span>}
+              <div className="home-tool-top">
+                <span className="home-tool-idx">{String(i + 1).padStart(2, "0")}</span>
+                <span className="home-tool-ic">{tool.icon}</span>
+              </div>
+              <div className="home-tool-name">
+                {tool.label}
+                {tool.badge && <span className="home-tool-badge">{tool.badge}</span>}
+              </div>
+              <p className="home-tool-desc">{tool.desc}</p>
+              <span className="home-tool-go">開啟 →</span>
             </Link>
           ))}
         </div>
@@ -219,6 +246,7 @@ export default function Home({ articles }) {
         <div className="home-articles-grid">
           {articles.slice(0, 3).map((article, i) => (
             <Link href={`/articles/${article.slug}`} key={article.slug} className="home-article reveal-up" style={{ "--d": `${i * 0.09}s` }}>
+              {article.category && <div className="home-article-cat">{article.category}</div>}
               <div className="home-article-title">{article.title}</div>
               <div className="home-article-desc">{article.description}</div>
             </Link>
@@ -276,17 +304,22 @@ export default function Home({ articles }) {
         .home-tools { max-width: 1180px; margin: 0 auto; padding: 56px 28px; border-top: 1px solid var(--line2); }
         .home-tools-head, .home-articles-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 26px; }
         .home-tools-head h2, .home-articles-head h2 { font-size: 26px; font-weight: 900; color: var(--cream); margin-top: 12px; }
-        .home-tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
+        .home-tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
         .home-tool {
           position: relative; display: flex; flex-direction: column; gap: 12px;
           background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
-          padding: 20px 18px; text-decoration: none; color: var(--cream);
+          padding: 22px 20px; text-decoration: none; color: var(--cream);
           transition: transform .3s, border-color .3s, box-shadow .3s;
         }
         .home-tool:hover { transform: translateY(-8px); border-color: rgba(212,169,90,.55); box-shadow: 0 26px 50px -24px rgba(0,0,0,.8); }
+        .home-tool-top { display: flex; align-items: center; justify-content: space-between; }
+        .home-tool-idx { font-family: var(--mono); font-size: 12px; color: var(--muted); }
         .home-tool-ic { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 11px; background: rgba(212,169,90,.1); font-size: 21px; }
-        .home-tool-label { font-size: 14px; font-weight: 700; color: var(--cream); }
-        .home-tool-badge { position: absolute; top: 16px; right: 16px; font-size: 10px; font-weight: 700; color: #1a1206; background: var(--gold); padding: 2px 8px; border-radius: 6px; }
+        .home-tool-name { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 15px; font-weight: 700; color: var(--cream); }
+        .home-tool-badge { font-size: 10px; font-weight: 700; color: #1a1206; background: var(--gold); padding: 2px 8px; border-radius: 6px; }
+        .home-tool-desc { margin: 0; font-size: 12.5px; line-height: 1.65; color: var(--slate2); }
+        .home-tool-go { margin-top: auto; font-size: 12.5px; color: var(--gold); transition: transform .25s; }
+        .home-tool:hover .home-tool-go { transform: translateX(4px); }
 
         .home-articles { max-width: 1180px; margin: 0 auto; padding: 56px 28px; border-top: 1px solid var(--line2); }
         .home-articles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
@@ -296,11 +329,21 @@ export default function Home({ articles }) {
           transition: transform .3s, border-color .3s;
         }
         .home-article:hover { transform: translateY(-8px); border-color: rgba(212,169,90,.4); }
+        .home-article-cat { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; color: var(--gold); margin-bottom: 12px; }
         .home-article-title { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--cream); line-height: 1.5; margin-bottom: 10px; }
         .home-article-desc { font-size: 13.5px; color: var(--slate2); line-height: 1.75; }
 
         @media (max-width: 560px) {
           .home-tools-head, .home-articles-head { flex-direction: column; align-items: flex-start; }
+          .home-tools, .home-articles { padding: 40px 16px; }
+          .home-tools-head h2, .home-articles-head h2 { font-size: 22px; }
+          .home-tools-grid { grid-template-columns: 1fr; gap: 12px; }
+          .home-articles-grid { grid-template-columns: 1fr; gap: 14px; }
+          .hero-cta { flex-direction: column; align-items: stretch; }
+          .hero-cta .cta-gold, .hero-cta .cta-ghost { justify-content: center; }
+        }
+        @media (max-width: 380px) {
+          .home-tools-grid { grid-template-columns: 1fr; }
         }
       `}</style>
     </>
