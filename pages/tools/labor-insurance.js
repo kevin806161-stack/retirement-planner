@@ -107,7 +107,7 @@ export default function LaborInsuranceCalculator() {
               </div>
               <div className="formula-row">
                 <span>公式二（年資×1.55%×薪資）</span>
-                <span style={{ color: "#ecc776", fontWeight: 600 }}>{fmt(result.formula2)}</span>
+                <span style={{ color: "#1d6fd8", fontWeight: 600 }}>{fmt(result.formula2)}</span>
               </div>
               <div className="formula-note">取兩公式較高者：{fmt(result.baseAmount)}</div>
             </div>
@@ -116,12 +116,12 @@ export default function LaborInsuranceCalculator() {
 
             <div className="result-section-title">加上勞退（雇主提撥 6%）</div>
             <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13px", marginBottom: "8px" }}>
-              <span style={{ color: "#a2b4c6" }}>勞退月領估算</span>
+              <span style={{ color: "#666" }}>勞退月領估算</span>
               <span style={{ fontWeight: 600 }}>{fmt(result.laborPensionMonthlyPayout)}</span>
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "15px", fontWeight: 700, borderTop: "1px solid rgba(212,169,90,.16)", paddingTop: "12px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "15px", fontWeight: 700, borderTop: "1px solid #e5e5e0", paddingTop: "12px" }}>
               <span>勞保 + 勞退合計月領</span>
-              <span style={{ color: "#ecc776" }}>{fmt(result.totalMonthly)}</span>
+              <span style={{ color: "#1d6fd8" }}>{fmt(result.totalMonthly)}</span>
             </div>
 
             <div className="ai-analysis">
@@ -144,31 +144,31 @@ export default function LaborInsuranceCalculator() {
 
       <style jsx>{`
         .tool-page { max-width: 900px; margin: 0 auto; padding: 32px 24px 80px; }
-        .tool-breadcrumb { font-size: 12px; color: #6b7d90; margin-bottom: 16px; }
-        .tool-breadcrumb a { color: #ecc776; text-decoration: none; }
+        .tool-breadcrumb { font-size: 12px; color: #999; margin-bottom: 16px; }
+        .tool-breadcrumb a { color: #1d6fd8; text-decoration: none; }
         h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
-        .tool-desc { font-size: 14px; color: #a2b4c6; margin-bottom: 24px; line-height: 1.6; }
+        .tool-desc { font-size: 14px; color: #666; margin-bottom: 24px; line-height: 1.6; }
         .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
         @media (max-width: 700px) { .calc-grid { grid-template-columns: 1fr; } }
         .calc-inputs { display: flex; flex-direction: column; gap: 14px; }
-        .hint { font-size: 11px; color: #6b7d90; margin-top: -8px; }
-        .info-box { background: #0d1c2b; border-radius: 10px; padding: 14px; font-size: 13px; color: #a2b4c6; line-height: 1.8; }
-        .info-title { font-weight: 600; color: #f3ecdd; margin-bottom: 6px; }
-        .calc-result { background: #10202f; border: 1px solid rgba(212,169,90,.16); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
-        .result-main { text-align: center; padding-bottom: 14px; border-bottom: 1px solid rgba(212,169,90,.16); }
-        .result-label { font-size: 12px; color: #8394a6; margin-bottom: 6px; }
-        .result-amount { font-size: 30px; font-weight: 700; color: #ecc776; }
-        .result-sub { font-size: 12px; color: #8394a6; margin-top: 6px; }
-        .badge-good { background: rgba(91,191,138,.16); color: #6fd39a; padding: 2px 10px; border-radius: 12px; }
-        .badge-warn { background: rgba(236,199,118,.14); color: #e8c477; padding: 2px 10px; border-radius: 12px; }
-        .formula-box { background: #0d1c2b; border-radius: 10px; padding: 14px; }
-        .formula-title { font-size: 12px; font-weight: 600; color: #a2b4c6; margin-bottom: 10px; }
-        .formula-row { display: flex; justify-content: space-between; font-size: 12px; color: #a2b4c6; margin-bottom: 6px; }
-        .formula-note { font-size: 12px; color: #8394a6; margin-top: 8px; border-top: 1px solid rgba(212,169,90,.16); padding-top: 8px; }
-        .divider { border-top: 1px solid rgba(212,169,90,.16); }
-        .result-section-title { font-size: 12px; font-weight: 600; color: #a2b4c6; }
-        .ai-analysis { background: rgba(212,169,90,.08); border: 1px solid rgba(212,169,90,.28); border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #ecc776; line-height: 1.6; }
-        .cta-link { font-size: 13px; color: #ecc776; text-decoration: none; font-weight: 500; }
+        .hint { font-size: 11px; color: #999; margin-top: -8px; }
+        .info-box { background: #f5f5f3; border-radius: 10px; padding: 14px; font-size: 13px; color: #555; line-height: 1.8; }
+        .info-title { font-weight: 600; color: #333; margin-bottom: 6px; }
+        .calc-result { background: #fafaf8; border: 1px solid #e5e5e0; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+        .result-main { text-align: center; padding-bottom: 14px; border-bottom: 1px solid #e5e5e0; }
+        .result-label { font-size: 12px; color: #888; margin-bottom: 6px; }
+        .result-amount { font-size: 30px; font-weight: 700; color: #1d6fd8; }
+        .result-sub { font-size: 12px; color: #888; margin-top: 6px; }
+        .badge-good { background: #e6f9ed; color: #2a7d2a; padding: 2px 10px; border-radius: 12px; }
+        .badge-warn { background: #fff4e5; color: #b07a0b; padding: 2px 10px; border-radius: 12px; }
+        .formula-box { background: #f5f5f3; border-radius: 10px; padding: 14px; }
+        .formula-title { font-size: 12px; font-weight: 600; color: #555; margin-bottom: 10px; }
+        .formula-row { display: flex; justify-content: space-between; font-size: 12px; color: #666; margin-bottom: 6px; }
+        .formula-note { font-size: 12px; color: #888; margin-top: 8px; border-top: 1px solid #e0e0e0; padding-top: 8px; }
+        .divider { border-top: 1px solid #e5e5e0; }
+        .result-section-title { font-size: 12px; font-weight: 600; color: #555; }
+        .ai-analysis { background: #e6f1fb; border: 1px solid #b5d4f4; border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #1a4a7a; line-height: 1.6; }
+        .cta-link { font-size: 13px; color: #1d6fd8; text-decoration: none; font-weight: 500; }
       `}</style>
     </>
   );
@@ -178,8 +178,8 @@ function Slider({ label, value, min, max, step = 1, unit, fmtVal, onChange }) {
   const display = fmtVal ? fmtVal(value) : `${value}${unit || ""}`;
   return (
     <div>
-      <label style={{ fontSize: "13px", color: "#a2b4c6", display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-        {label} <span style={{ fontWeight: 600, color: "#f3ecdd" }}>{display}</span>
+      <label style={{ fontSize: "13px", color: "#555", display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
+        {label} <span style={{ fontWeight: 600, color: "#1a1a1a" }}>{display}</span>
       </label>
       <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(parseFloat(e.target.value))} style={{ width: "100%" }} />
     </div>
