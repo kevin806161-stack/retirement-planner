@@ -8,9 +8,38 @@ export default function Document() {
         <meta charSet="utf-8" />
         <meta name="google-site-verification" content="KqZGc0tJ-VrFZXB2BoTTWoM4nU_ADFlQAn-ZO9d-Oh0" />
         <meta name="google-adsense-account" content={adsenseConfig.publisherId} />
-        {/* 全站共用的 <meta description> 已移除：
-            description 一律由各頁自己的 <Head> 提供（每頁獨立、對 SEO 最有利）。
-            切勿在此重新加入全站 description，否則每頁會出現兩個 description 標籤而互相稀釋。 */}
+        <meta
+          name="description"
+          content="退休咖｜AI 驅動的退休金規劃與資產配置試算工具，免費試算你的退休缺口"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "退休咖",
+              url: "https://retirementplantw.com",
+              description: "專為台灣上班族打造的退休金規劃工具與知識平台，提供免費 AI 試算工具與原創理財文章。",
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "退休咖",
+              url: "https://retirementplantw.com",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: "https://retirementplantw.com/articles?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
       </Head>
       <body>
         <Main />
