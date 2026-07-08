@@ -13,50 +13,8 @@ export default function ArticlePage({ article, allArticles }) {
   return (
     <>
       <Head>
-        <title>{article.title} | 退休咖</title>
+        <title>{article.title} | 退休 AI 規劃師</title>
         <meta name="description" content={article.description} />
-        <link rel="canonical" href={`https://retirementplantw.com/articles/${article.slug}`} />
-        <meta property="og:site_name" content="退休咖" />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content={`${article.title} | 退休咖`} />
-        <meta property="og:description" content={article.description} />
-        <meta property="og:url" content={`https://retirementplantw.com/articles/${article.slug}`} />
-        <meta property="og:image" content="https://retirementplantw.com/og-image.png" />
-        <meta property="og:locale" content="zh_TW" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${article.title} | 退休咖`} />
-        <meta name="twitter:description" content={article.description} />
-        <meta name="twitter:image" content="https://retirementplantw.com/og-image.png" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Article",
-              headline: article.title,
-              description: article.description,
-              datePublished: article.publishedAt,
-              dateModified: article.publishedAt,
-              author: { "@type": "Organization", name: "退休咖" },
-              publisher: { "@type": "Organization", name: "退休咖" },
-              mainEntityOfPage: `https://retirementplantw.com/articles/${article.slug}`,
-            }),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              itemListElement: [
-                { "@type": "ListItem", position: 1, name: "首頁", item: "https://retirementplantw.com" },
-                { "@type": "ListItem", position: 2, name: "理財知識", item: "https://retirementplantw.com/articles" },
-                { "@type": "ListItem", position: 3, name: article.title, item: `https://retirementplantw.com/articles/${article.slug}` },
-              ],
-            }),
-          }}
-        />
       </Head>
 
       <nav className="nav">
@@ -105,28 +63,40 @@ export default function ArticlePage({ article, allArticles }) {
       <style jsx>{`
         .article-page { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
         .article-category {
-          font-size: 11px; color: #1d6fd8; background: #e6f1fb;
+          font-size: 11px; color: var(--gold2); background: rgba(212,169,90,.14);
+          border: 1px solid rgba(212,169,90,.3);
           display: inline-block; padding: 3px 10px; border-radius: 12px; margin-bottom: 14px;
         }
-        h1 { font-size: 28px; font-weight: 700; line-height: 1.4; margin-bottom: 10px; }
-        .article-meta { font-size: 13px; color: #999; margin-bottom: 32px; }
-        .article-body :global(h1) { font-size: 24px; font-weight: 700; margin: 32px 0 16px; }
-        .article-body :global(h2) { font-size: 20px; font-weight: 600; margin: 28px 0 14px; }
-        .article-body :global(p) { font-size: 15px; line-height: 1.9; color: #333; margin-bottom: 16px; }
+        h1 { font-size: 30px; font-weight: 900; line-height: 1.4; margin-bottom: 10px; color: var(--cream); }
+        .article-meta { font-size: 13px; color: var(--muted); margin-bottom: 32px; }
+        .article-body :global(h1) { font-size: 25px; font-weight: 800; margin: 32px 0 16px; color: var(--cream); }
+        .article-body :global(h2) { font-size: 21px; font-weight: 700; margin: 28px 0 14px; color: var(--cream); }
+        .article-body :global(h3) { font-size: 18px; font-weight: 700; margin: 24px 0 12px; color: var(--gold2); }
+        .article-body :global(p) { font-size: 16px; line-height: 1.95; color: var(--cream); margin-bottom: 16px; }
+        .article-body :global(a) { color: var(--gold2); text-decoration: underline; text-underline-offset: 3px; }
         .article-body :global(ul), .article-body :global(ol) { padding-left: 22px; margin-bottom: 16px; }
-        .article-body :global(li) { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 8px; }
-        .article-body :global(pre) {
-          background: #f5f5f3; border: 1px solid #e5e5e0; border-radius: 8px;
-          padding: 16px; overflow-x: auto; margin-bottom: 16px; font-size: 13px;
+        .article-body :global(li) { font-size: 16px; line-height: 1.85; color: var(--cream); margin-bottom: 8px; }
+        .article-body :global(li)::marker { color: var(--gold); }
+        .article-body :global(blockquote) {
+          margin: 20px 0; padding: 12px 18px; border-left: 3px solid var(--gold);
+          background: rgba(212,169,90,.07); border-radius: 0 10px 10px 0; color: var(--slate);
         }
-        .article-body :global(code) { font-family: "SF Mono", Menlo, monospace; }
+        .article-body :global(pre) {
+          background: #0d1c2b; border: 1px solid rgba(212,169,90,.28); border-radius: 12px;
+          padding: 18px; overflow-x: auto; margin-bottom: 16px; font-size: 14px; color: var(--gold2);
+        }
+        .article-body :global(code) { font-family: var(--mono), "SF Mono", Menlo, monospace; color: var(--gold2); }
+        .article-body :global(p) :global(code), .article-body :global(li) :global(code) {
+          background: rgba(212,169,90,.12); padding: 2px 6px; border-radius: 5px; font-size: 14px;
+        }
         .article-body :global(table) { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
-        .article-body :global(th) { background: #f5f5f3; padding: 10px 12px; text-align: left; border: 1px solid #e5e5e0; font-weight: 600; }
-        .article-body :global(td) { padding: 10px 12px; border: 1px solid #e5e5e0; }
-        .article-body :global(hr) { margin: 32px 0; border: none; border-top: 1px solid #e5e5e0; }
-        .article-body :global(em) { font-size: 13px; color: #888; }
-        .article-body :global(strong) { font-weight: 700; }
-        .back-link { display: inline-block; font-size: 14px; color: #1d6fd8; text-decoration: none; margin-top: 32px; }
+        .article-body :global(th) { background: rgba(212,169,90,.12); padding: 11px 13px; text-align: left; border: 1px solid var(--line); font-weight: 700; color: var(--cream); }
+        .article-body :global(td) { padding: 11px 13px; border: 1px solid var(--line2); color: var(--cream); }
+        .article-body :global(hr) { margin: 32px 0; border: none; border-top: 1px solid var(--line2); }
+        .article-body :global(em) { font-size: 14px; color: var(--slate2); }
+        .article-body :global(strong) { font-weight: 700; color: var(--gold2); }
+        .back-link { display: inline-block; font-size: 14px; color: var(--gold2); text-decoration: none; margin-top: 32px; }
+        .back-link:hover { text-decoration: underline; }
       `}</style>
     </>
   );
