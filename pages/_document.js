@@ -12,6 +12,17 @@ export default function Document() {
           name="description"
           content="退休咖｜AI 驅動的退休金規劃與資產配置試算工具，免費試算你的退休缺口"
         />
+        <meta property="og:site_name" content="退休咖" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="退休咖｜台灣人的 AI 退休金規劃工具" />
+        <meta property="og:description" content="五分鐘算出你的退休金缺口。免費 AI 試算工具與原創理財知識。" />
+        <meta property="og:url" content="https://retirementplantw.com" />
+        <meta property="og:image" content="https://retirementplantw.com/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="zh_TW" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://retirementplantw.com/og-image.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
