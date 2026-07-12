@@ -23,10 +23,10 @@ export default async function handler(req, res) {
   }
 
   try {
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: FROM,
       to: NOTIFY_TO,
-      replyTo: email, // 直接回覆會寄給填表者
+      replyTo: email,
       subject: `[退休咖] 新聯絡表單 - ${name}`,
       html: `
         <div style="font-family: sans-serif; max-width: 560px;">
@@ -39,9 +39,15 @@ export default async function handler(req, res) {
       `,
     });
 
+    if (error) {
+      console.error("Resend API 錯誤（聯絡表單）:", JSON.stringify(error));
+      return res.status(500).json({ error: "伺服器錯誤，請稍後再試" });
+    }
+
+    console.log("✅ 聯絡表單寄送成功:", { name, email, resendId: data?.id });
     return res.status(200).json({ success: true });
   } catch (err) {
-    console.error("聯絡表單錯誤:", err);
+    console.error("聯絡表單錯誤（例外）:", err);
     return res.status(500).json({ error: "伺服器錯誤，請稍後再試" });
   }
 }

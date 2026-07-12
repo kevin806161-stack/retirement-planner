@@ -24,7 +24,7 @@ export default async function handler(req, res) {
 
   try {
     // 寄歡迎信給訂閱者
-    await resend.emails.send({
+    const { data: welcomeData, error: welcomeError } = await resend.emails.send({
       from: FROM,
       to: email,
       subject: "歡迎訂閱退休咖理財報告 ☕",
@@ -41,6 +41,11 @@ export default async function handler(req, res) {
       `,
     });
 
+    if (welcomeError) {
+      console.error("Resend API 錯誤（訂閱歡迎信）:", JSON.stringify(welcomeError));
+      return res.status(500).json({ error: "訂閱失敗，請稍後再試" });
+    }
+
     // 通知管理者有新訂閱
     await resend.emails.send({
       from: FROM,
@@ -49,9 +54,10 @@ export default async function handler(req, res) {
       html: `<p>新的電子報訂閱者：<strong>${email}</strong></p><p>時間：${new Date().toLocaleString("zh-TW")}</p>`,
     });
 
+    console.log("✅ 訂閱寄送成功:", { email, resendId: welcomeData?.id });
     return res.status(200).json({ success: true });
   } catch (err) {
-    console.error("訂閱錯誤:", err);
+    console.error("訂閱錯誤（例外）:", err);
     return res.status(500).json({ error: "訂閱失敗，請稍後再試" });
   }
 }
