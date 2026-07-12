@@ -60,16 +60,22 @@ export default async function handler(req, res) {
   `;
 
   try {
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: "退休咖 <noreply@retirementplantw.com>",
       to: email,
       subject: "你的退休金試算結果 | 退休咖",
       html,
     });
 
+    if (error) {
+      console.error("Resend API 錯誤（試算結果）:", JSON.stringify(error));
+      return res.status(500).json({ error: "寄送失敗", detail: error });
+    }
+
+    console.log("✅ 試算結果寄送成功:", { email, resendId: data?.id });
     return res.status(200).json({ success: true });
   } catch (err) {
-    console.error("寄送失敗:", err);
+    console.error("寄送失敗（例外）:", err);
     return res.status(500).json({ error: "寄送失敗" });
   }
 }
