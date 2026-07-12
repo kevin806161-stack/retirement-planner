@@ -1,5 +1,8 @@
 // pages/api/send-calc.js
 // 把試算結果寄到使用者信箱
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).end();
@@ -57,19 +60,12 @@ export default async function handler(req, res) {
   `;
 
   try {
-    console.log("📊 試算結果寄送請求:", { email, age, retire });
-
-    // TODO: 取消註解並設定 RESEND_API_KEY 環境變數即可啟用寄信
-    /*
-    const { Resend } = require('resend');
-    const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
-      from: 'noreply@retirementplantw.com',
+      from: "退休咖 <noreply@retirementplantw.com>",
       to: email,
-      subject: '你的退休金試算結果 | 退休咖',
+      subject: "你的退休金試算結果 | 退休咖",
       html,
     });
-    */
 
     return res.status(200).json({ success: true });
   } catch (err) {
