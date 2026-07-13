@@ -1,6 +1,6 @@
 import { getAllArticles } from "../lib/articles";
 
-const SITE_URL = "https://retirementplantw.com";
+const SITE_URL = "https://www.retirementplantw.com";
 
 function escapeXml(str = "") {
   return str

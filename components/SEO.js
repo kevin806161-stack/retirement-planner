@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-const SITE_URL = "https://retirementplantw.com";
+const SITE_URL = "https://www.retirementplantw.com";
 const SITE_NAME = "退休咖";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 

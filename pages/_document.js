@@ -16,13 +16,13 @@ export default function Document() {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="退休咖｜台灣人的 AI 退休金規劃工具" />
         <meta property="og:description" content="五分鐘算出你的退休金缺口。免費 AI 試算工具與原創理財知識。" />
-        <meta property="og:url" content="https://retirementplantw.com" />
-        <meta property="og:image" content="https://retirementplantw.com/og-image.png" />
+        <meta property="og:url" content="https://www.retirementplantw.com" />
+        <meta property="og:image" content="https://www.retirementplantw.com/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:locale" content="zh_TW" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://retirementplantw.com/og-image.png" />
+        <meta name="twitter:image" content="https://www.retirementplantw.com/og-image.png" />
 
         {/* Google Analytics 4 */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6R87F8KBY"></script>
@@ -43,7 +43,7 @@ export default function Document() {
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "退休咖",
-              url: "https://retirementplantw.com",
+              url: "https://www.retirementplantw.com",
               description: "專為台灣上班族打造的退休金規劃工具與知識平台，提供免費 AI 試算工具與原創理財文章。",
             }),
           }}
@@ -55,10 +55,10 @@ export default function Document() {
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "退休咖",
-              url: "https://retirementplantw.com",
+              url: "https://www.retirementplantw.com",
               potentialAction: {
                 "@type": "SearchAction",
-                target: "https://retirementplantw.com/articles?q={search_term_string}",
+                target: "https://www.retirementplantw.com/articles?q={search_term_string}",
                 "query-input": "required name=search_term_string",
               },
             }),

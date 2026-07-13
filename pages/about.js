@@ -7,10 +7,10 @@ export default function About() {
       <Head>
         <title>關於我們 | 退休咖</title>
         <meta name="description" content="退休咖是一個專為台灣上班族打造的退休金規劃工具與知識平台，提供免費的 AI 試算工具與原創理財文章。" />
-        <link rel="canonical" href="https://retirementplantw.com/about" />
+        <link rel="canonical" href="https://www.retirementplantw.com/about" />
         <meta property="og:title" content="關於我們 | 退休咖" />
         <meta property="og:description" content="退休咖是專為台灣上班族打造的退休金規劃工具與知識平台。" />
-        <meta property="og:url" content="https://retirementplantw.com/about" />
+        <meta property="og:url" content="https://www.retirementplantw.com/about" />
         <meta property="og:type" content="website" />
       </Head>
 

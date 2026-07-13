@@ -36,10 +36,10 @@ export default function Contact() {
       <Head>
         <title>聯絡我們 | 退休咖</title>
         <meta name="description" content="有任何問題、文章勘誤或合作洽詢，歡迎透過聯絡表單與退休咖聯繫。" />
-        <link rel="canonical" href="https://retirementplantw.com/contact" />
+        <link rel="canonical" href="https://www.retirementplantw.com/contact" />
         <meta property="og:title" content="聯絡我們 | 退休咖" />
         <meta property="og:description" content="有任何問題或合作洽詢，歡迎與退休咖聯繫。" />
-        <meta property="og:url" content="https://retirementplantw.com/contact" />
+        <meta property="og:url" content="https://www.retirementplantw.com/contact" />
       </Head>
 
       <nav className="nav">

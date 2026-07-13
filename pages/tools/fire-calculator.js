@@ -54,9 +54,9 @@ export default function FireCalculator() {
 
   const getFireType = () => {
     const monthly = expense;
-    if (monthly < 25000) return { type: "Lean FIRE", desc: "極簡生活，最快達成財務自由", color: "rgba(91,191,138,.16)" };
-    if (monthly < 50000) return { type: "Regular FIRE", desc: "一般舒適生活水準", color: "rgba(212,169,90,.08)" };
-    if (monthly < 80000) return { type: "Fat FIRE", desc: "高品質生活，需要更多資產", color: "rgba(236,199,118,.14)" };
+    if (monthly < 25000) return { type: "Lean FIRE", desc: "極簡生活，最快達成財務自由", color: "#e6f9ed" };
+    if (monthly < 50000) return { type: "Regular FIRE", desc: "一般舒適生活水準", color: "#e6f1fb" };
+    if (monthly < 80000) return { type: "Fat FIRE", desc: "高品質生活，需要更多資產", color: "#fff4e5" };
     return { type: "Ultra Fat FIRE", desc: "奢華生活，資產需求極高", color: "#ffeaea" };
   };
 
@@ -67,6 +67,22 @@ export default function FireCalculator() {
       <Head>
         <title>FIRE 財務自由試算器 | 退休咖</title>
         <meta name="description" content="計算你需要多少資產才能實現 FIRE 財務自由，以及根據目前的儲蓄率，幾年後能夠達成。" />
+        <link rel="canonical" href="https://www.retirementplantw.com/tools/fire-calculator" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              name: "FIRE 財務自由試算器",
+              description: "計算 FIRE 財務自由所需資產與達成時間",
+              url: "https://www.retirementplantw.com/tools/fire-calculator",
+              applicationCategory: "FinanceApplication",
+              operatingSystem: "Web",
+              offers: { "@type": "Offer", price: "0", priceCurrency: "TWD" },
+            }),
+          }}
+        />
       </Head>
 
       <nav className="nav">
@@ -123,7 +139,7 @@ export default function FireCalculator() {
             <div className="bucket-box">
               <div className="bucket-title">🪣 桶狀策略建議配置</div>
               <BucketRow color="#2a7d2a" label="第一桶（2年現金）" value={fmt(result.bucket1)} desc="定存、活存" />
-              <BucketRow color="#ecc776" label="第二桶（8年債券）" value={fmt(result.bucket2)} desc="債券 ETF、高股息" />
+              <BucketRow color="#1d6fd8" label="第二桶（8年債券）" value={fmt(result.bucket2)} desc="債券 ETF、高股息" />
               <BucketRow color="#8a4fd8" label="第三桶（長期股票）" value={fmt(Math.max(0, result.bucket3))} desc="台美股 ETF" />
             </div>
 
@@ -145,25 +161,25 @@ export default function FireCalculator() {
 
       <style jsx>{`
         .tool-page { max-width: 900px; margin: 0 auto; padding: 32px 24px 80px; }
-        .tool-breadcrumb { font-size: 12px; color: #6b7d90; margin-bottom: 16px; }
-        .tool-breadcrumb a { color: #ecc776; text-decoration: none; }
+        .tool-breadcrumb { font-size: 12px; color: #999; margin-bottom: 16px; }
+        .tool-breadcrumb a { color: #1d6fd8; text-decoration: none; }
         h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
-        .tool-desc { font-size: 14px; color: #a2b4c6; margin-bottom: 24px; line-height: 1.6; }
+        .tool-desc { font-size: 14px; color: #666; margin-bottom: 24px; line-height: 1.6; }
         .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
         @media (max-width: 700px) { .calc-grid { grid-template-columns: 1fr; } }
         .calc-inputs { display: flex; flex-direction: column; gap: 14px; }
-        .calc-result { background: #10202f; border: 1px solid rgba(212,169,90,.16); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+        .calc-result { background: #fafaf8; border: 1px solid #e5e5e0; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
         .fire-type { border-radius: 10px; padding: 14px; text-align: center; }
-        .fire-type-label { font-size: 11px; color: #a2b4c6; margin-bottom: 4px; }
-        .fire-type-name { font-size: 18px; font-weight: 700; color: #f3ecdd; }
-        .fire-type-desc { font-size: 12px; color: #a2b4c6; margin-top: 4px; }
-        .result-main { text-align: center; padding-bottom: 14px; border-bottom: 1px solid rgba(212,169,90,.16); }
-        .result-label { font-size: 12px; color: #8394a6; margin-bottom: 6px; }
-        .result-amount { font-size: 28px; font-weight: 700; color: #ecc776; }
-        .result-sub { font-size: 12px; color: #6b7d90; margin-top: 4px; }
-        .bucket-box { background: #0d1c2b; border-radius: 10px; padding: 14px; }
-        .bucket-title { font-size: 13px; font-weight: 600; color: #f3ecdd; margin-bottom: 12px; }
-        .ai-analysis { background: rgba(212,169,90,.08); border: 1px solid rgba(212,169,90,.28); border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #ecc776; line-height: 1.6; }
+        .fire-type-label { font-size: 11px; color: #666; margin-bottom: 4px; }
+        .fire-type-name { font-size: 18px; font-weight: 700; color: #1a1a1a; }
+        .fire-type-desc { font-size: 12px; color: #666; margin-top: 4px; }
+        .result-main { text-align: center; padding-bottom: 14px; border-bottom: 1px solid #e5e5e0; }
+        .result-label { font-size: 12px; color: #888; margin-bottom: 6px; }
+        .result-amount { font-size: 28px; font-weight: 700; color: #1d6fd8; }
+        .result-sub { font-size: 12px; color: #999; margin-top: 4px; }
+        .bucket-box { background: #f5f5f3; border-radius: 10px; padding: 14px; }
+        .bucket-title { font-size: 13px; font-weight: 600; color: #333; margin-bottom: 12px; }
+        .ai-analysis { background: #e6f1fb; border: 1px solid #b5d4f4; border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #1a4a7a; line-height: 1.6; }
       `}</style>
     </>
   );
@@ -173,8 +189,8 @@ function Slider({ label, value, min, max, step = 1, unit, fmtVal, onChange }) {
   const display = fmtVal ? fmtVal(value) : `${value}${unit || ""}`;
   return (
     <div>
-      <label style={{ fontSize: "13px", color: "#a2b4c6", display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-        {label} <span style={{ fontWeight: 600, color: "#f3ecdd" }}>{display}</span>
+      <label style={{ fontSize: "13px", color: "#555", display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
+        {label} <span style={{ fontWeight: 600, color: "#1a1a1a" }}>{display}</span>
       </label>
       <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(parseFloat(e.target.value))} style={{ width: "100%" }} />
     </div>
@@ -184,8 +200,8 @@ function Slider({ label, value, min, max, step = 1, unit, fmtVal, onChange }) {
 function ResultRow({ label, value, highlight, warn, good }) {
   return (
     <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13px" }}>
-      <span style={{ color: "#a2b4c6" }}>{label}</span>
-      <span style={{ fontWeight: 600, color: warn ? "#e8c477" : good ? "#2a7d2a" : highlight ? "#ecc776" : "#f3ecdd" }}>{value}</span>
+      <span style={{ color: "#666" }}>{label}</span>
+      <span style={{ fontWeight: 600, color: warn ? "#b07a0b" : good ? "#2a7d2a" : highlight ? "#1d6fd8" : "#1a1a1a" }}>{value}</span>
     </div>
   );
 }
@@ -194,7 +210,7 @@ function BucketRow({ color, label, value, desc }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
       <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: color, flexShrink: 0 }} />
-      <div style={{ flex: 1, fontSize: "12px", color: "#a2b4c6" }}>{label}<span style={{ color: "#6b7d90", marginLeft: "6px" }}>{desc}</span></div>
+      <div style={{ flex: 1, fontSize: "12px", color: "#555" }}>{label}<span style={{ color: "#999", marginLeft: "6px" }}>{desc}</span></div>
       <div style={{ fontSize: "12px", fontWeight: 600, color }}>{value}</div>
     </div>
   );

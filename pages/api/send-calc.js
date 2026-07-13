@@ -54,7 +54,7 @@ export default async function handler(req, res) {
 
       <p style="font-size: 12px; color: #999; line-height: 1.6;">
         本試算結果為概略估算，不構成投資建議。實際退休規劃請參考勞保局個人試算，並諮詢合格財務顧問。<br><br>
-        <a href="https://retirementplantw.com" style="color: #1d6fd8;">retirementplantw.com</a>
+        <a href="https://www.retirementplantw.com" style="color: #1d6fd8;">retirementplantw.com</a>
       </p>
     </div>
   `;
@@ -68,7 +68,7 @@ export default async function handler(req, res) {
     });
 
     if (error) {
-      console.error("Resend API 錯誤（試算結果）:", JSON.stringify(error));
+      console.error("Resend API 錯誤:", JSON.stringify(error));
       return res.status(500).json({ error: "寄送失敗", detail: error });
     }
 

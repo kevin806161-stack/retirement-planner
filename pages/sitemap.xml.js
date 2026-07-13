@@ -1,6 +1,6 @@
 import { getAllArticles } from "../lib/articles";
 
-const SITE_URL = "https://retirementplantw.com";
+const SITE_URL = "https://www.retirementplantw.com";
 
 function generateSiteMap(articles) {
   const today = new Date().toISOString().split("T")[0];
