@@ -52,6 +52,11 @@ export default function FAQ() {
       <Head>
         <title>常見問題 FAQ | 退休咖</title>
         <meta name="description" content="退休金規劃、資產配置、勞保勞退、AI 試算工具的常見問題解答，快速找到你想知道的答案。" />
+        <link rel="canonical" href="https://retirementplantw.com/faq" />
+        <meta property="og:title" content="常見問題 FAQ | 退休咖" />
+        <meta property="og:description" content="退休金規劃、資產配置、勞保勞退的常見問題解答。" />
+        <meta property="og:url" content="https://retirementplantw.com/faq" />
+        <meta property="og:type" content="website" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

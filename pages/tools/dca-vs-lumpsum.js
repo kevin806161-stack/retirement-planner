@@ -53,6 +53,22 @@ export default function DcaVsLumpsum() {
       <Head>
         <title>定期定額 vs 單筆投入回測工具 | 退休咖</title>
         <meta name="description" content="輸入投資金額與市場條件，回測比較定期定額（DCA）與單筆投入（Lump Sum）兩種策略的最終報酬差異。" />
+        <link rel="canonical" href="https://retirementplantw.com/tools/dca-vs-lumpsum" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              name: "定期定額 vs 單筆投入回測",
+              description: "回測比較定期定額與單筆投入的報酬差異",
+              url: "https://retirementplantw.com/tools/dca-vs-lumpsum",
+              applicationCategory: "FinanceApplication",
+              operatingSystem: "Web",
+              offers: { "@type": "Offer", price: "0", priceCurrency: "TWD" },
+            }),
+          }}
+        />
       </Head>
 
       <nav className="nav">
@@ -152,35 +168,35 @@ export default function DcaVsLumpsum() {
 
       <style jsx>{`
         .tool-page { max-width: 900px; margin: 0 auto; padding: 32px 24px 80px; }
-        .tool-breadcrumb { font-size: 12px; color: #6b7d90; margin-bottom: 16px; }
-        .tool-breadcrumb a { color: #ecc776; text-decoration: none; }
+        .tool-breadcrumb { font-size: 12px; color: #999; margin-bottom: 16px; }
+        .tool-breadcrumb a { color: #1d6fd8; text-decoration: none; }
         h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
-        .tool-desc { font-size: 14px; color: #a2b4c6; margin-bottom: 24px; line-height: 1.6; }
+        .tool-desc { font-size: 14px; color: #666; margin-bottom: 24px; line-height: 1.6; }
         .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
         @media (max-width: 700px) { .calc-grid { grid-template-columns: 1fr; } }
         .calc-inputs { display: flex; flex-direction: column; gap: 14px; }
-        .calc-result { background: #10202f; border: 1px solid rgba(212,169,90,.16); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
-        .result-main { text-align: center; padding-bottom: 14px; border-bottom: 1px solid rgba(212,169,90,.16); }
-        .result-label { font-size: 13px; color: #f3ecdd; margin-bottom: 6px; font-weight: 600; }
-        .result-amount { font-size: 28px; font-weight: 700; color: #ecc776; }
-        .result-sub { font-size: 12px; color: #6b7d90; margin-top: 4px; }
+        .calc-result { background: #fafaf8; border: 1px solid #e5e5e0; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+        .result-main { text-align: center; padding-bottom: 14px; border-bottom: 1px solid #e5e5e0; }
+        .result-label { font-size: 13px; color: #333; margin-bottom: 6px; font-weight: 600; }
+        .result-amount { font-size: 28px; font-weight: 700; color: #1d6fd8; }
+        .result-sub { font-size: 12px; color: #999; margin-top: 4px; }
         .vol-picker { margin-top: 4px; }
-        .vol-label { font-size: 13px; color: #a2b4c6; margin-bottom: 8px; }
+        .vol-label { font-size: 13px; color: #555; margin-bottom: 8px; }
         .vol-buttons { display: flex; gap: 8px; }
-        .vol-btn { flex: 1; padding: 8px; border-radius: 8px; border: 1px solid rgba(212,169,90,.22); background: #10202f; color: #a2b4c6; cursor: pointer; font-size: 13px; }
-        .vol-btn.active { background: #ecc776; color: #1a1206; border-color: #ecc776; }
-        .hint { font-size: 11px; color: #6b7d90; margin-top: 8px; }
+        .vol-btn { flex: 1; padding: 8px; border-radius: 8px; border: 1px solid #ddd; background: #fff; color: #555; cursor: pointer; font-size: 13px; }
+        .vol-btn.active { background: #1d6fd8; color: #fff; border-color: #1d6fd8; }
+        .hint { font-size: 11px; color: #999; margin-top: 8px; }
         .compare-bars { display: flex; flex-direction: column; gap: 16px; }
         .compare-item { }
-        .compare-head { display: flex; justify-content: space-between; font-size: 13px; color: #f3ecdd; margin-bottom: 6px; }
+        .compare-head { display: flex; justify-content: space-between; font-size: 13px; color: #333; margin-bottom: 6px; }
         .compare-val { font-weight: 700; }
-        .compare-track { height: 14px; background: rgba(255,255,255,0.08); border-radius: 7px; overflow: hidden; }
+        .compare-track { height: 14px; background: #eee; border-radius: 7px; overflow: hidden; }
         .compare-fill { height: 100%; border-radius: 7px; transition: width 0.4s ease; }
-        .compare-fill.lump { background: #ecc776; }
+        .compare-fill.lump { background: #1d6fd8; }
         .compare-fill.dca { background: #2a9d5c; }
-        .compare-sub { font-size: 11px; color: #8394a6; margin-top: 4px; }
-        .ai-analysis { background: rgba(212,169,90,.08); border: 1px solid rgba(212,169,90,.28); border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #ecc776; line-height: 1.6; }
-        .cta-link { font-size: 13px; color: #ecc776; text-decoration: none; font-weight: 500; }
+        .compare-sub { font-size: 11px; color: #888; margin-top: 4px; }
+        .ai-analysis { background: #e6f1fb; border: 1px solid #b5d4f4; border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #1a4a7a; line-height: 1.6; }
+        .cta-link { font-size: 13px; color: #1d6fd8; text-decoration: none; font-weight: 500; }
       `}</style>
     </>
   );
@@ -190,8 +206,8 @@ function Slider({ label, value, min, max, step = 1, unit, fmtVal, onChange }) {
   const display = fmtVal ? fmtVal(value) : `${value}${unit || ""}`;
   return (
     <div>
-      <label style={{ fontSize: "13px", color: "#a2b4c6", display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-        {label} <span style={{ fontWeight: 600, color: "#f3ecdd" }}>{display}</span>
+      <label style={{ fontSize: "13px", color: "#555", display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
+        {label} <span style={{ fontWeight: 600, color: "#1a1a1a" }}>{display}</span>
       </label>
       <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(parseFloat(e.target.value))} style={{ width: "100%" }} />
     </div>
