@@ -23,6 +23,19 @@ export default function Document() {
         <meta property="og:locale" content="zh_TW" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://retirementplantw.com/og-image.png" />
+
+        {/* Google Analytics 4 */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6R87F8KBY"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-M6R87F8KBY');
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
