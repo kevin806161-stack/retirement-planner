@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRetirementCalc } from "../lib/useRetirementCalc";
 
 function fmt(n) {
@@ -16,6 +16,17 @@ export default function RetirementCalculator() {
   } = useRetirementCalc();
 
   const { totalTarget, savedGrow, gap, monthlySave, monthlyOut, lifeAfter, allocation, tip } = result;
+
+  // 數字變動時輕微彈跳，強化「即時試算」的動態感
+  const amountRef = useRef(null);
+  useEffect(() => {
+    const el = amountRef.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    el.classList.remove("bump");
+    void el.offsetWidth;
+    el.classList.add("bump");
+  }, [monthlyOut]);
 
   const [emailInput, setEmailInput] = useState("");
   const [sendStatus, setSendStatus] = useState(null);
@@ -70,7 +81,7 @@ export default function RetirementCalculator() {
         <div className="calc-result">
           <div className="result-main">
             <div className="label">退休後每月可用金額（估算）</div>
-            <div className="amount">{fmt(monthlyOut)}</div>
+            <div className="amount" ref={amountRef}>{fmt(monthlyOut)}</div>
             <div className="sub">退休後預估可活 <strong>{lifeAfter}</strong> 年</div>
           </div>
 
@@ -115,12 +126,12 @@ export default function RetirementCalculator() {
       <style jsx>{`
         .email-result {
           margin-top: 4px;
-          border-top: 1px solid #e5e5e0;
+          border-top: 1px solid rgba(255,255,255,.07);
           padding-top: 14px;
         }
         .email-result-label {
           font-size: 12px;
-          color: #555;
+          color: var(--slate);
           margin-bottom: 8px;
           font-weight: 500;
         }
@@ -130,26 +141,29 @@ export default function RetirementCalculator() {
         }
         .email-row input {
           flex: 1;
-          border: 1px solid #ddd;
-          border-radius: 6px;
-          padding: 7px 10px;
+          border: 1px solid rgba(212,169,90,.3);
+          border-radius: 10px;
+          padding: 9px 12px;
           font-size: 13px;
           outline: none;
+          background: var(--bg);
+          color: var(--cream);
         }
-        .email-row input:focus { border-color: #1d6fd8; }
+        .email-row input:focus { border-color: var(--gold); }
         .email-row button {
-          background: #1d6fd8;
-          color: #fff;
+          background: linear-gradient(180deg, var(--gold2), var(--gold));
+          color: #1a1206;
           border: none;
-          border-radius: 6px;
-          padding: 7px 14px;
+          border-radius: 10px;
+          padding: 9px 18px;
           font-size: 13px;
+          font-weight: 700;
           cursor: pointer;
           white-space: nowrap;
         }
         .email-row button:disabled { opacity: 0.6; }
-        .email-success { font-size: 13px; color: #2a7d2a; }
-        .email-error { font-size: 12px; color: #b94040; margin-top: 4px; }
+        .email-success { font-size: 13px; color: var(--green); }
+        .email-error { font-size: 12px; color: var(--terra); margin-top: 4px; }
       `}</style>
     </section>
   );

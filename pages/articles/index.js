@@ -17,11 +17,6 @@ export default function ArticlesIndex({ articles }) {
       <Head>
         <title>理財知識文章 | 退休咖</title>
         <meta name="description" content="退休金規劃、資產配置相關知識文章，幫助你建立正確的退休理財觀念。" />
-        <link rel="canonical" href="https://www.retirementplantw.com/articles" />
-        <meta property="og:title" content="理財知識文章 | 退休咖" />
-        <meta property="og:description" content="退休金規劃、資產配置相關知識文章，幫助你建立正確的退休理財觀念。" />
-        <meta property="og:url" content="https://www.retirementplantw.com/articles" />
-        <meta property="og:type" content="website" />
       </Head>
 
       <nav className="nav">
@@ -80,30 +75,31 @@ export default function ArticlesIndex({ articles }) {
 
       <style jsx>{`
         .articles-page { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
-        h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
-        .page-sub { font-size: 14px; color: #666; margin-bottom: 24px; }
+        h1 { font-size: 30px; font-weight: 900; margin-bottom: 8px; color: var(--cream); }
+        .page-sub { font-size: 14px; color: var(--slate2); margin-bottom: 24px; }
         .category-filter { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
         .cat-btn {
-          font-size: 13px; padding: 6px 16px; border-radius: 20px;
-          border: 1px solid #ddd; background: #fff; color: #555; cursor: pointer;
-          transition: all 0.15s;
+          font-size: 13px; padding: 6px 16px; border-radius: 999px;
+          border: 1px solid var(--line); background: var(--panel); color: var(--slate); cursor: pointer;
+          transition: all 0.18s;
         }
-        .cat-btn:hover { border-color: #1d6fd8; color: #1d6fd8; }
-        .cat-btn.active { background: #1d6fd8; color: #fff; border-color: #1d6fd8; }
+        .cat-btn:hover { border-color: rgba(212,169,90,.55); color: var(--gold2); }
+        .cat-btn.active { background: linear-gradient(180deg, var(--gold2), var(--gold)); color: #1a1206; border-color: var(--gold); font-weight: 700; }
         .article-list { display: flex; flex-direction: column; gap: 14px; }
         .article-card {
-          display: block; border: 1px solid #e5e5e0; border-radius: 12px;
-          padding: 20px; text-decoration: none; color: inherit; background: #fff;
-          transition: border-color 0.2s;
+          display: block; border: 1px solid var(--line2); border-radius: 16px;
+          padding: 22px; text-decoration: none; color: inherit; background: var(--panel);
+          transition: transform 0.3s, border-color 0.3s;
         }
-        .article-card:hover { border-color: #1d6fd8; }
+        .article-card:hover { transform: translateY(-4px); border-color: rgba(212,169,90,.45); }
         .article-category {
-          font-size: 11px; color: #1d6fd8; background: #e6f1fb;
+          font-size: 11px; color: var(--gold2); background: rgba(212,169,90,.14);
+          border: 1px solid rgba(212,169,90,.3);
           display: inline-block; padding: 3px 10px; border-radius: 12px; margin-bottom: 10px;
         }
-        .article-card h2 { font-size: 17px; font-weight: 600; margin-bottom: 8px; line-height: 1.4; }
-        .article-card p { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 10px; }
-        .article-date { font-size: 11px; color: #999; }
+        .article-card h2 { font-size: 18px; font-weight: 700; margin-bottom: 8px; line-height: 1.4; color: var(--cream); }
+        .article-card p { font-size: 13.5px; color: var(--slate); line-height: 1.7; margin-bottom: 10px; }
+        .article-date { font-size: 11px; color: var(--muted); }
       `}</style>
     </>
   );
