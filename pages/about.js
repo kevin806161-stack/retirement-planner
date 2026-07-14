@@ -22,6 +22,7 @@ export default function About() {
           <Link href="/#calc">試算工具</Link>
           <Link href="/articles">理財知識</Link>
           <Link href="/about">關於我們</Link>
+          <Link href="/author">關於作者</Link>
         </div>
       </nav>
 
@@ -61,15 +62,8 @@ export default function About() {
 
         <h2>關於作者</h2>
         <p>
-          退休咖由 Kevin 建立與維運。Kevin 20 歲接下家族經營的廣告招牌事業，本業專注於設計與行銷，並自學網站開發，將專業技能延伸到內容與工具型網站的經營。
-        </p>
-        <p>
-          除了退休咖，Kevin 也創立了
-          {" "}<a href="https://line.me/ti/g2/1AeW7b9R7_rxo7Y2wSCFMG0b7UnDl5FJwQ9_2g?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" className="highlight-link" target="_blank" rel="noopener noreferrer">設計圈資源共享平台</a>{" "}
-          ，一個連結室內設計師、平面設計師與招牌工程承包商的交流社群，目標是促進設計圈與施工端之間更順暢的合作與資源共享。
-        </p>
-        <p>
-          從招牌製作到網站開發，Kevin 相信「把複雜的專業知識，轉化成一般人也能輕鬆理解與使用的工具」，是退休咖與設計圈平台共同的核心理念。
+          退休咖由李廖紘（小李）建立與維運，本業經營家族廣告招牌事業，並自學網站開發，將專業延伸到內容與工具型網站的經營。
+          {" "}<Link href="/author" className="highlight-link">看完整的作者介紹 →</Link>
         </p>
 
         <h2>聯絡我們</h2>
@@ -85,6 +79,7 @@ export default function About() {
         <a href="/privacy-policy">隱私權政策</a>
         <a href="/disclaimer">免責聲明</a>
         <a href="/about">關於我們</a>
+        <a href="/author">關於作者</a>
       </footer>
 
       <style jsx>{`
@@ -99,14 +94,14 @@ export default function About() {
           font-size: 26px;
           font-weight: 700;
           margin-bottom: 24px;
-          color: #d4af37;
+          color: #d4a95a;
         }
         h2 {
           font-size: 18px;
           font-weight: 600;
           margin-top: 32px;
           margin-bottom: 12px;
-          color: #d4af37;
+          color: #d4a95a;
         }
         p {
           font-size: 14px;
@@ -118,7 +113,7 @@ export default function About() {
           font-weight: 700;
         }
         .highlight-link {
-          color: #d4af37;
+          color: #d4a95a;
           text-decoration: underline;
           text-underline-offset: 2px;
         }
