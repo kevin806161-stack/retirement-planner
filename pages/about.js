@@ -59,6 +59,19 @@ export default function About() {
           部分文章包含聯盟行銷連結（如博客來書籍購買連結），透過這些連結的購買行為，本站可能獲得少額佣金，但不影響你的購買價格，也不影響我們的內容立場與推薦標準。
         </p>
 
+        <h2>關於作者</h2>
+        <p>
+          退休咖由 Kevin 建立與維運。Kevin 20 歲接下家族經營的廣告招牌事業，本業專注於設計與行銷，並自學網站開發，將專業技能延伸到內容與工具型網站的經營。
+        </p>
+        <p>
+          除了退休咖，Kevin 也創立了
+          {" "}<a href="https://line.me/ti/g2/1AeW7b9R7_rxo7Y2wSCFMG0b7UnDl5FJwQ9_2g?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" className="highlight-link" target="_blank" rel="noopener noreferrer">設計圈資源共享平台</a>{" "}
+          ，一個連結室內設計師、平面設計師與招牌工程承包商的交流社群，目標是促進設計圈與施工端之間更順暢的合作與資源共享。
+        </p>
+        <p>
+          從招牌製作到網站開發，Kevin 相信「把複雜的專業知識，轉化成一般人也能輕鬆理解與使用的工具」，是退休咖與設計圈平台共同的核心理念。
+        </p>
+
         <h2>聯絡我們</h2>
         <p>
           如有任何問題、文章勘誤或合作洽詢，歡迎透過以下方式與我們聯繫：
@@ -80,23 +93,34 @@ export default function About() {
           margin: 0 auto;
           padding: 48px 24px 80px;
           line-height: 1.8;
-          color: #1a1a1a;
+          color: #f0f0f0;
         }
         h1 {
           font-size: 26px;
           font-weight: 700;
           margin-bottom: 24px;
+          color: #d4af37;
         }
         h2 {
           font-size: 18px;
           font-weight: 600;
           margin-top: 32px;
           margin-bottom: 12px;
+          color: #d4af37;
         }
         p {
           font-size: 14px;
-          color: #333;
+          color: #f0f0f0;
           margin-bottom: 12px;
+        }
+        p strong {
+          color: #ffffff;
+          font-weight: 700;
+        }
+        .highlight-link {
+          color: #d4af37;
+          text-decoration: underline;
+          text-underline-offset: 2px;
         }
       `}</style>
     </>
