@@ -6,6 +6,13 @@ export default function Document() {
     <Html lang="zh-Hant">
       <Head>
         <meta charSet="utf-8" />
+
+        {/* Favicon / Site Icon */}
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+        <link rel="icon" href="/icon-512.png" sizes="512x512" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
         <meta name="google-site-verification" content="KqZGc0tJ-VrFZXB2BoTTWoM4nU_ADFlQAn-ZO9d-Oh0" />
         <meta name="google-adsense-account" content={adsenseConfig.publisherId} />
         <meta
