@@ -160,7 +160,9 @@ a { color: inherit; }
 .site-footer a:hover { color: var(--gold); }
 
 /* ---------------- SHARED HELPERS (tool pages / articles) ---------------- */
-.card, .tool-card, .panel {
+/* 注意：.tool-card 的完整樣式（flex排列、padding等）由各頁面自己的 <style jsx> 定義，
+   這裡不重複定義排版屬性，只保留最基礎的 fallback，避免全域規則與頁面 scoped 樣式衝突 */
+.panel {
   background: var(--panel); border: 1px solid var(--line);
   border-radius: 16px;
 }
