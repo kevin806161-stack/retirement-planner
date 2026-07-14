@@ -49,6 +49,7 @@ export default function CompoundInterestCalculator() {
         <div className="nav-links">
           <Link href="/tools">所有工具</Link>
           <Link href="/articles">理財知識</Link>
+          <Link href="/author">關於作者</Link>
         </div>
       </nav>
 
@@ -118,6 +119,7 @@ export default function CompoundInterestCalculator() {
       <footer className="site-footer">
         <a href="/privacy-policy">隱私權政策</a>
         <a href="/disclaimer">免責聲明</a>
+        <a href="/author">關於作者</a>
       </footer>
 
       <style jsx>{`
