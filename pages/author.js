@@ -101,37 +101,37 @@ export default function Author() {
           margin: 0 auto;
           padding: 48px 24px 80px;
           line-height: 1.8;
-          color: #f0f0f0;
+          color: var(--slate);
         }
         h1 {
           font-size: 26px;
           font-weight: 700;
           margin-bottom: 24px;
-          color: #d4a95a;
+          color: var(--gold);
         }
         h2 {
           font-size: 18px;
           font-weight: 600;
           margin-top: 32px;
           margin-bottom: 12px;
-          color: #d4a95a;
+          color: var(--gold);
         }
         p {
           font-size: 14px;
-          color: #f0f0f0;
+          color: var(--slate);
           margin-bottom: 12px;
         }
         p strong {
-          color: #ffffff;
+          color: var(--cream);
           font-weight: 700;
         }
         .highlight-link {
-          color: #d4a95a;
+          color: var(--gold);
           text-decoration: underline;
           text-underline-offset: 2px;
         }
         .author-card {
-          border: 1px solid rgba(212, 175, 55, 0.4);
+          border: 1px solid var(--line);
           border-radius: 12px;
           padding: 20px 24px;
           margin-bottom: 24px;
@@ -139,12 +139,12 @@ export default function Author() {
         .author-name {
           font-size: 20px;
           font-weight: 700;
-          color: #ffffff;
+          color: var(--cream);
           margin-bottom: 4px;
         }
         .author-title {
           font-size: 13px;
-          color: #d4a95a;
+          color: var(--gold);
         }
         .social-links {
           display: flex;
@@ -155,14 +155,14 @@ export default function Author() {
           display: flex;
           align-items: center;
           gap: 12px;
-          border: 1px solid rgba(212, 175, 55, 0.3);
+          border: 1px solid var(--line);
           border-radius: 10px;
           padding: 12px 16px;
           text-decoration: none;
           transition: border-color 0.2s;
         }
         .social-link:hover {
-          border-color: #d4a95a;
+          border-color: var(--gold);
         }
         .social-icon {
           font-size: 20px;
@@ -175,7 +175,7 @@ export default function Author() {
         .social-handle {
           display: block;
           font-size: 14px;
-          color: #ffffff;
+          color: var(--cream);
           font-weight: 600;
         }
       `}</style>

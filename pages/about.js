@@ -88,32 +88,32 @@ export default function About() {
           margin: 0 auto;
           padding: 48px 24px 80px;
           line-height: 1.8;
-          color: #f0f0f0;
+          color: var(--slate);
         }
         h1 {
           font-size: 26px;
           font-weight: 700;
           margin-bottom: 24px;
-          color: #d4a95a;
+          color: var(--gold);
         }
         h2 {
           font-size: 18px;
           font-weight: 600;
           margin-top: 32px;
           margin-bottom: 12px;
-          color: #d4a95a;
+          color: var(--gold);
         }
         p {
           font-size: 14px;
-          color: #f0f0f0;
+          color: var(--slate);
           margin-bottom: 12px;
         }
         p strong {
-          color: #ffffff;
+          color: var(--cream);
           font-weight: 700;
         }
         .highlight-link {
-          color: #d4a95a;
+          color: var(--gold);
           text-decoration: underline;
           text-underline-offset: 2px;
         }

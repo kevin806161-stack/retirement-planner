@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export default function Disclaimer() {
   return (
@@ -6,7 +7,21 @@ export default function Disclaimer() {
       <Head>
         <title>免責聲明 | 退休咖</title>
         <meta name="description" content="退休咖網站免責聲明，本網站內容僅供教育參考，非投資理財建議。" />
+        <link rel="canonical" href="https://www.retirementplantw.com/disclaimer" />
       </Head>
+
+      <nav className="nav">
+        <Link href="/" className="nav-logo" style={{ textDecoration: "none" }}>
+          退休咖
+        </Link>
+        <div className="nav-links">
+          <Link href="/#calc">試算工具</Link>
+          <Link href="/articles">理財知識</Link>
+          <Link href="/about">關於我們</Link>
+          <Link href="/author">關於作者</Link>
+          <Link href="/contact">聯絡我們</Link>
+        </div>
+      </nav>
 
       <div className="legal-page">
         <h1>免責聲明</h1>
@@ -57,22 +72,31 @@ export default function Disclaimer() {
         </p>
       </div>
 
+      <footer className="site-footer">
+        <a href="/privacy-policy">隱私權政策</a>
+        <a href="/disclaimer">免責聲明</a>
+        <a href="/about">關於我們</a>
+        <a href="/author">關於作者</a>
+        <a href="/contact">聯絡我們</a>
+      </footer>
+
       <style jsx>{`
         .legal-page {
           max-width: 720px;
           margin: 0 auto;
           padding: 48px 24px 80px;
           line-height: 1.8;
-          color: #1a1a1a;
+          color: var(--slate);
         }
         h1 {
           font-size: 26px;
           font-weight: 700;
           margin-bottom: 8px;
+          color: var(--gold);
         }
         .updated {
           font-size: 13px;
-          color: #888;
+          color: var(--muted);
           margin-bottom: 24px;
         }
         .highlight-box {
@@ -90,11 +114,16 @@ export default function Disclaimer() {
           font-weight: 600;
           margin-top: 32px;
           margin-bottom: 12px;
+          color: var(--gold);
         }
         p {
           font-size: 14px;
-          color: #333;
+          color: var(--slate);
           margin-bottom: 12px;
+        }
+        p strong {
+          color: var(--cream);
+          font-weight: 700;
         }
       `}</style>
     </>
