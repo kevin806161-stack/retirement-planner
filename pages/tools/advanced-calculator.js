@@ -129,6 +129,28 @@ export default function AdvancedCalculator() {
             <div className="disclaimer-note">* 已納入通膨率 {inflation}%、薪資成長率 {salaryGrowth}%，比基本試算更貼近實際</div>
           </div>
         </div>
+
+        <div className="tool-guide">
+          <h2>怎麼使用這個工具</h2>
+          <p>
+            先在「基本設定」輸入你目前的年齡、預計退休年齡、月收入與目前已存的退休金；如果你和配偶都有收入，可以切換到「夫妻合計版」，分別填入兩人的月收入，工具會自動加總計算家庭整體的退休金目標。接著在「進階參數」調整預期投資報酬率、通膨率與薪資年成長率——這三個數字會直接影響最終試算結果，建議先用預設值試算一次，再依照自己的實際狀況微調。
+          </p>
+          <p>
+            試算結果會即時更新，你可以反覆調整滑桿，觀察「每月需額外儲蓄」這個數字如何隨著退休年齡、報酬率假設而變化，藉此找出一個你覺得可行、又能達成退休目標的組合。
+          </p>
+
+          <h2>這個工具的計算邏輯</h2>
+          <p>
+            多數線上退休試算工具，只用「現在的月薪」去估算退休後的生活費需求，忽略了通膨與薪資成長這兩個會互相抵銷、也會互相放大的變數。這個工具的做法是：先用薪資成長率，推算你退休當年的實際月薪水準，再用這個「退休時的薪資」乘上生活費比例，得出退休後每月所需支出；同時，現有資產的成長也會用通膨調整後的實質報酬率重新試算一次，讓你同時看到名目與實質兩種角度的結果。
+          </p>
+          <p>
+            如果想先了解試算邏輯背後的基本公式，可以參考
+            {" "}<Link href="/articles/how-much-retirement-savings-needed">退休金要存多少才夠</Link>{" "}
+            這篇文章；如果你的退休金主要來源是勞保與勞退，建議搭配
+            {" "}<Link href="/tools/labor-insurance">勞保年金試算器</Link>{" "}
+            一起使用，掌握制度性給付能補足多少缺口。
+          </p>
+        </div>
       </div>
 
       <footer className="site-footer">
@@ -160,6 +182,30 @@ export default function AdvancedCalculator() {
         .result-sub { font-size: 12px; color: #6b7d90; margin-top: 4px; }
         .ai-analysis { background: rgba(212,169,90,.08); border: 1px solid rgba(212,169,90,.28); border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #ecc776; line-height: 1.6; }
         .disclaimer-note { font-size: 11px; color: #6b7d90; }
+        .tool-guide {
+          margin-top: 32px;
+          padding-top: 24px;
+          border-top: 1px solid var(--line);
+        }
+        .tool-guide h2 {
+          font-size: 16px;
+          font-weight: 600;
+          color: var(--gold);
+          margin-top: 20px;
+          margin-bottom: 10px;
+        }
+        .tool-guide h2:first-child { margin-top: 0; }
+        .tool-guide p {
+          font-size: 13px;
+          line-height: 1.9;
+          color: var(--slate);
+          margin-bottom: 12px;
+        }
+        .tool-guide :global(a) {
+          color: var(--gold);
+          text-decoration: underline;
+          text-underline-offset: 2px;
+        }
       `}</style>
     </>
   );

@@ -144,6 +144,26 @@ export default function DcaVsLumpsum() {
             </Link>
           </div>
         </div>
+
+        <div className="tool-guide">
+          <h2>怎麼使用這個工具</h2>
+          <p>
+            這個工具模擬的是「同一筆錢」的兩種投入方式：一次全部投入，或是分成好幾個月慢慢投入。填入你手上實際有的總金額、想分幾個月投完，以及預期的市場報酬率和持有年數，再選擇一個市場波動情境，就能看到兩種策略在這些假設下的最終資產差異。
+          </p>
+          <p>
+            建議多試幾種波動情境對照——如果你認為短期內市場不確定性較高，可以看看「高波動」情境下兩者的差距是否縮小；如果你對市場長期向上有信心，「低波動」或「一般」情境下的結果會更貼近你的預期。
+          </p>
+
+          <h2>這個工具的計算邏輯</h2>
+          <p>
+            單筆投入的計算方式，是把總金額直接用複利公式成長到期末；定期定額則是把總金額拆成每月固定金額，每個月投入後開始計算複利成長，因此越晚投入的錢，複利成長的時間越短。波動情境的設定，反映的是「定期定額分批進場能降低擇時風險」這個效果——市場波動越大，分批進場的攤平效果越明顯，這裡用一個簡化的加成係數模擬這個效果，並非精確的歷史回測，實際結果會因真實市場走勢而有所不同。
+          </p>
+          <p>
+            如果你手上有一筆退休金或資遣費，正在猶豫要不要一次投入市場，這篇
+            {" "}<Link href="/articles/dca-vs-lump-sum-for-retirement">定期定額 vs 單筆投入</Link>{" "}
+            文章有更完整的策略建議。
+          </p>
+        </div>
       </div>
 
       <footer className="site-footer">
@@ -183,6 +203,30 @@ export default function DcaVsLumpsum() {
         .compare-sub { font-size: 11px; color: #8394a6; margin-top: 4px; }
         .ai-analysis { background: rgba(212,169,90,.08); border: 1px solid rgba(212,169,90,.28); border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #ecc776; line-height: 1.6; }
         .cta-link { font-size: 13px; color: #ecc776; text-decoration: none; font-weight: 500; }
+        .tool-guide {
+          margin-top: 32px;
+          padding-top: 24px;
+          border-top: 1px solid var(--line);
+        }
+        .tool-guide h2 {
+          font-size: 16px;
+          font-weight: 600;
+          color: var(--gold);
+          margin-top: 20px;
+          margin-bottom: 10px;
+        }
+        .tool-guide h2:first-child { margin-top: 0; }
+        .tool-guide p {
+          font-size: 13px;
+          line-height: 1.9;
+          color: var(--slate);
+          margin-bottom: 12px;
+        }
+        .tool-guide :global(a) {
+          color: var(--gold);
+          text-decoration: underline;
+          text-underline-offset: 2px;
+        }
       `}</style>
     </>
   );

@@ -137,6 +137,26 @@ export default function FireCalculator() {
             </div>
           </div>
         </div>
+
+        <div className="tool-guide">
+          <h2>怎麼使用這個工具</h2>
+          <p>
+            月支出請填入你「達成 FIRE 之後」預計的生活開銷，不是現在的支出——這兩個數字可能不一樣，例如提早退休後可能搬到生活成本較低的城市，或是不再需要通勤治裝等職場相關花費。提領率的部分，經典的 4% 法則是常見起點，但如果你希望更保守、或退休年數特別長（例如 30 歲就 FIRE），可以把提領率調低到 3.5% 甚至 3%，換取更高的資產安全邊際。
+          </p>
+          <p>
+            調整報酬率假設時，建議用長期歷史平均（6% 上下）試算一次基準情境，再用較保守的數字（例如 4-5%）跑一次悲觀情境，兩者對照可以更清楚看到「達成 FIRE 所需時間」對報酬率假設的敏感度。
+          </p>
+
+          <h2>這個工具的計算邏輯</h2>
+          <p>
+            FIRE 目標資產的核心公式很單純：年支出除以提領率。工具內部用逐月迭代的方式模擬複利成長過程，把你目前的資產、每月儲蓄金額、預期報酬率代入計算，找出資產成長曲線與 FIRE 目標線交會的時間點，而不是用簡化的單一公式估算，這樣能更準確反映「現有資產」與「持續投入」兩者疊加的複利效果。桶狀策略的資產配置建議，則是依照多數財務規劃顧問常用的框架，把資產切成短中長三個時間層，分散不同期限的風險。
+          </p>
+          <p>
+            如果你還在評估 FIRE 是否適合自己，可以先讀
+            {" "}<Link href="/articles/fire-financial-independence-taiwan">FIRE 財務自由是什麼</Link>{" "}
+            了解台灣人實現 FIRE 的真實門檻，再回來用這個工具試算具體數字。
+          </p>
+        </div>
       </div>
 
       <footer className="site-footer">
@@ -166,6 +186,30 @@ export default function FireCalculator() {
         .bucket-box { background: #0d1c2b; border-radius: 10px; padding: 14px; }
         .bucket-title { font-size: 13px; font-weight: 600; color: #f3ecdd; margin-bottom: 12px; }
         .ai-analysis { background: rgba(212,169,90,.08); border: 1px solid rgba(212,169,90,.28); border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #ecc776; line-height: 1.6; }
+        .tool-guide {
+          margin-top: 32px;
+          padding-top: 24px;
+          border-top: 1px solid var(--line);
+        }
+        .tool-guide h2 {
+          font-size: 16px;
+          font-weight: 600;
+          color: var(--gold);
+          margin-top: 20px;
+          margin-bottom: 10px;
+        }
+        .tool-guide h2:first-child { margin-top: 0; }
+        .tool-guide p {
+          font-size: 13px;
+          line-height: 1.9;
+          color: var(--slate);
+          margin-bottom: 12px;
+        }
+        .tool-guide :global(a) {
+          color: var(--gold);
+          text-decoration: underline;
+          text-underline-offset: 2px;
+        }
       `}</style>
     </>
   );

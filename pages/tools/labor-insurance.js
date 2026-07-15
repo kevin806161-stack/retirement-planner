@@ -136,6 +136,25 @@ export default function LaborInsuranceCalculator() {
             </Link>
           </div>
         </div>
+
+        <div className="tool-guide">
+          <h2>怎麼使用這個工具</h2>
+          <p>
+            平均月投保薪資不是你的實際月薪，而是勞保計算給付的基準數字，通常會比實領薪資略低，且有上限（目前為 NT$45,800）。如果不確定自己的正確數字，可以到勞保局網站查詢「投保薪資分級表」對照，或直接抓實際月薪的九成左右試算，會比較接近真實情況。年資部分建議用完整年數計算，請領年齡則可以分別試算 60 到 70 歲之間幾個不同選項，比較延後或提前請領對總金額的影響。
+          </p>
+
+          <h2>這個工具的計算邏輯</h2>
+          <p>
+            勞保老年年金給付有兩套計算公式，勞保局會自動取金額較高的一套核發，這個工具同樣採用這個邏輯，同時列出兩個公式的試算結果讓你比較。延後請領的加成、提前請領的減成，也都是依照現行規定的每年 4% 幅度計算，最高各以 5 年為限。勞退的部分則是用雇主提撥 6% 的金額，估算長期累積後的月領水準，實際金額會受到勞動基金實際投資報酬率影響，這裡採用的是相對保守的估算。
+          </p>
+          <p>
+            勞保和勞退只是退休金的其中一層，通常不足以支撐完整的退休生活，建議搭配
+            {" "}<Link href="/articles/labor-insurance-vs-labor-pension">勞保、勞退差在哪</Link>{" "}
+            這篇文章理解制度全貌，再用
+            {" "}<Link href="/tools/advanced-calculator">進階退休試算器</Link>{" "}
+            計算個人投資需要補足的缺口。
+          </p>
+        </div>
       </div>
 
       <footer className="site-footer">
@@ -171,6 +190,30 @@ export default function LaborInsuranceCalculator() {
         .result-section-title { font-size: 12px; font-weight: 600; color: #a2b4c6; }
         .ai-analysis { background: rgba(212,169,90,.08); border: 1px solid rgba(212,169,90,.28); border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #ecc776; line-height: 1.6; }
         .cta-link { font-size: 13px; color: #ecc776; text-decoration: none; font-weight: 500; }
+        .tool-guide {
+          margin-top: 32px;
+          padding-top: 24px;
+          border-top: 1px solid var(--line);
+        }
+        .tool-guide h2 {
+          font-size: 16px;
+          font-weight: 600;
+          color: var(--gold);
+          margin-top: 20px;
+          margin-bottom: 10px;
+        }
+        .tool-guide h2:first-child { margin-top: 0; }
+        .tool-guide p {
+          font-size: 13px;
+          line-height: 1.9;
+          color: var(--slate);
+          margin-bottom: 12px;
+        }
+        .tool-guide :global(a) {
+          color: var(--gold);
+          text-decoration: underline;
+          text-underline-offset: 2px;
+        }
       `}</style>
     </>
   );

@@ -133,6 +133,26 @@ export default function ETFDividendCalculator() {
             </Link>
           </div>
         </div>
+
+        <div className="tool-guide">
+          <h2>怎麼使用這個工具</h2>
+          <p>
+            先從預設的六檔台灣主流 ETF 中選一檔，或選「自訂 ETF」自行輸入殖利率，接著填入你目前持有的股數與股價，就能看到目前的年配息、月均攤金額。如果選的 ETF 是季配或月配，工具也會分別列出每次實際能領到的金額，方便你對照銀行帳戶實際入帳的數字。
+          </p>
+          <p>
+            「未來成長試算」區塊是額外的功能，讓你輸入每月持續買進的金額，模擬持有數年後配息會成長到多少，這對還在累積期、還沒打算靠配息生活的人，可以用來評估「照目前的存股速度，幾年後配息才夠花」。
+          </p>
+
+          <h2>這個工具的計算邏輯</h2>
+          <p>
+            殖利率是用來估算配息的核心參數，這裡採用的是各 ETF 近期公開的殖利率水準，但殖利率本身會隨股價、配息政策而波動，並非固定不變，試算結果僅供參考，不是保證未來配息金額。未來成長試算則是把每月買進金額，用複利公式逐月累加到目前的持股市值上，模擬出未來某個時間點的資產規模，再用當時的殖利率反推年配息與月配息金額。
+          </p>
+          <p>
+            高股息 ETF 只是退休金規劃的其中一種資產類型，如果想了解不同 ETF 之間的差異，可以參考
+            {" "}<Link href="/articles/0050-vs-00878-comparison">0050 vs 00878 怎麼選</Link>{" "}
+            這篇比較文章。
+          </p>
+        </div>
       </div>
 
       <footer className="site-footer">
@@ -168,6 +188,30 @@ export default function ETFDividendCalculator() {
         .dividend-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
         .ai-analysis { background: rgba(212,169,90,.08); border: 1px solid rgba(212,169,90,.28); border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #ecc776; line-height: 1.6; }
         .cta-link { font-size: 13px; color: #ecc776; text-decoration: none; font-weight: 500; }
+        .tool-guide {
+          margin-top: 32px;
+          padding-top: 24px;
+          border-top: 1px solid var(--line);
+        }
+        .tool-guide h2 {
+          font-size: 16px;
+          font-weight: 600;
+          color: var(--gold);
+          margin-top: 20px;
+          margin-bottom: 10px;
+        }
+        .tool-guide h2:first-child { margin-top: 0; }
+        .tool-guide p {
+          font-size: 13px;
+          line-height: 1.9;
+          color: var(--slate);
+          margin-bottom: 12px;
+        }
+        .tool-guide :global(a) {
+          color: var(--gold);
+          text-decoration: underline;
+          text-underline-offset: 2px;
+        }
       `}</style>
     </>
   );

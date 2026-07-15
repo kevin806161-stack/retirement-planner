@@ -154,6 +154,26 @@ export default function CoupleCalculator() {
             <div className="disclaimer-note">* 通膨 {inflation}% 調整後，{result.yearsToFullRetire} 年後同等生活水準約需 {fmt(result.inflatedNeed)}/月</div>
           </div>
         </div>
+
+        <div className="tool-guide">
+          <h2>怎麼使用這個工具</h2>
+          <p>
+            分別填入本人與配偶的年齡、預計退休年齡、月收入，如果兩人預計退休的年齡不同（例如一方想早點退休、另一方想工作久一點），工具會自動計算出中間的「單薪過渡期」，並試算這段期間單薪收入能為家庭多存下多少錢。家庭共同已存退休金、預期報酬率與通膨率則是共用參數，反映夫妻共同管理的資產池。
+          </p>
+          <p>
+            退休後家庭生活費比例建議抓比個人試算更低一些（例如 60-70% 而非 70-80%），因為夫妻同住通常有房租房貸、水電、部分保險等固定支出可以分攤，實際家庭生活成本不會是兩個單身生活成本的簡單加總。
+          </p>
+
+          <h2>這個工具的計算邏輯</h2>
+          <p>
+            這個工具跟一般個人退休試算最大的差異，在於處理「兩人退休時間不同步」的情境。家庭完全退休的時間點，是以較晚退休的一方為準；如果兩人退休年齡有落差，中間的過渡期會假設仍在工作的一方，把部分收入持續投入儲蓄，這筆錢會在計算最終退休缺口時，從總目標中扣除，反映這段單薪期對家庭資產的實際貢獻。
+          </p>
+          <p>
+            如果你和配偶其中一方是自由業或收入不固定，也可以先用
+            {" "}<Link href="/tools/advanced-calculator">個人版進階試算器</Link>{" "}
+            分別試算兩人的狀況，再回來這裡看合併後的家庭總覽。
+          </p>
+        </div>
       </div>
 
       <footer className="site-footer">
@@ -184,6 +204,30 @@ export default function CoupleCalculator() {
         .timeline-val { font-weight: 600; color: #ecc776; }
         .ai-analysis { background: rgba(212,169,90,.08); border: 1px solid rgba(212,169,90,.28); border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #ecc776; line-height: 1.6; }
         .disclaimer-note { font-size: 11px; color: #6b7d90; }
+        .tool-guide {
+          margin-top: 32px;
+          padding-top: 24px;
+          border-top: 1px solid var(--line);
+        }
+        .tool-guide h2 {
+          font-size: 16px;
+          font-weight: 600;
+          color: var(--gold);
+          margin-top: 20px;
+          margin-bottom: 10px;
+        }
+        .tool-guide h2:first-child { margin-top: 0; }
+        .tool-guide p {
+          font-size: 13px;
+          line-height: 1.9;
+          color: var(--slate);
+          margin-bottom: 12px;
+        }
+        .tool-guide :global(a) {
+          color: var(--gold);
+          text-decoration: underline;
+          text-underline-offset: 2px;
+        }
       `}</style>
     </>
   );

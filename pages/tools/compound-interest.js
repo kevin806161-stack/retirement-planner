@@ -114,6 +114,26 @@ export default function CompoundInterestCalculator() {
             </div>
           </div>
         </div>
+
+        <div className="tool-guide">
+          <h2>怎麼使用這個工具</h2>
+          <p>
+            初始投入金額填 0 也沒關係，如果你是從零開始只靠每月定期定額累積，重點觀察每月定期定額和投資年數這兩個滑桿，它們對最終資產的影響通常比報酬率假設更直接、也更容易由你自己掌控——報酬率是市場給的，但每月投入多少、投資多少年，是你能決定的部分。建議先用保守的報酬率（5-6%）跑一次基準情境，了解實際可行的存款計畫。
+          </p>
+          <p>
+            右側的長條圖用顏色區分「投入本金」與「複利獲利」兩個部分，隨著年數拉長，你會清楚看到獲利佔比逐漸超過本金佔比，這就是複利效果隨時間加速的具體樣貌。
+          </p>
+
+          <h2>這個工具的計算邏輯</h2>
+          <p>
+            複利成長的計算包含兩個部分：初始本金以複利公式（本金 × (1+報酬率)^年數）成長，加上每月定期定額投入以年金終值公式累加。工具會逐年計算這兩部分加總後的資產總額，並同步記錄「累積投入的本金」，兩者的差距就是複利創造的獲利部分。這也是為什麼圖表要把本金和獲利分開標示——同樣是「資產成長」，理解這筆錢有多少是你自己存的、多少是市場幫你賺的，能幫助你更準確評估投資策略是否有效。
+          </p>
+          <p>
+            如果想知道複利效果具體能幫你完成多少退休金目標，可以搭配
+            {" "}<Link href="/tools/advanced-calculator">進階退休試算器</Link>{" "}
+            對照，看目前的存款速度離目標還有多少距離。
+          </p>
+        </div>
       </div>
 
       <footer className="site-footer">
@@ -147,6 +167,30 @@ export default function CompoundInterestCalculator() {
         .milestones-title { font-size: 13px; font-weight: 600; color: #f3ecdd; margin-bottom: 10px; }
         .milestone-row { display: flex; justify-content: space-between; font-size: 13px; color: #a2b4c6; margin-bottom: 6px; }
         .milestone-val { color: #ecc776; font-weight: 500; }
+        .tool-guide {
+          margin-top: 32px;
+          padding-top: 24px;
+          border-top: 1px solid var(--line);
+        }
+        .tool-guide h2 {
+          font-size: 16px;
+          font-weight: 600;
+          color: var(--gold);
+          margin-top: 20px;
+          margin-bottom: 10px;
+        }
+        .tool-guide h2:first-child { margin-top: 0; }
+        .tool-guide p {
+          font-size: 13px;
+          line-height: 1.9;
+          color: var(--slate);
+          margin-bottom: 12px;
+        }
+        .tool-guide :global(a) {
+          color: var(--gold);
+          text-decoration: underline;
+          text-underline-offset: 2px;
+        }
       `}</style>
     </>
   );
