@@ -6,10 +6,10 @@ export default function Author() {
     <>
       <Head>
         <title>關於作者 | 退休咖</title>
-        <meta name="description" content="退休咖由李廖紘（小李）建立與維運，本業經營家族廣告招牌事業，並自學網站開發，致力於把複雜的專業知識轉化成易懂的工具。" />
+        <meta name="description" content="李廖紘（小李），20歲休學接手家族招牌事業，自學網站開發創立退休咖，並發起設計圈資源共享平台。把技能變成資產，把知識變成自由。" />
         <link rel="canonical" href="https://www.retirementplantw.com/author" />
         <meta property="og:title" content="關於作者 | 退休咖" />
-        <meta property="og:description" content="退休咖由李廖紘（小李）建立與維運，本業經營家族廣告招牌事業，並自學網站開發。" />
+        <meta property="og:description" content="李廖紘（小李），20歲休學接手家族招牌事業，自學網站開發創立退休咖，並發起設計圈資源共享平台。" />
         <meta property="og:url" content="https://www.retirementplantw.com/author" />
         <meta property="og:type" content="profile" />
       </Head>
@@ -31,28 +31,40 @@ export default function Author() {
 
         <div className="author-card">
           <div className="author-name">李廖紘（小李）</div>
-          <div className="author-title">退休咖 創辦人</div>
+          <div className="author-tagline">「把技能變成資產，把知識變成自由。」</div>
+          <div className="author-title">退休咖創辦人｜設計圈資源共享平台發起人</div>
         </div>
 
+        <p>從小，我一直是一個很努力的人。</p>
+
         <p>
-          退休咖由<strong>李廖紘（小李）</strong>建立與維運。小李 20 歲接下家族經營的廣告招牌事業，本業專注於設計與行銷，並自學 Next.js 網站開發，將專業技能延伸到內容與工具型網站的經營。
+          學生時期，我的成績不錯，但我很快發現，真正讓我有成就感的不是考高分，而是創造東西、解決問題，以及看見自己的作品真正影響別人。
         </p>
 
-        <h2>從招牌到網站：跨領域的實作經驗</h2>
         <p>
-          長期經營廣告招牌事業，讓小李累積了紮實的設計與客戶溝通經驗；而自學程式開發的過程，則讓他能夠親手把想法變成真正上線運作的產品，退休咖正是這個跨領域經驗的具體成果——從試算工具的邏輯設計、內容規劃，到網站架設與 SEO 優化，全部一手包辦。
+          20 歲那年，我選擇休學，接手家裡的廣告招牌事業。很多人認為這是一條傳統的路，但對我來說，這反而是另一個開始。從設計、行銷到與客戶溝通，我每天都在學習如何解決新的問題，也更加確定，我想走的不是一條被安排好的人生，而是一條自己打造的路。
         </p>
 
-        <h2>設計圈資源共享平台</h2>
         <p>
-          除了退休咖，小李也創立了
+          經營招牌事業的這幾年，我開始認真面對一個問題：如果收入不是永遠穩定的，我該怎麼幫自己、也幫身邊的人，提早做好財務上的準備？這個念頭，讓我一頭栽進投資與退休規劃的研究。因為喜歡分享知識，我創立了退休咖。然而，我身邊很少有人對這些內容感興趣，於是我決定把分享的對象，從身邊的人變成整個網路。
+        </p>
+
+        <p>
+          為了打造真正有價值的平台，我從零開始學網站開發。看不懂程式碼、沒學過寫程式，就靠著 AI 一次又一次修改、一次又一次重來，直到把想法變成可以真正使用的網站。
+        </p>
+
+        <p>
+          一路走來，我漸漸發現，真正讓我有成就感的，不是別人的掌聲，而是每完成一個作品、解決一個問題，就離自己理想中的人生更近一步。
+        </p>
+
+        <p>
+          現在，我除了經營退休咖，也建立了
           {" "}<a href="https://line.me/ti/g2/1AeW7b9R7_rxo7Y2wSCFMG0b7UnDl5FJwQ9_2g?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" className="highlight-link" target="_blank" rel="noopener noreferrer">設計圈資源共享平台</a>{" "}
-          ，一個連結室內設計師、平面設計師與招牌工程承包商的交流社群，目標是促進設計圈與施工端之間更順暢的合作與資源共享。
+          ，希望串聯設計師、工班與業主，打造一個不抽成、共享資源、彼此合作的社群，讓更多人因為分享而獲得更多機會。
         </p>
 
-        <h2>核心理念</h2>
         <p>
-          從招牌製作到網站開發，小李相信「把複雜的專業知識，轉化成一般人也能輕鬆理解與使用的工具」，是退休咖與設計圈平台共同的核心理念。
+          我相信，真正的成功，不是得到多少掌聲，而是有多少人因為你的作品，人生變得更好。
         </p>
 
         <h2>聯絡與追蹤</h2>
@@ -141,6 +153,12 @@ export default function Author() {
           font-weight: 700;
           color: var(--cream);
           margin-bottom: 4px;
+        }
+        .author-tagline {
+          font-size: 13px;
+          font-style: italic;
+          color: var(--slate);
+          margin-bottom: 8px;
         }
         .author-title {
           font-size: 13px;
