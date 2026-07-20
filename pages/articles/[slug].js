@@ -10,10 +10,48 @@ import { adsenseConfig } from "../../lib/affiliateLinks";
 
 const SITE_URL = "https://www.retirementplantw.com";
 
+// 從文章 Markdown 中自動抽取「## 常見問題」段落，產生 FAQPage 結構化資料
+function extractFaqJsonLd(content) {
+  const section = content.match(/##\s*常見問題[^\n]*\n([\s\S]*?)(?=\n---|\n## |$)/);
+  if (!section) return null;
+  const items = [];
+  const qa = /###\s+(.+)\n+([\s\S]*?)(?=\n###\s|$)/g;
+  let m;
+  while ((m = qa.exec(section[1])) !== null) {
+    const question = m[1].trim();
+    const answer = m[2]
+      .trim()
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+      .replace(/\*\*/g, "")
+      .replace(/\s*\n+\s*/g, " ");
+    if (question && answer) {
+      items.push({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: { "@type": "Answer", text: answer },
+      });
+    }
+  }
+  if (items.length === 0) return null;
+  return { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: items };
+}
+
 export default function ArticlePage({ article, allArticles }) {
   if (!article) return null;
 
   const canonicalUrl = `${SITE_URL}/articles/${article.slug}`;
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "首頁", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "理財知識", item: `${SITE_URL}/articles` },
+      { "@type": "ListItem", position: 3, name: article.title, item: canonicalUrl },
+    ],
+  };
+
+  const faqJsonLd = extractFaqJsonLd(article.content);
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -54,6 +92,16 @@ export default function ArticlePage({ article, allArticles }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        />
+        {faqJsonLd && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+          />
+        )}
       </Head>
 
       <nav className="nav">

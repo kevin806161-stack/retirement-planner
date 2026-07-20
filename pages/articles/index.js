@@ -17,6 +17,11 @@ export default function ArticlesIndex({ articles }) {
       <Head>
         <title>理財知識文章 | 退休咖</title>
         <meta name="description" content="退休金規劃、資產配置相關知識文章，幫助你建立正確的退休理財觀念。" />
+        <link rel="canonical" href="https://www.retirementplantw.com/articles" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="理財知識文章 | 退休咖" />
+        <meta property="og:description" content="退休金規劃、資產配置相關知識文章，幫助你建立正確的退休理財觀念。" />
+        <meta property="og:url" content="https://www.retirementplantw.com/articles" />
       </Head>
 
       <nav className="nav">
