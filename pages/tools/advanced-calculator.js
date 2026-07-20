@@ -69,6 +69,15 @@ export default function AdvancedCalculator() {
       <Head>
         <title>進階退休試算器（含通膨+薪資成長+夫妻版）| 退休咖</title>
         <meta name="description" content="比基本版更精準的退休試算器，納入通膨率、薪資成長率、夫妻合計收入，計算更貼近真實的退休金目標。" />
+        <link rel="canonical" href="https://www.retirementplantw.com/tools/advanced-calculator" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="進階退休試算器（含通膨+薪資成長+夫妻版）| 退休咖" />
+        <meta property="og:description" content="比基本版更精準的退休試算器，納入通膨率、薪資成長率、夫妻合計收入，計算更貼近真實的退休金目標。" />
+        <meta property="og:url" content="https://www.retirementplantw.com/tools/advanced-calculator" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: "{\"@context\": \"https://schema.org\", \"@type\": \"WebApplication\", \"name\": \"進階退休試算器（含通膨+薪資成長+夫妻版）\", \"url\": \"https://www.retirementplantw.com/tools/advanced-calculator\", \"description\": \"比基本版更精準的退休試算器，納入通膨率、薪資成長率、夫妻合計收入，計算更貼近真實的退休金目標。\", \"applicationCategory\": \"FinanceApplication\", \"operatingSystem\": \"Web\", \"offers\": {\"@type\": \"Offer\", \"price\": \"0\", \"priceCurrency\": \"TWD\"}, \"inLanguage\": \"zh-Hant\", \"publisher\": {\"@type\": \"Organization\", \"name\": \"退休咖\", \"url\": \"https://www.retirementplantw.com\"}}" }}
+        />
       </Head>
 
       <nav className="nav">

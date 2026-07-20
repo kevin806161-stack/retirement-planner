@@ -67,6 +67,15 @@ export default function FireCalculator() {
       <Head>
         <title>FIRE 財務自由試算器 | 退休咖</title>
         <meta name="description" content="計算你需要多少資產才能實現 FIRE 財務自由，以及根據目前的儲蓄率，幾年後能夠達成。" />
+        <link rel="canonical" href="https://www.retirementplantw.com/tools/fire-calculator" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="FIRE 財務自由試算器 | 退休咖" />
+        <meta property="og:description" content="計算你需要多少資產才能實現 FIRE 財務自由，以及根據目前的儲蓄率，幾年後能夠達成。" />
+        <meta property="og:url" content="https://www.retirementplantw.com/tools/fire-calculator" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: "{\"@context\": \"https://schema.org\", \"@type\": \"WebApplication\", \"name\": \"FIRE 財務自由試算器\", \"url\": \"https://www.retirementplantw.com/tools/fire-calculator\", \"description\": \"計算你需要多少資產才能實現 FIRE 財務自由，以及根據目前的儲蓄率，幾年後能夠達成。\", \"applicationCategory\": \"FinanceApplication\", \"operatingSystem\": \"Web\", \"offers\": {\"@type\": \"Offer\", \"price\": \"0\", \"priceCurrency\": \"TWD\"}, \"inLanguage\": \"zh-Hant\", \"publisher\": {\"@type\": \"Organization\", \"name\": \"退休咖\", \"url\": \"https://www.retirementplantw.com\"}}" }}
+        />
       </Head>
 
       <nav className="nav">

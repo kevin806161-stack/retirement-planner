@@ -53,6 +53,15 @@ export default function ETFDividendCalculator() {
       <Head>
         <title>ETF 配息收入試算器 | 退休咖</title>
         <meta name="description" content="試算持有 0050、00878 等台灣主流 ETF 每月能領到多少配息，以及持續買入後的未來配息預估。" />
+        <link rel="canonical" href="https://www.retirementplantw.com/tools/etf-dividend" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="ETF 配息收入試算器 | 退休咖" />
+        <meta property="og:description" content="試算持有 0050、00878 等台灣主流 ETF 每月能領到多少配息，以及持續買入後的未來配息預估。" />
+        <meta property="og:url" content="https://www.retirementplantw.com/tools/etf-dividend" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: "{\"@context\": \"https://schema.org\", \"@type\": \"WebApplication\", \"name\": \"ETF 配息收入試算器\", \"url\": \"https://www.retirementplantw.com/tools/etf-dividend\", \"description\": \"試算持有 0050、00878 等台灣主流 ETF 每月能領到多少配息，以及持續買入後的未來配息預估。\", \"applicationCategory\": \"FinanceApplication\", \"operatingSystem\": \"Web\", \"offers\": {\"@type\": \"Offer\", \"price\": \"0\", \"priceCurrency\": \"TWD\"}, \"inLanguage\": \"zh-Hant\", \"publisher\": {\"@type\": \"Organization\", \"name\": \"退休咖\", \"url\": \"https://www.retirementplantw.com\"}}" }}
+        />
       </Head>
 
       <nav className="nav">

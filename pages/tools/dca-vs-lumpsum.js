@@ -53,6 +53,15 @@ export default function DcaVsLumpsum() {
       <Head>
         <title>定期定額 vs 單筆投入回測工具 | 退休咖</title>
         <meta name="description" content="輸入投資金額與市場條件，回測比較定期定額（DCA）與單筆投入（Lump Sum）兩種策略的最終報酬差異。" />
+        <link rel="canonical" href="https://www.retirementplantw.com/tools/dca-vs-lumpsum" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="定期定額 vs 單筆投入回測工具 | 退休咖" />
+        <meta property="og:description" content="輸入投資金額與市場條件，回測比較定期定額（DCA）與單筆投入（Lump Sum）兩種策略的最終報酬差異。" />
+        <meta property="og:url" content="https://www.retirementplantw.com/tools/dca-vs-lumpsum" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: "{\"@context\": \"https://schema.org\", \"@type\": \"WebApplication\", \"name\": \"定期定額 vs 單筆投入回測工具\", \"url\": \"https://www.retirementplantw.com/tools/dca-vs-lumpsum\", \"description\": \"輸入投資金額與市場條件，回測比較定期定額（DCA）與單筆投入（Lump Sum）兩種策略的最終報酬差異。\", \"applicationCategory\": \"FinanceApplication\", \"operatingSystem\": \"Web\", \"offers\": {\"@type\": \"Offer\", \"price\": \"0\", \"priceCurrency\": \"TWD\"}, \"inLanguage\": \"zh-Hant\", \"publisher\": {\"@type\": \"Organization\", \"name\": \"退休咖\", \"url\": \"https://www.retirementplantw.com\"}}" }}
+        />
       </Head>
 
       <nav className="nav">

@@ -42,6 +42,15 @@ export default function CompoundInterestCalculator() {
       <Head>
         <title>複利成長試算器 | 退休咖</title>
         <meta name="description" content="視覺化呈現定期定額投資在不同報酬率下的長期複利成長效果，了解時間與報酬率如何影響最終資產。" />
+        <link rel="canonical" href="https://www.retirementplantw.com/tools/compound-interest" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="複利成長試算器 | 退休咖" />
+        <meta property="og:description" content="視覺化呈現定期定額投資在不同報酬率下的長期複利成長效果，了解時間與報酬率如何影響最終資產。" />
+        <meta property="og:url" content="https://www.retirementplantw.com/tools/compound-interest" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: "{\"@context\": \"https://schema.org\", \"@type\": \"WebApplication\", \"name\": \"複利成長試算器\", \"url\": \"https://www.retirementplantw.com/tools/compound-interest\", \"description\": \"視覺化呈現定期定額投資在不同報酬率下的長期複利成長效果，了解時間與報酬率如何影響最終資產。\", \"applicationCategory\": \"FinanceApplication\", \"operatingSystem\": \"Web\", \"offers\": {\"@type\": \"Offer\", \"price\": \"0\", \"priceCurrency\": \"TWD\"}, \"inLanguage\": \"zh-Hant\", \"publisher\": {\"@type\": \"Organization\", \"name\": \"退休咖\", \"url\": \"https://www.retirementplantw.com\"}}" }}
+        />
       </Head>
 
       <nav className="nav">

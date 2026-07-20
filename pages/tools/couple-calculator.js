@@ -79,6 +79,15 @@ export default function CoupleCalculator() {
       <Head>
         <title>夫妻退休試算器（雙薪家庭專用）| 退休咖</title>
         <meta name="description" content="專為雙薪家庭設計的退休金試算器，夫妻年齡、收入、退休年齡分開設定，計算家庭退休缺口與共同儲蓄目標。" />
+        <link rel="canonical" href="https://www.retirementplantw.com/tools/couple-calculator" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="夫妻退休試算器（雙薪家庭專用）| 退休咖" />
+        <meta property="og:description" content="專為雙薪家庭設計的退休金試算器，夫妻年齡、收入、退休年齡分開設定，計算家庭退休缺口與共同儲蓄目標。" />
+        <meta property="og:url" content="https://www.retirementplantw.com/tools/couple-calculator" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: "{\"@context\": \"https://schema.org\", \"@type\": \"WebApplication\", \"name\": \"夫妻退休試算器（雙薪家庭專用）\", \"url\": \"https://www.retirementplantw.com/tools/couple-calculator\", \"description\": \"專為雙薪家庭設計的退休金試算器，夫妻年齡、收入、退休年齡分開設定，計算家庭退休缺口與共同儲蓄目標。\", \"applicationCategory\": \"FinanceApplication\", \"operatingSystem\": \"Web\", \"offers\": {\"@type\": \"Offer\", \"price\": \"0\", \"priceCurrency\": \"TWD\"}, \"inLanguage\": \"zh-Hant\", \"publisher\": {\"@type\": \"Organization\", \"name\": \"退休咖\", \"url\": \"https://www.retirementplantw.com\"}}" }}
+        />
       </Head>
 
       <nav className="nav">

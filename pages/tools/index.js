@@ -66,6 +66,11 @@ export default function ToolsIndex() {
       <Head>
         <title>AI 理財計算工具 | 退休咖</title>
         <meta name="description" content="免費 AI 理財計算工具：退休試算、勞保年金、FIRE 試算、複利計算、ETF 配息試算，全方位退休規劃工具集。" />
+        <link rel="canonical" href="https://www.retirementplantw.com/tools" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="AI 理財計算工具 | 退休咖" />
+        <meta property="og:description" content="免費 AI 理財計算工具：退休試算、勞保年金、FIRE 試算、複利計算、ETF 配息試算，全方位退休規劃工具集。" />
+        <meta property="og:url" content="https://www.retirementplantw.com/tools" />
       </Head>
 
       <nav className="nav">

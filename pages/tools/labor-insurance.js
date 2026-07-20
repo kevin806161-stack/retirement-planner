@@ -53,6 +53,15 @@ export default function LaborInsuranceCalculator() {
       <Head>
         <title>勞保年金試算器 | 退休咖</title>
         <meta name="description" content="輸入投保薪資與年資，精算你的勞保老年年金月領金額，以及延後或提前請領的差異。" />
+        <link rel="canonical" href="https://www.retirementplantw.com/tools/labor-insurance" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="勞保年金試算器 | 退休咖" />
+        <meta property="og:description" content="輸入投保薪資與年資，精算你的勞保老年年金月領金額，以及延後或提前請領的差異。" />
+        <meta property="og:url" content="https://www.retirementplantw.com/tools/labor-insurance" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: "{\"@context\": \"https://schema.org\", \"@type\": \"WebApplication\", \"name\": \"勞保年金試算器\", \"url\": \"https://www.retirementplantw.com/tools/labor-insurance\", \"description\": \"輸入投保薪資與年資，精算你的勞保老年年金月領金額，以及延後或提前請領的差異。\", \"applicationCategory\": \"FinanceApplication\", \"operatingSystem\": \"Web\", \"offers\": {\"@type\": \"Offer\", \"price\": \"0\", \"priceCurrency\": \"TWD\"}, \"inLanguage\": \"zh-Hant\", \"publisher\": {\"@type\": \"Organization\", \"name\": \"退休咖\", \"url\": \"https://www.retirementplantw.com\"}}" }}
+        />
       </Head>
 
       <nav className="nav">
