@@ -1,20 +1,59 @@
 import Head from "next/head";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { getAllArticleSlugs, getArticleBySlug, getAllArticles } from "../../lib/articles";
 import AdUnit from "../../components/AdUnit";
 import RelatedArticles from "../../components/RelatedArticles";
 import EmailSubscribe from "../../components/EmailSubscribe";
 import { adsenseConfig } from "../../lib/affiliateLinks";
 
+const SITE_URL = "https://www.retirementplantw.com";
+
 export default function ArticlePage({ article, allArticles }) {
   if (!article) return null;
+
+  const canonicalUrl = `${SITE_URL}/articles/${article.slug}`;
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.description,
+    datePublished: article.publishedAt,
+    dateModified: article.updatedAt || article.publishedAt,
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+    author: {
+      "@type": "Person",
+      name: "退休咖",
+      url: `${SITE_URL}/author`,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "退休咖",
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/icon-512.png`,
+      },
+    },
+  };
 
   return (
     <>
       <Head>
-        <title>{article.title} | 退休 AI 規劃師</title>
+        <title>{`${article.title} | 退休咖`}</title>
         <meta name="description" content={article.description} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={`${article.title} | 退休咖`} />
+        <meta property="og:description" content={article.description} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="article:published_time" content={article.publishedAt} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        />
       </Head>
 
       <nav className="nav">
@@ -34,7 +73,7 @@ export default function ArticlePage({ article, allArticles }) {
         <div className="article-meta">{article.publishedAt}</div>
 
         <div className="article-body">
-          <ReactMarkdown>{article.content}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{article.content}</ReactMarkdown>
         </div>
 
         <div style={{ margin: "32px 0" }}>
