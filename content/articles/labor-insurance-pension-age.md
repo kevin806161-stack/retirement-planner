@@ -2,7 +2,7 @@
 title: "勞保老年年金幾歲可以領？2026 請領年齡對照表＋月領金額試算"
 slug: "labor-insurance-pension-age"
 description: "民國 51 年次以後出生的勞工，勞保老年年金要 65 歲才能領，最多可提早 5 年但每年減 4%。本文附出生年次對照表、兩個公式的完整算法與提早／延後領的比較。"
-publishedAt: "2026-07-29"
+publishedAt: "2026-07-18"
 category: "退休規劃入門"
 ---
 
