@@ -42,7 +42,7 @@ export default function Rss() { return null; }
 export async function getServerSideProps({ res }) {
   const articles = getAllArticles();
   const rss = generateRss(articles);
-  res.setHeader("Content-Type", "application/rss+xml; charset=utf-8");
+  res.setHeader("Content-Type", "application/xml");
   res.write(rss);
   res.end();
   return { props: {} };

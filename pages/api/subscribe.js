@@ -23,6 +23,22 @@ export default async function handler(req, res) {
   }
 
   try {
+    // 把訂閱者加入 Resend Audience 名單（失敗不影響歡迎信照常寄出）
+    const audienceId = process.env.RESEND_AUDIENCE_ID;
+    if (audienceId) {
+      try {
+        await resend.contacts.create({
+          email,
+          unsubscribed: false,
+          audienceId,
+        });
+      } catch (contactErr) {
+        console.error("Resend Contacts API 錯誤（加入名單失敗）:", contactErr);
+      }
+    } else {
+      console.error("未設定 RESEND_AUDIENCE_ID，略過加入名單");
+    }
+
     // 寄歡迎信給訂閱者
     const { data: welcomeData, error: welcomeError } = await resend.emails.send({
       from: FROM,

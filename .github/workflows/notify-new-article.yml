@@ -1,0 +1,19 @@
+# 文章發布自動通知：偵測 content/articles/ 有新變更 push 到 main 時，
+# 呼叫已部署網站的 /api/notify-subscribers，觸發群發最新文章通知信給訂閱者
+name: Notify Subscribers on New Article
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "content/articles/**"
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call notify-subscribers API
+        run: |
+          curl --fail --show-error -X POST "https://www.retirementplantw.com/api/notify-subscribers" \
+            -H "x-notify-secret: ${{ secrets.NOTIFY_SECRET }}"
