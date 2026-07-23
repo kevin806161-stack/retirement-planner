@@ -1,0 +1,19 @@
+# 定期刷新 Threads long-lived access token（有效期 60 天）。
+# cron 不支援乾淨的「每 30 天」語意，改用「每月 1 號」執行，
+# 週期約 28～31 天，仍在 60 天效期內留有充足安全邊際。
+# 也保留 workflow_dispatch，可在 GitHub Actions 頁面手動觸發測試。
+name: Refresh Threads Access Token
+
+on:
+  schedule:
+    - cron: "0 2 1 * *"
+  workflow_dispatch: {}
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call refresh-threads-token API
+        run: |
+          curl --fail --show-error -X POST "https://www.retirementplantw.com/api/refresh-threads-token" \
+            -H "x-notify-secret: ${{ secrets.NOTIFY_SECRET }}"
