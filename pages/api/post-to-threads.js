@@ -13,12 +13,21 @@ function buildArticlePost(article) {
   const cta = `完整試算 👉 ${link}`;
   const fixedSuffix = `\n\n${cta}\n\n${FOOTER}`;
 
-  const rawDescription = (article.description || article.title || "").trim();
-  const firstSentenceMatch = rawDescription.match(/^[^。！？]*[。！？]/);
-  let headline = firstSentenceMatch ? firstSentenceMatch[0] : rawDescription;
+  const threadsHook = (article.threadsHook || "").trim();
+  let headline;
 
-  if (headline.length > HEADLINE_MAX_LENGTH) {
-    headline = `${headline.slice(0, HEADLINE_MAX_LENGTH)}…`;
+  if (threadsHook) {
+    // 優先使用文章 frontmatter 手動指定的 threadsHook 當開頭
+    headline = threadsHook;
+  } else {
+    // 沒有 threadsHook 時，退回用 description 第一句（或前 60 字）的邏輯
+    const rawDescription = (article.description || article.title || "").trim();
+    const firstSentenceMatch = rawDescription.match(/^[^。！？]*[。！？]/);
+    headline = firstSentenceMatch ? firstSentenceMatch[0] : rawDescription;
+
+    if (headline.length > HEADLINE_MAX_LENGTH) {
+      headline = `${headline.slice(0, HEADLINE_MAX_LENGTH)}…`;
+    }
   }
 
   let text = `${headline}${fixedSuffix}`;
