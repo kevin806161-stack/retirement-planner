@@ -1,5 +1,10 @@
 # 文章發布自動通知：偵測 content/articles/ 有新變更 push 到 main 時，
 # 呼叫已部署網站的 /api/notify-subscribers，觸發群發最新文章通知信給訂閱者
+#
+# 也保留 workflow_dispatch，可在 GitHub Actions 頁面手動觸發，用於漏發／
+# 發錯文章時手動補跑。手動觸發預設「只補發 Threads 貼文、不重寄訂閱信」，
+# 避免造成訂閱者收到重複信件；確定也要重寄訂閱信時，觸發時把
+# also_email_subscribers 打開即可。
 name: Notify Subscribers on New Article
 
 on:
@@ -8,12 +13,19 @@ on:
       - main
     paths:
       - "content/articles/**"
+  workflow_dispatch:
+    inputs:
+      also_email_subscribers:
+        description: "同時重新寄送訂閱信？（預設不寄，避免重複打擾訂閱者）"
+        type: boolean
+        default: false
 
 jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        if: github.event_name == 'push'
         with:
           fetch-depth: 0
 
@@ -22,15 +34,17 @@ jobs:
       # 如果太早呼叫，會讀到舊部署、抓到上一篇文章，導致通知信/Threads 貼文貼錯篇。
       # 因此先找出這次 push 新增的文章 slug，並輪詢對應文章頁（fallback:false，
       # 新部署上線前一定是 404）直到回應 200，確認新部署已經上線再繼續。
+      # 手動觸發（workflow_dispatch）沒有「這次新增的文章」可比對，略過這段等待。
       - name: 找出這次新增的文章 slug
         id: article
+        if: github.event_name == 'push'
         run: |
           SLUG=$(git diff --name-only --diff-filter=A "${{ github.event.before }}" "${{ github.sha }}" -- content/articles/ \
             | grep -m1 '\.md$' | xargs -n1 basename | sed 's/\.md$//' || true)
           echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
 
       - name: 等待新部署上線
-        if: steps.article.outputs.slug != ''
+        if: github.event_name == 'push' && steps.article.outputs.slug != ''
         run: |
           SLUG="${{ steps.article.outputs.slug }}"
           for i in $(seq 1 20); do
@@ -45,6 +59,7 @@ jobs:
           echo "::warning::等待 5 分鐘後網站仍未更新到最新文章，通知信與 Threads 貼文可能引用到舊文章"
 
       - name: Call notify-subscribers API
+        if: github.event_name == 'push' || inputs.also_email_subscribers == true
         run: |
           curl --fail --show-error -X POST "https://www.retirementplantw.com/api/notify-subscribers" \
             -H "x-notify-secret: ${{ secrets.NOTIFY_SECRET }}"
