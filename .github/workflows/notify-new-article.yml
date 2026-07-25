@@ -13,6 +13,37 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # push 事件觸發當下 Vercel 的新部署通常還沒建置完成，
+      # 這裡的 API 讀的是「當下正在線上運行的那個部署」的 content/articles，
+      # 如果太早呼叫，會讀到舊部署、抓到上一篇文章，導致通知信/Threads 貼文貼錯篇。
+      # 因此先找出這次 push 新增的文章 slug，並輪詢對應文章頁（fallback:false，
+      # 新部署上線前一定是 404）直到回應 200，確認新部署已經上線再繼續。
+      - name: 找出這次新增的文章 slug
+        id: article
+        run: |
+          SLUG=$(git diff --name-only --diff-filter=A "${{ github.event.before }}" "${{ github.sha }}" -- content/articles/ \
+            | grep -m1 '\.md$' | xargs -n1 basename | sed 's/\.md$//' || true)
+          echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
+
+      - name: 等待新部署上線
+        if: steps.article.outputs.slug != ''
+        run: |
+          SLUG="${{ steps.article.outputs.slug }}"
+          for i in $(seq 1 20); do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://www.retirementplantw.com/articles/$SLUG")
+            if [ "$STATUS" = "200" ]; then
+              echo "新文章已上線：$SLUG"
+              exit 0
+            fi
+            echo "第 $i/20 次檢查，網站尚未更新到最新文章（HTTP $STATUS），15 秒後重試..."
+            sleep 15
+          done
+          echo "::warning::等待 5 分鐘後網站仍未更新到最新文章，通知信與 Threads 貼文可能引用到舊文章"
+
       - name: Call notify-subscribers API
         run: |
           curl --fail --show-error -X POST "https://www.retirementplantw.com/api/notify-subscribers" \
