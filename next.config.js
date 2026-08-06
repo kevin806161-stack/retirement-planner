@@ -15,6 +15,18 @@ const nextConfig = {
         destination: "https://www.retirementplantw.com/:path*",
         permanent: true,
       },
+      // no-www 版本轉址到 www 版本，作為 Vercel 平台層網域轉址之外的第二道保險
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "retirementplantw.com",
+          },
+        ],
+        destination: "https://www.retirementplantw.com/:path*",
+        permanent: true,
+      },
     ];
   },
 };
