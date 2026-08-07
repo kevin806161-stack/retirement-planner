@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700&family=Space+Mono:wght@400;700&display=swap');
-
 /* =========================================================
    退休咖 · RetirementPlan TW — 深金（dark-gold）全站樣式
    保留所有原有 class 名稱，只換配色 / 字體 / 動態
@@ -9,20 +7,26 @@
   --line:rgba(212,169,90,.16); --line2:rgba(255,255,255,.07);
   --gold:#d4a95a; --gold2:#ecc776; --cream:#f3ecdd;
   --slate:#a2b4c6; --slate2:#8394a6; --muted:#6b7d90; --terra:#dd8f5f; --green:#5bbf8a;
-  --sans:'Noto Sans TC',system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;
-  --serif:'Noto Serif TC',Georgia,serif;
-  --mono:'Space Mono',ui-monospace,monospace;
+  --sans:var(--font-noto-sans-tc),system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;
+  --serif:var(--font-noto-serif-tc),Georgia,serif;
+  --mono:var(--font-space-mono),ui-monospace,monospace;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: var(--sans);
   background: var(--bg);
   color: var(--cream);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+}
+
+/* next/font 的 CSS 變數（--font-noto-sans-tc 等）掛在 pages/_app.js 的
+   wrapper div 上，font-family 必須在同一層或更內層套用才能正確解析變數，
+   所以放在這裡而不是 body（body 是 wrapper 的祖先，會抓不到變數）。 */
+.font-vars-root {
+  font-family: var(--sans);
 }
 
 /* subtle film grain over the whole site */

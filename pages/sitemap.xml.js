@@ -18,6 +18,7 @@ function generateSiteMap(articles) {
     { path: "tools/dca-vs-lumpsum", priority: "0.8", lastmod: today },
     { path: "faq", priority: "0.6", lastmod: today },
     { path: "about", priority: "0.5", lastmod: today },
+    { path: "author", priority: "0.5", lastmod: today },
     { path: "contact", priority: "0.4", lastmod: today },
     { path: "privacy-policy", priority: "0.3", lastmod: today },
     { path: "disclaimer", priority: "0.3", lastmod: today },

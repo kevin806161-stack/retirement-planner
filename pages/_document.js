@@ -15,15 +15,8 @@ export default function Document() {
 
         <meta name="google-site-verification" content="KqZGc0tJ-VrFZXB2BoTTWoM4nU_ADFlQAn-ZO9d-Oh0" />
         <meta name="google-adsense-account" content={adsenseConfig.publisherId} />
-        <meta
-          name="description"
-          content="退休咖｜AI 驅動的退休金規劃與資產配置試算工具，免費試算你的退休缺口"
-        />
         <meta property="og:site_name" content="退休咖" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="退休咖｜台灣人的 AI 退休金規劃工具" />
-        <meta property="og:description" content="五分鐘算出你的退休金缺口。免費 AI 試算工具與原創理財知識。" />
-        <meta property="og:url" content="https://www.retirementplantw.com" />
         <meta property="og:image" content="https://www.retirementplantw.com/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

@@ -159,6 +159,10 @@ export default function Home({ articles }) {
       <Head>
         <title>退休咖 | 免費退休金與資產配置 AI 試算</title>
         <meta name="description" content="退休咖 RetirementPlan TW — 免費 AI 退休試算工具。輸入現況，即時分析退休缺口、資產配置比例與每月需存金額。" />
+        <link rel="canonical" href="https://www.retirementplantw.com/" />
+        <meta property="og:title" content="退休咖｜台灣人的 AI 退休金規劃工具" />
+        <meta property="og:description" content="五分鐘算出你的退休金缺口。免費 AI 試算工具與原創理財知識。" />
+        <meta property="og:url" content="https://www.retirementplantw.com/" />
         <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 42'%3E%3Cpath d='M20 3 L34 8.5 V22 C34 31.5 27.5 37.5 20 40 C12.5 37.5 6 31.5 6 22 V8.5 Z' fill='%230a1622' stroke='%23d4a95a' stroke-width='2'/%3E%3Cpath d='M13 24 Q19 24 22 19 T29 13' fill='none' stroke='%23ecc776' stroke-width='2.4' stroke-linecap='round'/%3E%3Ccircle cx='29' cy='13' r='2.6' fill='%23ecc776'/%3E%3C/svg%3E" />
       </Head>
 
