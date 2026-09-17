@@ -1,3 +1,5 @@
+import ParameterSlider from "./ParameterSlider";
+import EstimateRow from "./EstimateRow";
 import { useState, useEffect, useRef } from "react";
 import { useRetirementCalc } from "../lib/useRetirementCalc";
 
@@ -17,15 +19,15 @@ export default function RetirementCalculator() {
 
   const { totalTarget, savedGrow, gap, monthlySave, monthlyOut, lifeAfter, allocation, tip } = result;
 
-  // 數字變動時輕微彈跳，強化「即時試算」的動態感
+  // 計算結果淡入；保留原始即時計算與減少動畫偏好
   const amountRef = useRef(null);
   useEffect(() => {
     const el = amountRef.current;
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    el.classList.remove("bump");
+    el.classList.remove("result-refresh");
     void el.offsetWidth;
-    el.classList.add("bump");
+    el.classList.add("result-refresh");
   }, [monthlyOut]);
 
   const [emailInput, setEmailInput] = useState("");
@@ -56,39 +58,26 @@ export default function RetirementCalculator() {
 
       <div className="calc-grid">
         <div className="calc-inputs">
-          <div className="input-group">
-            <label>目前年齡 <span>{age} 歲</span></label>
-            <input type="range" min={20} max={60} step={1} value={age} onChange={(e) => setAge(+e.target.value)} />
-          </div>
-          <div className="input-group">
-            <label>預計退休年齡 <span>{retire} 歲</span></label>
-            <input type="range" min={50} max={75} step={1} value={retire} onChange={(e) => setRetire(+e.target.value)} />
-          </div>
-          <div className="input-group">
-            <label>目前月收入 <span>NT$ {income.toLocaleString("zh-TW")}</span></label>
-            <input type="range" min={30000} max={200000} step={5000} value={income} onChange={(e) => setIncome(+e.target.value)} />
-          </div>
-          <div className="input-group">
-            <label>目前已存退休金 <span>NT$ {(saved / 10000).toFixed(0)} 萬</span></label>
-            <input type="range" min={0} max={5000000} step={100000} value={saved} onChange={(e) => setSaved(+e.target.value)} />
-          </div>
-          <div className="input-group">
-            <label>預期投資年報酬率 <span>{rate} %</span></label>
-            <input type="range" min={2} max={12} step={0.5} value={rate} onChange={(e) => setRate(+e.target.value)} />
-          </div>
+          <div className="calculator-panel-heading"><span>試算參數</span><span>即時調整</span></div>
+          <ParameterSlider id="retirement-age" label="目前年齡" value={age} min={20} max={60} step={1} fmtVal={v => `${v} 歲`} onChange={setAge} />
+          <ParameterSlider id="retirement-target-age" label="預計退休年齡" value={retire} min={50} max={75} step={1} fmtVal={v => `${v} 歲`} onChange={setRetire} />
+          <ParameterSlider id="retirement-income" label="目前月收入" value={income} min={30000} max={200000} step={5000} fmtVal={v => `NT$ ${v.toLocaleString("zh-TW")}`} onChange={setIncome} />
+          <ParameterSlider id="retirement-saved" label="目前已存退休金" value={saved} min={0} max={5000000} step={100000} fmtVal={v => `NT$ ${(v / 10000).toFixed(0)} 萬`} onChange={setSaved} />
+          <ParameterSlider id="retirement-rate" label="預期投資年報酬率" value={rate} min={2} max={12} step={0.5} fmtVal={v => `${v} %`} onChange={setRate} />
         </div>
 
         <div className="calc-result">
+          <div className="calculator-panel-heading"><span>估算摘要</span><span className="calculator-live-status">即時試算</span></div>
           <div className="result-main">
             <div className="label">退休後每月可用金額（估算）</div>
             <div className="amount" ref={amountRef}>{fmt(monthlyOut)}</div>
             <div className="sub">退休後預估可活 <strong>{lifeAfter}</strong> 年</div>
           </div>
 
-          <div className="result-row"><span>退休目標總額</span><span>{fmt(totalTarget)}</span></div>
-          <div className="result-row"><span>現有資產成長後</span><span>{fmt(savedGrow)}</span></div>
-          <div className="result-row"><span>退休缺口</span><span className={gap > 0 ? "warn" : "good"}>{gap > 0 ? fmt(gap) : "無缺口 ✓"}</span></div>
-          <div className="result-row"><span>每月需額外儲蓄</span><span className="good">{gap > 0 ? fmt(monthlySave) : "目標已達成"}</span></div>
+          <EstimateRow label="退休目標總額" value={fmt(totalTarget)} />
+          <EstimateRow label="現有資產成長後" value={fmt(savedGrow)} />
+          <EstimateRow label="退休缺口" value={gap > 0 ? fmt(gap) : "無缺口 ✓"} warn={gap > 0} good={gap === 0} />
+          <EstimateRow label="每月需額外儲蓄" value={gap > 0 ? fmt(monthlySave) : "目標已達成"} highlight />
 
           <div className="mini-chart">
             <div className="mini-chart-label">建議退休資產配置</div>
@@ -108,6 +97,7 @@ export default function RetirementCalculator() {
               <div className="email-row">
                 <input
                   type="email"
+                  aria-label="接收試算結果的 Email"
                   placeholder="輸入你的 Email"
                   value={emailInput}
                   onChange={(e) => setEmailInput(e.target.value)}

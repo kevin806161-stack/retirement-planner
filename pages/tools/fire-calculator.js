@@ -1,3 +1,6 @@
+import ResultRow from "../../components/EstimateRow";
+import ParameterSlider from "../../components/ParameterSlider";
+import BrandLogo from "../../components/BrandLogo";
 import Head from "next/head";
 import Link from "next/link";
 import { useState, useMemo } from "react";
@@ -79,7 +82,7 @@ export default function FireCalculator() {
       </Head>
 
       <nav className="nav">
-        <Link href="/" className="nav-logo" style={{ textDecoration: "none" }}>退休咖</Link>
+        <Link href="/" className="nav-logo" aria-label="退休咖首頁"><BrandLogo /></Link>
         <div className="nav-links">
           <Link href="/tools">所有工具</Link>
           <Link href="/articles">理財知識</Link>
@@ -94,6 +97,7 @@ export default function FireCalculator() {
 
         <div className="calc-grid">
           <div className="calc-inputs">
+            <div className="calculator-panel-heading"><span>試算參數</span><span>即時調整</span></div>
             <Slider label="目前年齡" value={age} min={20} max={55} unit="歲" onChange={setAge} />
             <Slider label="月收入" value={income} min={30000} max={300000} step={5000} fmtVal={(v) => `NT$ ${v.toLocaleString("zh-TW")}`} onChange={setIncome} />
             <Slider label="月支出（FIRE 後生活費）" value={expense} min={15000} max={150000} step={5000} fmtVal={(v) => `NT$ ${v.toLocaleString("zh-TW")}`} onChange={setExpense} />
@@ -103,6 +107,7 @@ export default function FireCalculator() {
           </div>
 
           <div className="calc-result">
+            <div className="calculator-panel-heading"><span>估算摘要</span><span className="calculator-live-status">即時試算</span></div>
             {/* FIRE 類型 */}
             <div className="fire-type" style={{ background: fireType.color }}>
               <div className="fire-type-label">你的 FIRE 類型</div>
@@ -224,26 +229,10 @@ export default function FireCalculator() {
   );
 }
 
-function Slider({ label, value, min, max, step = 1, unit, fmtVal, onChange }) {
-  const display = fmtVal ? fmtVal(value) : `${value}${unit || ""}`;
-  return (
-    <div>
-      <label style={{ fontSize: "13px", color: "#a2b4c6", display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-        {label} <span style={{ fontWeight: 600, color: "#f3ecdd" }}>{display}</span>
-      </label>
-      <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(parseFloat(e.target.value))} style={{ width: "100%" }} />
-    </div>
-  );
+function Slider(props) {
+  return <ParameterSlider {...props} />;
 }
 
-function ResultRow({ label, value, highlight, warn, good }) {
-  return (
-    <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13px" }}>
-      <span style={{ color: "#a2b4c6" }}>{label}</span>
-      <span style={{ fontWeight: 600, color: warn ? "#e8c477" : good ? "#2a7d2a" : highlight ? "#ecc776" : "#f3ecdd" }}>{value}</span>
-    </div>
-  );
-}
 
 function BucketRow({ color, label, value, desc }) {
   return (

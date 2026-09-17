@@ -1,3 +1,7 @@
+import EstimateTile from "../../components/EstimateTile";
+import ResultRow from "../../components/EstimateRow";
+import ParameterSlider from "../../components/ParameterSlider";
+import BrandLogo from "../../components/BrandLogo";
 import Head from "next/head";
 import Link from "next/link";
 import { useState, useMemo } from "react";
@@ -65,7 +69,7 @@ export default function ETFDividendCalculator() {
       </Head>
 
       <nav className="nav">
-        <Link href="/" className="nav-logo" style={{ textDecoration: "none" }}>退休咖</Link>
+        <Link href="/" className="nav-logo" aria-label="退休咖首頁"><BrandLogo /></Link>
         <div className="nav-links">
           <Link href="/tools">所有工具</Link>
           <Link href="/articles">理財知識</Link>
@@ -101,6 +105,7 @@ export default function ETFDividendCalculator() {
 
         <div className="calc-grid">
           <div className="calc-inputs">
+            <div className="calculator-panel-heading"><span>試算參數</span><span>即時調整</span></div>
             <Slider label="持有張數" value={shares} min={1} max={100000} step={100} fmtVal={(v) => `${v.toLocaleString("zh-TW")} 股`} onChange={setShares} />
             <Slider label="目前股價" value={price} min={5} max={300} step={0.5} fmtVal={(v) => `NT$ ${v}`} onChange={setPrice} />
             {selectedETF.ticker === "custom" && (
@@ -114,6 +119,7 @@ export default function ETFDividendCalculator() {
           </div>
 
           <div className="calc-result">
+            <div className="calculator-panel-heading"><span>估算摘要</span><span className="calculator-live-status">即時試算</span></div>
             <div className="result-main">
               <div className="result-label">目前持倉總市值</div>
               <div className="result-amount">{fmt(result.totalCost)}</div>
@@ -226,33 +232,11 @@ export default function ETFDividendCalculator() {
   );
 }
 
-function Slider({ label, value, min, max, step = 1, unit, fmtVal, onChange }) {
-  const display = fmtVal ? fmtVal(value) : `${value}${unit || ""}`;
-  return (
-    <div>
-      <label style={{ fontSize: "13px", color: "#a2b4c6", display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-        {label} <span style={{ fontWeight: 600, color: "#f3ecdd" }}>{display}</span>
-      </label>
-      <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(parseFloat(e.target.value))} style={{ width: "100%" }} />
-    </div>
-  );
+function Slider(props) {
+  return <ParameterSlider {...props} />;
 }
 
-function ResultRow({ label, value, highlight, warn, good }) {
-  return (
-    <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13px" }}>
-      <span style={{ color: "#a2b4c6" }}>{label}</span>
-      <span style={{ fontWeight: 600, color: warn ? "#e8c477" : good ? "#2a7d2a" : highlight ? "#ecc776" : "#f3ecdd" }}>{value}</span>
-    </div>
-  );
-}
 
-function DividendCard({ label, value, sub }) {
-  return (
-    <div style={{ background: "#10202f", border: "1px solid rgba(212,169,90,.16)", borderRadius: "10px", padding: "12px", textAlign: "center" }}>
-      <div style={{ fontSize: "11px", color: "#8394a6", marginBottom: "4px" }}>{label}</div>
-      <div style={{ fontSize: "16px", fontWeight: 700, color: "#2a7d2a" }}>{value}</div>
-      <div style={{ fontSize: "10px", color: "#6b7d90", marginTop: "2px" }}>{sub}</div>
-    </div>
-  );
+function DividendCard(props) {
+  return <EstimateTile {...props} positive />;
 }

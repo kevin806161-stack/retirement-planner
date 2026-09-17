@@ -1,3 +1,4 @@
+import BrandLogo from "../components/BrandLogo";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -11,9 +12,7 @@ export default function Disclaimer() {
       </Head>
 
       <nav className="nav">
-        <Link href="/" className="nav-logo" style={{ textDecoration: "none" }}>
-          退休咖
-        </Link>
+        <Link href="/" className="nav-logo" aria-label="退休咖首頁"><BrandLogo /></Link>
         <div className="nav-links">
           <Link href="/#calc">試算工具</Link>
           <Link href="/articles">理財知識</Link>

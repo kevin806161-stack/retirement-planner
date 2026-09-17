@@ -1,3 +1,6 @@
+import SummaryCard from "../../components/EstimateTile";
+import ParameterSlider from "../../components/ParameterSlider";
+import BrandLogo from "../../components/BrandLogo";
 import Head from "next/head";
 import Link from "next/link";
 import { useState, useMemo } from "react";
@@ -54,7 +57,7 @@ export default function CompoundInterestCalculator() {
       </Head>
 
       <nav className="nav">
-        <Link href="/" className="nav-logo" style={{ textDecoration: "none" }}>退休咖</Link>
+        <Link href="/" className="nav-logo" aria-label="退休咖首頁"><BrandLogo /></Link>
         <div className="nav-links">
           <Link href="/tools">所有工具</Link>
           <Link href="/articles">理財知識</Link>
@@ -69,6 +72,7 @@ export default function CompoundInterestCalculator() {
 
         <div className="layout">
           <div className="inputs-panel">
+            <div className="calculator-panel-heading"><span>試算參數</span><span>即時調整</span></div>
             <Slider label="初始投入金額" value={principal} min={0} max={5000000} step={50000} fmtVal={(v) => `NT$ ${(v / 10000).toFixed(0)} 萬`} onChange={setPrincipal} />
             <Slider label="每月定期定額" value={monthly} min={1000} max={100000} step={1000} fmtVal={(v) => `NT$ ${v.toLocaleString("zh-TW")}`} onChange={setMonthly} />
             <Slider label="預期年報酬率" value={rate} min={1} max={15} step={0.5} unit="%" onChange={setRate} />
@@ -205,23 +209,6 @@ export default function CompoundInterestCalculator() {
   );
 }
 
-function Slider({ label, value, min, max, step = 1, unit, fmtVal, onChange }) {
-  const display = fmtVal ? fmtVal(value) : `${value}${unit || ""}`;
-  return (
-    <div>
-      <label style={{ fontSize: "13px", color: "#a2b4c6", display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-        {label} <span style={{ fontWeight: 600, color: "#f3ecdd" }}>{display}</span>
-      </label>
-      <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(parseFloat(e.target.value))} style={{ width: "100%" }} />
-    </div>
-  );
-}
-
-function SummaryCard({ label, value, color }) {
-  return (
-    <div style={{ background: "#10202f", border: "1px solid rgba(212,169,90,.16)", borderRadius: "10px", padding: "12px", textAlign: "center" }}>
-      <div style={{ fontSize: "11px", color: "#8394a6", marginBottom: "4px" }}>{label}</div>
-      <div style={{ fontSize: "15px", fontWeight: 700, color }}>{value}</div>
-    </div>
-  );
+function Slider(props) {
+  return <ParameterSlider {...props} />;
 }

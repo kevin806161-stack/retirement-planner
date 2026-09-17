@@ -1,0 +1,409 @@
+{
+  "revision": "c78b01d683dc765dcc40dfc7216971f05de39e47",
+  "files": [
+    {
+      "path": "components/AdSenseScript.js",
+      "sha256": "7B29C4A13CAE35BA7BD58A6F23E2E3590BB7DEB319D79F9ECF1B1DAD59536186"
+    },
+    {
+      "path": "components/AdUnit.js",
+      "sha256": "659074E4E254E63D184AA0009A915C057DA1E3F686EF6952BC265A71625D80CF"
+    },
+    {
+      "path": "components/BookList.js",
+      "sha256": "133F53BA81E8D903205D1E4C658012DBCFC997818EC63267A490C57CCB405309"
+    },
+    {
+      "path": "components/EmailSubscribe.js",
+      "sha256": "A25D015FEC9DF3E75F830DCCBAF40D89A90217AD3B30036F1200708690444E63"
+    },
+    {
+      "path": "components/RelatedArticles.js",
+      "sha256": "CBB34A818B17A88564AA3190E62A73E77AD69AE9475826D9D806A28F12E82B13"
+    },
+    {
+      "path": "components/RetirementCalculator.js",
+      "sha256": "5C2ACC1F6823C3C2912D60DA1058BE5AD2CB1563E517354F156CD32F843E2E92"
+    },
+    {
+      "path": "components/SEO.js",
+      "sha256": "09D091CCED94756AD1DC34F9F964B5B18C21EDD1BADCC0451E2D1ABB68950B21"
+    },
+    {
+      "path": "content/articles/0050-vs-00878-comparison.md",
+      "sha256": "ADF096B16315B7E22898C70A18C9E3254D92FAF3A8B1668A49278CDDF63A2433"
+    },
+    {
+      "path": "content/articles/10-years-before-retirement-checklist.md",
+      "sha256": "F7039BB49A220262A691869B4639B057A309F1B997BC8906AEDA4059A3269DFF"
+    },
+    {
+      "path": "content/articles/15-million-enough-to-retire.md",
+      "sha256": "DD1F73E92C118965EA77F828CCAF9861E889AB59335E0595905C87E84A45FA85"
+    },
+    {
+      "path": "content/articles/60-40-portfolio-still-relevant.md",
+      "sha256": "B6CF8392867BE97E79E3E279A015C0BDAB897069524FF8156413FBFD36B01431"
+    },
+    {
+      "path": "content/articles/about.md",
+      "sha256": "2F654ADEC06A323100FDF7FF4B74F7B7E84FBAFD8D687981E6AC053B83492525"
+    },
+    {
+      "path": "content/articles/accident-insurance-retirement-planning.md",
+      "sha256": "63C6EF69F0C8F5C6F0A65BBC83825BC2E56283F7583FAC0A18F670A92F87A3F4"
+    },
+    {
+      "path": "content/articles/annuity-insurance-for-retirement-income.md",
+      "sha256": "3017534D4D35BB25B8F951B8E97FC07DFAA920C35D47E149A64D914D95ADEBD3"
+    },
+    {
+      "path": "content/articles/asset-allocation-by-age.md",
+      "sha256": "8AC55728D5FFBFD76ACD6EB0CED4174071DC505F57643F43400926FA553103E7"
+    },
+    {
+      "path": "content/articles/best-financial-books-for-beginners.md",
+      "sha256": "6DDCB23C9C6A99B6C24A05CF7D3956401515727FB87D69FEB1D373C05D03FD20"
+    },
+    {
+      "path": "content/articles/bucket-strategy-retirement-withdrawal.md",
+      "sha256": "D767B7DBAF8D4948D503C2EC19286F203370068B5CEC872838E584BA1B2DF032"
+    },
+    {
+      "path": "content/articles/cancer-insurance-gap-before-retirement.md",
+      "sha256": "76E009FB34F93D16712BC439DCC6DDAE5B8E9C64C64D8B8F54724F79939AE590"
+    },
+    {
+      "path": "content/articles/core-satellite-strategy-retirement-portfolio.md",
+      "sha256": "E762B680335338A8CD1FD6C9D2D61ACF9DD10FAD8A971C48E039F7A50C6622DB"
+    },
+    {
+      "path": "content/articles/critical-illness-vs-catastrophic-illness-insurance.md",
+      "sha256": "9DB41F39EB36A27D4F09EC1D35F2689EFCDF6626C42A5B9429911270B2468E3A"
+    },
+    {
+      "path": "content/articles/dca-vs-lump-sum-for-retirement.md",
+      "sha256": "A1F8098A763A84A36B32A671F1C39AEF132B9B127B36ABE6762CACBC940F308D"
+    },
+    {
+      "path": "content/articles/dink-retirement-planning.md",
+      "sha256": "66736716092144C930F958385DC243EB131A6F3B00CCD9F9FE3EEB95EE6AE9F5"
+    },
+    {
+      "path": "content/articles/disability-income-insurance-explained.md",
+      "sha256": "F45F8DFABCC2276D5AD964FC6BD5CF379B1406FE2DC5304CD6F699578D3D21EA"
+    },
+    {
+      "path": "content/articles/etf-dividend-tax-taiwan.md",
+      "sha256": "1A78CEB7982963BA5CCE9AB40AD8676E51160A407C1EAC0B2F8195A54719F8CF"
+    },
+    {
+      "path": "content/articles/fire-financial-independence-taiwan.md",
+      "sha256": "E299B9DE9131A1E3F56512A2BEA63E6EDB56B97126F88701C55E527DC5884909"
+    },
+    {
+      "path": "content/articles/first-job-retirement-planning.md",
+      "sha256": "94A6693D70057BCAACBF648058ABDBAAF668EC66387A52C40E7496B23B053AEE"
+    },
+    {
+      "path": "content/articles/foreign-currency-insurance-retirement-planning.md",
+      "sha256": "A68D7955BDB836D7B7617FB69479764D5D1A21090E302C4BA27675E316A1E810"
+    },
+    {
+      "path": "content/articles/four-percent-rule-explained.md",
+      "sha256": "87101D2152E6337763FA8EE54FD0154B920433D82431AFC7E68BE94FC1FDC0BC"
+    },
+    {
+      "path": "content/articles/gift-tax-strategy-for-retirees.md",
+      "sha256": "40009938A1F9B3DB6522CF1D4D94805CE20DBD815849F6632831ABC00BFE106C"
+    },
+    {
+      "path": "content/articles/gold-etf-retirement-portfolio-allocation.md",
+      "sha256": "E05E80D0FB260417E97A8E4E59B037A556F6EA45CB9A250229399833A924E088"
+    },
+    {
+      "path": "content/articles/health-insurance-before-retirement.md",
+      "sha256": "D480F3C9D92CCBE1F06264F7B77CB71DD1ACF25F20F4E0A345D96E8E3A93E3F5"
+    },
+    {
+      "path": "content/articles/high-dividend-etf-comparison-0056-00919-00929.md",
+      "sha256": "64B10AD42B4EC65D5CA8B70B157E2D6363F6C9F4BF82DE61D37A51B54AC635F1"
+    },
+    {
+      "path": "content/articles/how-much-retirement-savings-needed.md",
+      "sha256": "DEC4C5782ABF6397D4EE12D3ADA9002498A6CE1D7C0A3EA59B9B623DC271730F"
+    },
+    {
+      "path": "content/articles/how-much-salary-to-retire-in-taiwan.md",
+      "sha256": "C590141E30A3432888CA1098F48748AAA1DBBDEE9B28E05DED848335E617BBE6"
+    },
+    {
+      "path": "content/articles/inflation-impact-on-retirement-savings.md",
+      "sha256": "1491B47BD33F0A09ACF34B78BC988C328379FEF0DAD04CCB955C05D44DEF93F1"
+    },
+    {
+      "path": "content/articles/inheritance-tax-retirement-planning.md",
+      "sha256": "4B8995CDF10F64078E74DDD0F023EB43CB2C289E86DEB84EC60A3C2324F8D1ED"
+    },
+    {
+      "path": "content/articles/insurance-payout-tax-for-retirees.md",
+      "sha256": "E17B548A16DBD105914B17210DBF9E655B554592078E5BEFCE243DFA897B89D5"
+    },
+    {
+      "path": "content/articles/labor-insurance-pension-age.md",
+      "sha256": "706EC9BC88D33400E3440DBAB942D968FDDE7E57D24416B3577D3DF001E2B4FE"
+    },
+    {
+      "path": "content/articles/labor-insurance-vs-labor-pension.md",
+      "sha256": "ECA079076BDA8D340CF27D86D3F798B793954B5F3D3B1519271D5540ED32C9EC"
+    },
+    {
+      "path": "content/articles/labor-pension-voluntary-contribution.md",
+      "sha256": "0A36D627122DC646A87CC1F01C007B48E87F4EC6A6B44848D576C032FA26485A"
+    },
+    {
+      "path": "content/articles/long-term-care-insurance-gap.md",
+      "sha256": "D4217B981C9F3D52DB8C2BB906AE46F7987FAFCC7F158FC3FCC32320A228DB5A"
+    },
+    {
+      "path": "content/articles/overseas-income-tax-us-etf.md",
+      "sha256": "E261F517A01F1DED064A892490ED9804DF059BFB02F67E298C9B91AB97C33231"
+    },
+    {
+      "path": "content/articles/policy-conversion-for-retirement.md",
+      "sha256": "FCBFAEB80FEC9B5C02FDEE0DAF7D050EAE7DF4B0F410E727291015C1E1A57E79"
+    },
+    {
+      "path": "content/articles/post-retirement-second-career.md",
+      "sha256": "064A7DACB747DA56C177DFA6A4D83E43FA13307A1CECB8C85D4A1AB4E40A82C4"
+    },
+    {
+      "path": "content/articles/real-estate-sale-tax-for-retirees.md",
+      "sha256": "11560AEA9CFE99C1334D727DA294AAE46EC617BC9616AE12CC76510BB270E7D1"
+    },
+    {
+      "path": "content/articles/rebalancing-strategy-calendar-vs-threshold.md",
+      "sha256": "33931E447AAE2C14637C3DB72537C36C8D076D0AF2D0D0E3A2CA551D72B5CBF5"
+    },
+    {
+      "path": "content/articles/reits-etf-retirement-portfolio.md",
+      "sha256": "937EA720A6FBAC6D88112C614386F1B4E0643510F95E2A42F6E13E5B75ABB822"
+    },
+    {
+      "path": "content/articles/rental-income-tax-for-retirees.md",
+      "sha256": "845F240AE63830D24B1CF88A7A35E64E59A41441287DC38F81ACC52BD89D8BDE"
+    },
+    {
+      "path": "content/articles/retire-at-50-how-much.md",
+      "sha256": "FD286BF15C3785680B6CE289CED6C0EEEF3262ACA2BFC063DAD076EE8A270336"
+    },
+    {
+      "path": "content/articles/retirement-tax-saving-guide.md",
+      "sha256": "E305E44B2181B2E8EAAE9EBCA778FC6CA9E8DFE126A330F91A60D9538436831B"
+    },
+    {
+      "path": "content/articles/robo-advisor-comparison-taiwan.md",
+      "sha256": "1978B5D283EB1079A38E94B01F29597F1D4BD661F3838FBE8C1023A4B0D2D7AB"
+    },
+    {
+      "path": "content/articles/salary-50k-retirement-plan.md",
+      "sha256": "72CBA65F4B38EBBA4940D60AF9195F54670582F07879D8BB59D7649AFFA2AC39"
+    },
+    {
+      "path": "content/articles/save-10k-monthly-30-years.md",
+      "sha256": "62D5C78FFCFB4DDC3FAF1E24CFEC58DC3FC17C3575A73F7DC9B6829C8D0DDF48"
+    },
+    {
+      "path": "content/articles/savings-insurance-vs-investing.md",
+      "sha256": "C894602F378337BB35005FEA33928A332480265D8322E26937DBBAE36A3B7AE1"
+    },
+    {
+      "path": "content/articles/should-include-us-etf-in-retirement-portfolio.md",
+      "sha256": "A9D0A1C9273AF44CDC26823725D8B1DD346917FA7DAD0A333055C90245443B67"
+    },
+    {
+      "path": "content/articles/should-retirees-all-in-stocks.md",
+      "sha256": "5F11BFEE7C084C17F447F809F65C5059CEFA76186F80AA635B094F2CA9BD46BE"
+    },
+    {
+      "path": "content/articles/single-retirement-planning.md",
+      "sha256": "1B7543E6B55F4EDD4FBD1F27042643083D462084F643EFE56BAD380DE2E30BAD"
+    },
+    {
+      "path": "content/articles/spouse-tax-filing-options-for-retired-couples.md",
+      "sha256": "66E73B51AA7DD4C972690E7C10F155534AD9CAB98D201C2DE13EE06597790B48"
+    },
+    {
+      "path": "content/articles/taiwan-broker-comparison-2026.md",
+      "sha256": "79D0023C7013B6919D7D9E38C49817C0951CDBD1D23D730765230E303E1F04E5"
+    },
+    {
+      "path": "content/articles/taiwan-finance-youtuber-podcast-recommendations.md",
+      "sha256": "D60D39473F9A36203386F058DD776923610D709BC64EA501EC9CA6B5C68060F6"
+    },
+    {
+      "path": "content/articles/target-date-fund-retirement-allocation.md",
+      "sha256": "8B87C6E62D423AB7CFA47DE6BBDCD8612715F8704981E6A4FBB031ADAF298B83"
+    },
+    {
+      "path": "content/articles/term-vs-whole-life-insurance-retirees.md",
+      "sha256": "86B847C89FDECA693C2D0B3193CD21EBBDC90A3E057B7829CAC69C8F495EBC80"
+    },
+    {
+      "path": "content/articles/us-treasury-vs-corporate-bond-etf-retirement.md",
+      "sha256": "5BF2FD0C9D5233D53BEEDBAFD48516717ED01A5BDBA1214F1B060FD1F5EEA1C0"
+    },
+    {
+      "path": "lib/affiliateLinks.js",
+      "sha256": "01519E8B0BB774CA939466A49049528152B154B6850690B3F53AEDCED7E63F32"
+    },
+    {
+      "path": "lib/articles.js",
+      "sha256": "4E5DBA2226B4628E82EE814E29AF183EF9121D7658611D725BF7C5BDB2A15CEA"
+    },
+    {
+      "path": "lib/autoLink.js",
+      "sha256": "AA43EDB6BB6D2FA8C485159112E9CB4536D92397317E6789ABA855F90A25D52D"
+    },
+    {
+      "path": "lib/useRetirementCalc.js",
+      "sha256": "BC3A71B9765EBCBEBFBA75BBF3F67D1D4A7643BC1E0E939B79B07AE0580583C3"
+    },
+    {
+      "path": "pages/_app.js",
+      "sha256": "C802873D5D19122000078C9768553980DB2C7860143FB30B89CAFAC7C830DDFD"
+    },
+    {
+      "path": "pages/_document.js",
+      "sha256": "01ED07B21A73ABA9742ED7CEA0B7535FDB87EB9C27847822E6F82AFBA4204466"
+    },
+    {
+      "path": "pages/404.js",
+      "sha256": "24BE0F2D77CCC74D6EE33B97E1DA6865954F755490DD18D7D4219A491C57A939"
+    },
+    {
+      "path": "pages/about.js",
+      "sha256": "9705E1CC112AED6D73CB93346E99A44FB931152696ECD06D6DC4DC8CF0120363"
+    },
+    {
+      "path": "pages/api/contact.js",
+      "sha256": "1DDA6C11DE896A4868C8867E9C59C050B069C94AD573AAF775AB6C1EB4D9CEAB"
+    },
+    {
+      "path": "pages/api/notify-subscribers.js",
+      "sha256": "A601515B61C20759486922606128CA8510088B066100BD5079072F9892138177"
+    },
+    {
+      "path": "pages/api/send-calc.js",
+      "sha256": "419C9FF40E833B2B10B4EF70605B75D6F9D88E24AD429FB5D8665BE697BB5BA8"
+    },
+    {
+      "path": "pages/api/subscribe.js",
+      "sha256": "A29494BF2259A3E40344D9C8D41E9447DFBC4D5E3BE9C36DB31FCD4D3FAD5BDF"
+    },
+    {
+      "path": "pages/articles/[slug].js",
+      "sha256": "2BF74658FE76673D3317D3320E9540554D7FB7ECCB6FBE533625C27C7103A791"
+    },
+    {
+      "path": "pages/articles/index.js",
+      "sha256": "FC317B6C925D9FCC6355A1823B6AABB8D462588C862B89AD9F86A04D0C71567C"
+    },
+    {
+      "path": "pages/author.js",
+      "sha256": "635AC10C66CF9CB77B3C3101F2CA8F9C9FDD576C2E7DC3BDADD734D6460E5A65"
+    },
+    {
+      "path": "pages/contact.js",
+      "sha256": "1E54F338803A64548F3CBF52237866FCAF5C8C3ED978F57D41ED74229AB5B4F1"
+    },
+    {
+      "path": "pages/disclaimer.js",
+      "sha256": "4D7062C6DBCA8890F83F1114D00EDEB4941606A21B8B7ACC36E30BFA704C9BB0"
+    },
+    {
+      "path": "pages/faq.js",
+      "sha256": "17DE8F79C68F8BE0057C91BFFFD208A289E826F10D2BBF9B8B92849BAD1636F7"
+    },
+    {
+      "path": "pages/index.js",
+      "sha256": "A6BB9E1833ACEBBA56046B857AFE0A8EEAE39539969117A7A0EEE72E41F8DA94"
+    },
+    {
+      "path": "pages/privacy-policy.js",
+      "sha256": "3C8DD0CEA03782F1B8A1481487B75BE9DB4DF4BF3E11B5D4872232AEF19B98B7"
+    },
+    {
+      "path": "pages/rss.xml.js",
+      "sha256": "43AA0152281AEA6B67BB1AA1A3880136A596AC793D19F03409A5D3C29B5D7EDF"
+    },
+    {
+      "path": "pages/sitemap.xml.js",
+      "sha256": "2E591D018EF24BDC90053E13C4BA898C85B1CBA213C5710B0A7F785026FC25EF"
+    },
+    {
+      "path": "pages/tools/advanced-calculator.js",
+      "sha256": "C625045215B4C0FE5D62AADC27526D60A9FE61280AD98963243E4D336B4C77BB"
+    },
+    {
+      "path": "pages/tools/compound-interest.js",
+      "sha256": "02CBBD37AB2BB421607DE4D8FB6DEE6A00DBFB25947E0D242E8420F072F97DE9"
+    },
+    {
+      "path": "pages/tools/couple-calculator.js",
+      "sha256": "629466A7F8C784EDF5D9DF0AEF59E375A0CA8BC12D732DDCB40DF50BC5444254"
+    },
+    {
+      "path": "pages/tools/dca-vs-lumpsum.js",
+      "sha256": "BBF138007D574FD747A8F89A71AE81C297BC80DD4E0045A4E86D0963536872D6"
+    },
+    {
+      "path": "pages/tools/etf-dividend.js",
+      "sha256": "771675F59321E842B14AA8F44ADAAB9104F1B24C2B25ED040EB62C62A265D7BA"
+    },
+    {
+      "path": "pages/tools/fire-calculator.js",
+      "sha256": "24E62C0C57B3C15446F66230CEC1DE3792D0B3AF48C2C116CD1F12698904783A"
+    },
+    {
+      "path": "pages/tools/index.js",
+      "sha256": "A6DFD4DF6847B67A8AD90EEF225010377E36EBB53AC8C2EAA25C98E63CD240D4"
+    },
+    {
+      "path": "pages/tools/labor-insurance.js",
+      "sha256": "9E7D7A037BF1F3216E505CC7C1673A8DA6C8AF7AE63166EA142904E50ECF87EF"
+    },
+    {
+      "path": "public/ads.txt",
+      "sha256": "21C4FB7B4EA254118CB65B17D4091A2D85BBA2D0244FCFEE17D99C2AF57D351E"
+    },
+    {
+      "path": "public/apple-touch-icon.png",
+      "sha256": "A1F5911E62A5CC3EB5C25DFF8B5F6C145CEA30FADDCF9C0B6CF59A5C2EBEA941"
+    },
+    {
+      "path": "public/favicon-32.png",
+      "sha256": "3B4B80D39CA83CFAEBB12E23B970E18DEE09680F33C91D7A8E5B3FD448331E6D"
+    },
+    {
+      "path": "public/favicon.svg",
+      "sha256": "80D9D95AE057876C897CE22E84F226244CCE1FF9C6F9F7C6001CED88278FEAF1"
+    },
+    {
+      "path": "public/icon-512.png",
+      "sha256": "4158BBD7C4402EEF95FE55481DFA9159110D9DB42F4C0BE285A0C94F8E79C743"
+    },
+    {
+      "path": "public/og-image.png",
+      "sha256": "5BC546743DF4F7BB14FC989D0CE26A8FE5338EF877ABB57911C788DADAEAA6E5"
+    },
+    {
+      "path": "public/robots.txt",
+      "sha256": "694BAD6CA450A5FB2C49F15B98D3340B1EF22855F585B05E1DCEA5C3FE801F12"
+    },
+    {
+      "path": "styles/globals.css",
+      "sha256": "5E8713BA1A86402302EDDB43BC0F2F44B5D5DFC4F25C2F42570075E333C77F02"
+    }
+  ]
+}

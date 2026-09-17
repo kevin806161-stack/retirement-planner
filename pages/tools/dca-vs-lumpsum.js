@@ -1,3 +1,5 @@
+import ParameterSlider from "../../components/ParameterSlider";
+import BrandLogo from "../../components/BrandLogo";
 import Head from "next/head";
 import Link from "next/link";
 import { useState, useMemo } from "react";
@@ -65,7 +67,7 @@ export default function DcaVsLumpsum() {
       </Head>
 
       <nav className="nav">
-        <Link href="/" className="nav-logo" style={{ textDecoration: "none" }}>退休咖</Link>
+        <Link href="/" className="nav-logo" aria-label="退休咖首頁"><BrandLogo /></Link>
         <div className="nav-links">
           <Link href="/tools">所有工具</Link>
           <Link href="/articles">理財知識</Link>
@@ -80,6 +82,7 @@ export default function DcaVsLumpsum() {
 
         <div className="calc-grid">
           <div className="calc-inputs">
+            <div className="calculator-panel-heading"><span>試算參數</span><span>即時調整</span></div>
             <Slider label="總投資金額" value={totalAmount} min={100000} max={10000000} step={100000} fmtVal={(v) => `NT$ ${(v / 10000).toFixed(0)} 萬`} onChange={setTotalAmount} />
             <Slider label="定期定額分幾個月投完" value={months} min={3} max={36} unit="個月" onChange={setMonths} />
             <Slider label="預期年報酬率" value={rate} min={2} max={12} step={0.5} unit="%" onChange={setRate} />
@@ -107,6 +110,7 @@ export default function DcaVsLumpsum() {
           </div>
 
           <div className="calc-result">
+            <div className="calculator-panel-heading"><span>估算摘要</span><span className="calculator-live-status">即時試算</span></div>
             <div className="result-main">
               <div className="result-label">
                 {result.winner === "lumpsum" ? "🏆 單筆投入勝出" : "🏆 定期定額勝出"}
@@ -241,14 +245,6 @@ export default function DcaVsLumpsum() {
   );
 }
 
-function Slider({ label, value, min, max, step = 1, unit, fmtVal, onChange }) {
-  const display = fmtVal ? fmtVal(value) : `${value}${unit || ""}`;
-  return (
-    <div>
-      <label style={{ fontSize: "13px", color: "#a2b4c6", display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-        {label} <span style={{ fontWeight: 600, color: "#f3ecdd" }}>{display}</span>
-      </label>
-      <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(parseFloat(e.target.value))} style={{ width: "100%" }} />
-    </div>
-  );
+function Slider(props) {
+  return <ParameterSlider {...props} />;
 }
